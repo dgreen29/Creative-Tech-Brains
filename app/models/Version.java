@@ -1,3 +1,4 @@
+package app.models;
 
 public final class Version {
     int version;
