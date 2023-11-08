@@ -1,11 +1,13 @@
 package app.models;
 
 public final class Profile {
-    String name;
-    String email;
+    private static final String name = "Steve";
+    private static final String email = "example@example.org";
 
-    public Profile(String name, String email) {
-        this.name = name;
-        this.email = email;
+    public static String getName() {
+        return name;
+    }
+    public static String getEmail() {
+        return email;
     }
 }
