@@ -4,6 +4,7 @@ import app.controllers.AboutController;
 import app.controllers.ProfileController;
 
 import javax.swing.*;
+import java.awt.*;
 
 public final class AboutScreen extends JDialog {
     private final AboutController aboutController;
@@ -15,6 +16,7 @@ public final class AboutScreen extends JDialog {
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);
+        this.setLayout(new FlowLayout());
         this.add(displayProfile());
         this.add(displayTeam());
     }

@@ -4,6 +4,7 @@ import app.controllers.AboutController;
 import app.controllers.ProfileController;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,7 +21,8 @@ public class ApplicationView extends JFrame {
         this.setTitle(APPLICATION_NAME);
         this.setSize(appWidth, appHeight);
         this.setLocationRelativeTo(null);
-        this.add(displayAboutBtn());
+        this.setLayout(new BorderLayout());
+        this.add(displayAboutBtn(), BorderLayout.NORTH);
     }
 
     private JButton displayAboutBtn() {
