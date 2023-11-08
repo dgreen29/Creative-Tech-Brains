@@ -15,10 +15,10 @@ public final class AboutScreen extends JDialog {
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);
-        this.add(displayText());
+        this.add(displayProfile());
     }
 
-    private JLabel displayText() {
+    private JLabel displayProfile() {
         JLabel text = new JLabel();
         text.setText("This App is Registered to: " + profileController.getName());
         return text;
