@@ -13,7 +13,7 @@ public final class AboutScreen extends JDialog {
         this.aboutController = aboutController;
         this.profileController = profileController;
         this.setModalityType(ModalityType.APPLICATION_MODAL);
-        this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight());
+        this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);
         this.add(displayText());
     }

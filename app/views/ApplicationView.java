@@ -15,12 +15,12 @@ public class ApplicationView extends JFrame {
     private final AboutController aboutController;
     private final ProfileController profileController;
     public ApplicationView() {
+        aboutController = new AboutController();
+        profileController = new ProfileController();
         this.setTitle(APPLICATION_NAME);
         this.setSize(appWidth, appHeight);
         this.setLocationRelativeTo(null);
         this.add(displayAboutBtn());
-        aboutController = new AboutController();
-        profileController = new ProfileController();
     }
 
     private JButton displayAboutBtn() {
