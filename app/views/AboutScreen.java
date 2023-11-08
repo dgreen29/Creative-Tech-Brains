@@ -16,9 +16,12 @@ public final class AboutScreen extends JDialog {
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);
-        this.setLayout(new FlowLayout());
-        this.add(displayProfile());
-        this.add(displayTeam());
+        this.setLayout(new BorderLayout());
+        JPanel northPanel = new JPanel(new BorderLayout());
+        northPanel.add(displayProfile(), BorderLayout.WEST);
+        northPanel.add(displayVersion(), BorderLayout.EAST);
+        this.add(northPanel, BorderLayout.NORTH);
+        this.add(displayTeam(), BorderLayout.CENTER);
     }
 
     private JLabel displayProfile() {
@@ -28,9 +31,15 @@ public final class AboutScreen extends JDialog {
     }
 
     private JLabel displayTeam() {
-        JLabel heading = new JLabel();
+        JLabel text = new JLabel();
         String[] team = aboutController.getTeam();
-        heading.setText("This app provided by: " + String.join(",", team));
-        return heading;
+        text.setText("This app provided by: " + String.join(",", team));
+        return text;
+    }
+
+    private JLabel displayVersion() {
+        JLabel text = new JLabel();
+        text.setText("Version " + aboutController.getVersion());
+        return text;
     }
 }
