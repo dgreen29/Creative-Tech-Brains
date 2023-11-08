@@ -16,11 +16,19 @@ public final class AboutScreen extends JDialog {
         this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);
         this.add(displayProfile());
+        this.add(displayTeam());
     }
 
     private JLabel displayProfile() {
-        JLabel text = new JLabel();
-        text.setText("This App is Registered to: " + profileController.getName());
-        return text;
+        JLabel heading = new JLabel();
+        heading.setText("This App is Registered to: " + profileController.getName());
+        return heading;
+    }
+
+    private JLabel displayTeam() {
+        JLabel heading = new JLabel();
+        String[] team = aboutController.getTeam();
+        heading.setText("This app provided by: " + String.join(",", team));
+        return heading;
     }
 }
