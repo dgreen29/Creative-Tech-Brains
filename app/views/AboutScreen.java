@@ -2,8 +2,8 @@ package app.views;
 
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
-
 import javax.swing.*;
+import java.awt.*;
 
 public final class AboutScreen extends JDialog {
     private final AboutController aboutController;
@@ -15,12 +15,30 @@ public final class AboutScreen extends JDialog {
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);
-        this.add(displayText());
+        this.setLayout(new BorderLayout());
+        JPanel northPanel = new JPanel(new BorderLayout());
+        northPanel.add(displayProfile(), BorderLayout.WEST);
+        northPanel.add(displayVersion(), BorderLayout.EAST);
+        this.add(northPanel, BorderLayout.NORTH);
+        this.add(displayTeam(), BorderLayout.CENTER);
     }
 
-    private JLabel displayText() {
+    private JLabel displayProfile() {
+        JLabel heading = new JLabel();
+        heading.setText("This App is Registered to: " + profileController.getName());
+        return heading;
+    }
+
+    private JLabel displayTeam() {
         JLabel text = new JLabel();
-        text.setText("This App is Registered to: " + profileController.getName());
+        String[] team = aboutController.getTeam();
+        text.setText("This app provided by: " + String.join(",", team));
+        return text;
+    }
+
+    private JLabel displayVersion() {
+        JLabel text = new JLabel();
+        text.setText("Version " + aboutController.getVersion());
         return text;
     }
 }
