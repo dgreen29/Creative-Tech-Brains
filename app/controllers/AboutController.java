@@ -10,7 +10,7 @@ public final class AboutController {
         return Team.getTeam();
     }
 
-    public int getVersion() {
+    public String getVersion() {
         return Version.getVersion();
     }
 }
