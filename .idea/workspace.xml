@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Remove old test.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="typos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699566945433</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="typos">
+      <option name="closed" value="true" />
+      <created>1699569926572</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699569926572</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +132,7 @@
     <MESSAGE value="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf" />
     <MESSAGE value="Reset java.awt import" />
     <MESSAGE value="Remove old test.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove old test.java" />
+    <MESSAGE value="typos" />
+    <option name="LAST_COMMIT_MESSAGE" value="typos" />
   </component>
 </project>
