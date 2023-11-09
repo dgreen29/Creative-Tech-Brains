@@ -2,8 +2,8 @@ package app.views;
 
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
+
 import javax.swing.*;
-import java.awt.*;
 
 /*
  * @author Darrell Green, Jr. (DJ Green)
@@ -70,7 +70,7 @@ public final class AboutScreen extends JDialog {
      */
     private JLabel displayVersion() {
         JLabel text = new JLabel();
-        text.setText("Version " + aboutController.getVersion());
+        text.setText("Version: " + aboutController.getVersion());
         return text;
     }
 }

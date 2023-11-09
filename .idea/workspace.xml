@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documentation/Project proposal-2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Version.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="DJ_branch" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2Xwl1qKAZ45Lggitf6L3zjqG6Rd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Reverting in DJ__branch",
+    "last_opened_file_path": "/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development & Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="" />
+      <created>1699547812689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699547812689</updated>
+      <workItem from="1699547816117" duration="1603000" />
+      <workItem from="1699558973786" duration="1591000" />
+      <workItem from="1699561399368" duration="16000" />
+      <workItem from="1699561420065" duration="512000" />
+      <workItem from="1699561960285" duration="96000" />
+      <workItem from="1699562105394" duration="714000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf" />
+  </component>
+</project>
