@@ -16,6 +16,7 @@ import java.awt.*;
  * About screen class
  */
 public final class AboutScreen extends JDialog {
+    private final String ABOUT = "About";
 	/**
 	 * Creates AboutController object.
 	 */
@@ -35,6 +36,7 @@ public final class AboutScreen extends JDialog {
                        ProfileController profileController) {
         this.aboutController = aboutController;
         this.profileController = profileController;
+        this.setTitle(ABOUT);
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(applicationView.getAppWidth(), applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);
