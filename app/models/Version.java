@@ -10,8 +10,9 @@ package app.models;
  * Version class
  */
 public final class Version {
-	//String with version number in it.
+  
     private final static String  VERSION = "1.0.0";
+
     /**
      * returns Version number.
      * @return VERSION
