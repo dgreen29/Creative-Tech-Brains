@@ -1,12 +1,9 @@
 package app.models;
 
 public final class Version {
-    private final int version;
-    public Version() {
-        version = 1;
-    }
+    private final static String  VERSION = "1.0.0";
 
-    public int getVersion() {
-        return version;
+    public String getVersion() {
+        return VERSION;
     }
 }
