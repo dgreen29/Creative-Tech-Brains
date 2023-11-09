@@ -1,4 +1,5 @@
 package app.models;
+
 /*
  * @author Darrell Green, Jr. (DJ Green)
  * @author Zarif Mazumder
@@ -10,7 +11,6 @@ package app.models;
  * Version class
  */
 public final class Version {
-  
     private final static String  VERSION = "1.0.0";
 
     /**

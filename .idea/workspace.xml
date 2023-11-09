@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Project proposal-2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AboutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Version.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Reset java.awt import">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Reverting in DJ__branch",
+    "git-widget-placeholder": "zarif",
     "last_opened_file_path": "/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development & Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -75,6 +63,17 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Run app" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="Creative-Tech-Brains" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,6 +89,15 @@
       <workItem from="1699561960285" duration="96000" />
       <workItem from="1699562105394" duration="714000" />
     </task>
+    <task id="LOCAL-00001" summary="Reset java.awt import">
+      <option name="closed" value="true" />
+      <created>1699566855510</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699566855510</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +116,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf" />
+    <MESSAGE value="Reset java.awt import" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset java.awt import" />
   </component>
 </project>
