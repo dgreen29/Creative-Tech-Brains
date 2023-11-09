@@ -14,9 +14,9 @@ import app.models.Version;
  * About controller class
  */
 public final class AboutController {
-	/*
-	 * default constructor for AboutController class.
-	 */
+	  /*
+	   * default constructor for AboutController class.
+	   */
     public AboutController() {}
 
     /**
