@@ -2,7 +2,6 @@ package app.views;
 
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

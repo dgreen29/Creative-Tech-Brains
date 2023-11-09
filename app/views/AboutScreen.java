@@ -2,8 +2,8 @@ package app.views;
 
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
-
 import javax.swing.*;
+import java.awt.*;
 
 /*
  * @author Darrell Green, Jr. (DJ Green)

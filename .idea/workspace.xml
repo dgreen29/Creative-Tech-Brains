@@ -5,16 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/Project proposal-2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AboutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Version.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
@@ -63,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Reverting in DJ__branch",
+    "git-widget-placeholder": "zarif",
     "last_opened_file_path": "/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development & Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
