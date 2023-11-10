@@ -42,11 +42,13 @@ public final class Profile {
     public static String getName() {
         return name;
     }
+
     /**
      * Method purpose: This getter method is meant to return a
      * specific email value in the form of a String.
      * @return email
-     */public static String getEmail() {
+     */
+    public static String getEmail() {
         return email;
     }
 }
