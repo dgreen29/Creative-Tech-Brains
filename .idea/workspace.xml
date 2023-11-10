@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Add team member names">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Added tests for all classes. Tests pass with 88% line coverage and 90% method coverage.">
+      <change afterPath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/AboutScreenTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/FrameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="DJ_branch" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +74,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.app.tests in 360 Assignment 1">
     <configuration name="Run app" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -82,6 +84,106 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AboutControllerTest.TeamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="360 Assignment 1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.AboutControllerTest" />
+      <option name="METHOD_NAME" value="TeamTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AboutControllerTest.VersionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="360 Assignment 1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.AboutControllerTest" />
+      <option name="METHOD_NAME" value="VersionTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FrameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="360 Assignment 1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.FrameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FrameTest.run" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="360 Assignment 1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.FrameTest" />
+      <option name="METHOD_NAME" value="run" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.tests in 360 Assignment 1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="360 Assignment 1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="app.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="app.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="app.views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.app.tests in 360 Assignment 1" />
+        <item itemvalue="JUnit.FrameTest" />
+        <item itemvalue="JUnit.FrameTest.run" />
+        <item itemvalue="JUnit.AboutControllerTest.TeamTest" />
+        <item itemvalue="JUnit.AboutControllerTest.VersionTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -161,10 +263,15 @@
     <MESSAGE value="Remove old test.java" />
     <MESSAGE value="typos" />
     <MESSAGE value="Add .idea to .gitignore" />
-    <MESSAGE value="Add team member names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add team member names" />
+    <MESSAGE value="Added tests for all classes. Tests pass with 88% line coverage and 90% method coverage." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tests for all classes. Tests pass with 88% line coverage and 90% method coverage." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1699584306826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.tests.*</FILTER>
+      <FILTER>app.controllers.*</FILTER>
+      <FILTER>app.models.*</FILTER>
+      <FILTER>app.views.*</FILTER>
+    </SUITE>
   </component>
 </project>
