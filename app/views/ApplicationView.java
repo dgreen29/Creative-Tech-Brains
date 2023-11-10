@@ -2,8 +2,8 @@ package app.views;
 
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
-
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,7 +23,7 @@ public class ApplicationView extends JFrame {
 	 */
     private final String APPLICATION_NAME = "the App";
     /**
-     * String containing the about buttons name.
+     * String containing the about button's name.
      */
     private final String ABOUT_BUTTON_NAME = "About";
     /**
@@ -51,7 +51,8 @@ public class ApplicationView extends JFrame {
         this.setTitle(APPLICATION_NAME);
         this.setSize(appWidth, appHeight);
         this.setLocationRelativeTo(null);
-        this.add(displayAboutBtn());
+        this.setLayout(new BorderLayout());
+        this.add(displayAboutBtn(), BorderLayout.NORTH);
     }
     /**
      * Creates about button.
@@ -76,16 +77,7 @@ public class ApplicationView extends JFrame {
     public int getAppHeight() {
         return appHeight;
     }
-    /*
-     * @author Darrell Green, Jr. (DJ Green)
-     * @author Zarif Mazumder
-     * @author Harman Singh
-     * @author Vindhriko Chandran Cain
-     * 
-     * @version 11.8.23
-     * 
-     * AboutListener class
-     */
+
     private static class AboutListener implements ActionListener {
     	/**
     	 * Creates ApplicationView object.
@@ -99,6 +91,7 @@ public class ApplicationView extends JFrame {
          * Creates ProfileController object.
          */
         private final ProfileController profileController;
+
         /**
          * AboutListener constructor.
          * @param applicationView

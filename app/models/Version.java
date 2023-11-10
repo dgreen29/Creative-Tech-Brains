@@ -1,4 +1,5 @@
 package app.models;
+
 /*
  * @author Darrell Green, Jr. (DJ Green)
  * @author Zarif Mazumder

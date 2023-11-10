@@ -12,7 +12,8 @@ package app.models;
  */
 public final class Team {
     //String array containing names of team members.
-    private static final String[] team = {"Zarif Mazumder"};
+    private static final String[] team = {"Darrel Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
+            "Zarif Mazumder"};
     /**
     * returns String array, team.
     * @return team
