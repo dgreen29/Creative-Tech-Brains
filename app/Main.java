@@ -27,7 +27,10 @@ public class Main {
      *             method by default.
      */
     public static void main(String[] args) {
+        displayApplicationView();
+    }
 
+    private static void displayApplicationView() {
         /*
         Creates a new J Frame and initializes it.
          */
