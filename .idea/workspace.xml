@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="-Added proper default closing behavior for the ProfileScreen Frame&#10;-WIP: Adding JMenu bar for navigation.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="-Added proper default closing behavior for the ProfileScreen Frame&#10;-Added functionality to select file for import.&#10;-WIP: Adding JMenu bar for navigation.">
       <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -253,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701038304812</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="-Added proper default closing behavior for the ProfileScreen Frame&#10;-Added functionality to select file for import.&#10;-WIP: Adding JMenu bar for navigation.">
+      <created>1701041729451</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701041729451</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +284,8 @@
     <MESSAGE value="Add .idea to .gitignore" />
     <MESSAGE value="Added tests for all classes. Tests pass with 88% line coverage and 90% method coverage." />
     <MESSAGE value="-Added proper default closing behavior for the ProfileScreen Frame&#10;-WIP: Adding JMenu bar for navigation." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Added proper default closing behavior for the ProfileScreen Frame&#10;-WIP: Adding JMenu bar for navigation." />
+    <MESSAGE value="-Added proper default closing behavior for the ProfileScreen Frame&#10;-Added functionality to select file for import.&#10;-WIP: Adding JMenu bar for navigation." />
+    <option name="LAST_COMMIT_MESSAGE" value="-Added proper default closing behavior for the ProfileScreen Frame&#10;-Added functionality to select file for import.&#10;-WIP: Adding JMenu bar for navigation." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

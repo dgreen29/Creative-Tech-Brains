@@ -3,12 +3,15 @@ package app.views;
 import app.controllers.ProfileController;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 
 public class ProfileScreen extends JFrame {
     private final String PROFILE_FRAME_NAME = "Profile";
     private final String IMPORT = "Import Profile";
     private final String EXPORT = "Export Profile";
+    private final String FILE_FILTER_DISPLAY_TEXT = "Serialized Files (*.ser)";
+    private final String SERIALIZED_FILE_EXTENSION = "ser";
     private ProfileController profileController;
     private int appWidth;
     private int appHeight;
@@ -42,7 +45,10 @@ public class ProfileScreen extends JFrame {
             //Make File Chooser
             JFileChooser importFileChooser = new JFileChooser();
             //Set the file chooser to only allow .ser-type files
-
+                //Create a filter
+            FileNameExtensionFilter serFileTypeFilter = new FileNameExtensionFilter(FILE_FILTER_DISPLAY_TEXT, SERIALIZED_FILE_EXTENSION);
+                //Apply the filter to file chooser
+            importFileChooser.setFileFilter(serFileTypeFilter);
             //Open dialog and check whether a file location was successfully selected
             if(importFileChooser.showDialog(null, null) == JFileChooser.APPROVE_OPTION) {
                 //call import file method. Dialog popup is place holder
