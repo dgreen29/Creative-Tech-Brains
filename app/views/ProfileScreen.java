@@ -39,12 +39,22 @@ public class ProfileScreen extends JFrame {
         importBtn.addActionListener(e -> {
             //Placeholder code until relevant code to import profile is added to model.
             //TODO: Replace with importProfile() once implemented by other team.
-            JDialog dialog = new JDialog();
-            dialog.add(new JLabel("Profile Imported"));
-            dialog.setSize(appWidth/2, appHeight/2);
-            dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-            dialog.setLocationRelativeTo(null);
-            dialog.setVisible(true);
+            //Make File Chooser
+            JFileChooser importFileChooser = new JFileChooser();
+            //Set the file chooser to only allow .ser-type files
+
+            //Open dialog and check whether a file location was successfully selected
+            if(importFileChooser.showDialog(null, null) == JFileChooser.APPROVE_OPTION) {
+                //call import file method. Dialog popup is place holder
+                JDialog dialog = new JDialog();
+                dialog.add(new JLabel(importFileChooser.getSelectedFile().getAbsolutePath()));
+                dialog.setSize(appWidth/2, appHeight/2);
+                dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+                dialog.setLocationRelativeTo(null);
+                dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                dialog.setVisible(true);
+            }
+
         });
 
         exportBtn = new JButton(EXPORT);
@@ -56,6 +66,7 @@ public class ProfileScreen extends JFrame {
             dialog.setSize(appWidth/2, appHeight/2);
             dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             dialog.setLocationRelativeTo(null);
+            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
             dialog.setVisible(true);
         });
 
