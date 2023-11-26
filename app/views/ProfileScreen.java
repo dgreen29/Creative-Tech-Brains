@@ -18,6 +18,7 @@ public class ProfileScreen extends JFrame {
         this.appWidth = appWidth;
         this.profileController = profileController;
         this.setTitle(PROFILE_FRAME_NAME);
+        this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setSize(this.appWidth, this.appHeight);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
