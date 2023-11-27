@@ -13,6 +13,7 @@ public class ProfileScreen extends JFrame {
     private final String FILE_FILTER_DISPLAY_TEXT = "Serialized Files (*.ser)";
     private final String SERIALIZED_FILE_EXTENSION = "ser";
     private ProfileController profileController;
+    private JMenuBar menuBar;
     private int appWidth;
     private int appHeight;
 
@@ -26,6 +27,10 @@ public class ProfileScreen extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
 
+        prepareGUI();
+
+    }
+    private void prepareGUI() {
 
         //Initializing JPanel that contains the User's Info.
         JPanel userInfoPanel = new JPanel(new GridLayout(1, 2));
@@ -45,9 +50,9 @@ public class ProfileScreen extends JFrame {
             //Make File Chooser
             JFileChooser importFileChooser = new JFileChooser();
             //Set the file chooser to only allow .ser-type files
-                //Create a filter
+            //Create a filter
             FileNameExtensionFilter serFileTypeFilter = new FileNameExtensionFilter(FILE_FILTER_DISPLAY_TEXT, SERIALIZED_FILE_EXTENSION);
-                //Apply the filter to file chooser
+            //Apply the filter to file chooser
             importFileChooser.setFileFilter(serFileTypeFilter);
             //Open dialog and check whether a file location was successfully selected
             if(importFileChooser.showDialog(null, null) == JFileChooser.APPROVE_OPTION) {
@@ -74,7 +79,74 @@ public class ProfileScreen extends JFrame {
         buttonsPanel.add(exportBtn);
         this.add(buttonsPanel, BorderLayout.PAGE_END);
 
+        //Setup menu
+        prepareMenu();
+
     }
+
+    private void prepareMenu() {
+        //initialize menuBar
+        this.menuBar = new JMenuBar();
+
+        //setup file menu
+        JMenu fileMenu = new JMenu("File");
+
+        //Home option leads back to ApplicationView
+        JMenuItem homeOption = new JMenuItem("Home");
+        homeOption.addActionListener(e -> {
+            try {
+                ApplicationView applicationView = new ApplicationView();
+                applicationView.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                applicationView.setVisible(true);
+                this.dispose();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        });
+
+
+        //Profile option leads back to ProfileScreen
+        JMenuItem profileOption = new JMenuItem("Profile");
+        profileOption.addActionListener(e -> {
+            try {
+                ProfileScreen profileScreen = new ProfileScreen(appWidth, appHeight, profileController);
+                profileScreen.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                profileScreen.setVisible(true);
+                this.dispose();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        });
+
+
+        //Exits application
+        JMenuItem exitOption = new JMenuItem("Exit");
+        exitOption.addActionListener(e->{
+            try {
+                for(Frame f : Frame.getFrames()) {
+                    if(!f.equals(this)) {
+                        f.dispose();
+                    }
+                }
+                this.dispose();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+
+        //add to file menu
+        fileMenu.add(homeOption);
+        fileMenu.add(profileOption);
+        fileMenu.add(exitOption);
+
+        //add file menu to menu bar
+        this.menuBar.add(fileMenu);
+
+        //Attach to frame
+        this.setJMenuBar(this.menuBar);
+    }
+
     private JDialog createGenericDialogByText(final String stringToDisplay) {
         JDialog dialog = new JDialog();
         dialog.add(new JLabel(stringToDisplay));
