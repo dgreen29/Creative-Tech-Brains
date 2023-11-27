@@ -51,13 +51,9 @@ public class ProfileScreen extends JFrame {
             importFileChooser.setFileFilter(serFileTypeFilter);
             //Open dialog and check whether a file location was successfully selected
             if(importFileChooser.showDialog(null, null) == JFileChooser.APPROVE_OPTION) {
-                //call import file method. Dialog popup is place holder
-                JDialog dialog = new JDialog();
-                dialog.add(new JLabel(importFileChooser.getSelectedFile().getAbsolutePath()));
-                dialog.setSize(appWidth/2, appHeight/2);
-                dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-                dialog.setLocationRelativeTo(null);
-                dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                //call import file method. Dialog popup is placeholder
+                JDialog dialog = createGenericDialogByText(importFileChooser.getSelectedFile().getAbsolutePath());
+
                 dialog.setVisible(true);
             }
 
@@ -67,12 +63,8 @@ public class ProfileScreen extends JFrame {
         exportBtn.addActionListener(e -> {
             //Placeholder code until relevant code to export profile is added to model.
             //TODO: Replace with exportProfile() once implemented by other team.
-            JDialog dialog = new JDialog();
-            dialog.add(new JLabel("Profile Exported!"));
-            dialog.setSize(appWidth/2, appHeight/2);
-            dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-            dialog.setLocationRelativeTo(null);
-            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            JDialog dialog = createGenericDialogByText("Profile Exported!");
+
             dialog.setVisible(true);
         });
 
@@ -82,5 +74,14 @@ public class ProfileScreen extends JFrame {
         buttonsPanel.add(exportBtn);
         this.add(buttonsPanel, BorderLayout.PAGE_END);
 
+    }
+    private JDialog createGenericDialogByText(final String stringToDisplay) {
+        JDialog dialog = new JDialog();
+        dialog.add(new JLabel(stringToDisplay));
+        dialog.setSize(appWidth/2, appHeight/2);
+        dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        dialog.setLocationRelativeTo(null);
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        return dialog;
     }
 }
