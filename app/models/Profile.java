@@ -11,10 +11,12 @@ package app.models;
  *
  */
 
+import java.io.Serializable;
+
 /**
  * The Profile class stores a user's app data.
  */
-public final class Profile {
+public final class Profile implements Serializable {
     private static final String DEFAULT_PROFILE_NAME = "GUEST";
     private static final String DEFAULT_EMAIL = "(no email address)";
     private String name;
@@ -23,10 +25,6 @@ public final class Profile {
     public Profile(String name, String email) {
         this.name = name.isEmpty() ? DEFAULT_PROFILE_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
-    }
-
-    public Profile getProfile() {
-        return this;
     }
 
     /**
@@ -45,5 +43,10 @@ public final class Profile {
      */
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

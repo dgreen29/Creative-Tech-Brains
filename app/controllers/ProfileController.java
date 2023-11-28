@@ -1,7 +1,11 @@
 package app.controllers;
 
 import app.models.Profile;
+import app.models.ProfileReader;
+import app.models.ProfileWriter;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,45 +26,58 @@ public final class ProfileController {
     private Profile currentProfile;
 
     public ProfileController() {
-        currentProfile = getProfile();
+        currentProfile = createProfile(DEFAULT_PROFILE_NAME, DEFAULT_EMAIL);
     }
 
-    public Profile createProfile() {
-        Profile profile = new Profile("","");
+    public Profile createProfile(String name, String email) {
+        Profile profile = new Profile(name, email);
         profiles.add(profile);
         return profile;
     }
 
     public boolean exportProfile() {
-        return true;
+        try {
+            ProfileWriter.exportProfile(currentProfile);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 
-    public boolean importProfile() {
-        return true;
+    public boolean importProfile(File data) {
+        if (data == null) {
+            return false;
+        }
+        try {
+            currentProfile = ProfileReader.createProfile(data);
+            profiles.add(currentProfile);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 
     public Profile getProfile() {
-        return new Profile(DEFAULT_PROFILE_NAME, DEFAULT_EMAIL);
+        return currentProfile != null ? currentProfile : createProfile(DEFAULT_PROFILE_NAME, DEFAULT_EMAIL);
     }
 
-    /**
-     * gets name.
-     * @return .
-     */
     public String getName() {
         return currentProfile.getName();
     }
 
-    /**
-     * gets email.
-     * @return .
-     */
     public String getEmail() {
         return currentProfile.getEmail();
     }
 
-    public Profile setCurrentProfile(Profile profile) {
+    public boolean setCurrentProfile(Profile profile) {
+        if (!validateProfile(profile)) {
+            return false;
+        }
         currentProfile = profile;
-        return currentProfile;
+        return true;
+    }
+
+    public boolean validateProfile(Profile profile) {
+        return profiles.contains(profile);
     }
 }

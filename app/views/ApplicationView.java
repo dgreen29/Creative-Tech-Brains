@@ -22,6 +22,7 @@ public class ApplicationView extends JFrame {
 	 * String containing the app's name.
 	 */
     private final String APPLICATION_NAME = "the App";
+
     /**
      * String containing the about button's name.
      */
@@ -31,22 +32,27 @@ public class ApplicationView extends JFrame {
      * String containing the profile button's name.
      */
     private final String PROFILE_BUTTON_NAME = "Profile";
+
     /**
      * Int containing width of app.
      */
     private final int appWidth = 500;
+
     /**
      * Int containing height of app.
      */
     private final int appHeight = 500;
+
     /**
      * Creates AboutController object.
      */
     private final AboutController aboutController;
+
     /**
      * Creates ProfileController object.
      */
     private final ProfileController profileController;
+
     /**
      * ApplicationView constructor.
      */
@@ -60,6 +66,7 @@ public class ApplicationView extends JFrame {
         this.add(displayAboutBtn(), BorderLayout.NORTH);
         this.add(displayProfileBtn(), BorderLayout.CENTER);
     }
+
     /**
      * Creates about button.
      * @return
@@ -69,6 +76,7 @@ public class ApplicationView extends JFrame {
         aboutBtn.addActionListener(new AboutListener(this, aboutController, profileController));
         return aboutBtn;
     }
+
     /**
      * Creates a profile button
      * @return the button that opens the profile screen
@@ -86,6 +94,7 @@ public class ApplicationView extends JFrame {
     public int getAppWidth() {
         return appWidth;
     }
+
     /**
      * returns app's height.
      * @return
