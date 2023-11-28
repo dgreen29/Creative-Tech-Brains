@@ -2,6 +2,9 @@ package app.controllers;
 
 import app.models.Profile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * @author Darrell Green, Jr. (DJ Green)
  * @author Zarif Mazumder
@@ -13,21 +16,51 @@ import app.models.Profile;
  * Profile controller class
  */
 public final class ProfileController {
-	// profile controller constructor.
-    public ProfileController() {}
+    private static final String DEFAULT_PROFILE_NAME = "GUEST";
+    private static final String DEFAULT_EMAIL = "(no email address)";
+    private List<Profile> profiles = new ArrayList<>();
+    private Profile currentProfile;
+
+    public ProfileController() {
+        currentProfile = getProfile();
+    }
+
+    public Profile createProfile() {
+        Profile profile = new Profile("","");
+        profiles.add(profile);
+        return profile;
+    }
+
+    public boolean exportProfile() {
+        return true;
+    }
+
+    public boolean importProfile() {
+        return true;
+    }
+
+    public Profile getProfile() {
+        return new Profile(DEFAULT_PROFILE_NAME, DEFAULT_EMAIL);
+    }
 
     /**
      * gets name.
-     * @return Profile.getName().
+     * @return .
      */
     public String getName() {
-        return Profile.getName();
+        return currentProfile.getName();
     }
+
     /**
      * gets email.
-     * @return Profile.getEmail().
+     * @return .
      */
     public String getEmail() {
-        return Profile.getEmail();
+        return currentProfile.getEmail();
+    }
+
+    public Profile setCurrentProfile(Profile profile) {
+        currentProfile = profile;
+        return currentProfile;
     }
 }

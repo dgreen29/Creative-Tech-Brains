@@ -11,7 +11,7 @@ package app.models;
  * Version class
  */
 public final class Version {
-    private final static String  VERSION = "1.0.0";
+    private final static String  VERSION = "1.1.0";
 
     /**
      * returns Version number.
