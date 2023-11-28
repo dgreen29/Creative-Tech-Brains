@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
+/*
+ * Author: Darrell Green, Jr., Harman Singh, Zarif Mazumder
+ */
+
 /**
  * Displays user information with <code>Profile</code> manipulation functionality.
  */

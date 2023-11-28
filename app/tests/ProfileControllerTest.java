@@ -5,6 +5,7 @@ import app.models.Profile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -29,8 +30,18 @@ public class ProfileControllerTest {
     }
 
     @Test
-    public void importProfile() {
+    public void getProfile() {
         assertEquals(testController.getProfile(), new Profile("GUEST", "(no email address)"));
+    }
+
+    @Test
+    public void importInvalidProfile() {
+        assertFalse(testController.importProfile(null));
+    }
+
+    @Test
+    public void setValidProfile() {
+        assertTrue(testController.setCurrentProfile(new Profile("", "")));
     }
 
     @Test

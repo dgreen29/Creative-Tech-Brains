@@ -20,7 +20,7 @@ class AboutControllerTest {
 
     @Test
     public void teamTest() {
-        assertArrayEquals(new String []{"Darrell Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
+        assertArrayEquals(new String[]{"Darrell Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
                 "Zarif Mazumder"}, testController.getTeam());
     }
 }
