@@ -1,10 +1,20 @@
 package app.tests;
 
 import app.controllers.ProfileController;
+import app.models.Profile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+/*
+ * Authors: Harman Singh, Zarif Mazumder
+ */
+
 public class ProfileControllerTest {
     private ProfileController testController;
 
@@ -14,12 +24,28 @@ public class ProfileControllerTest {
     }
 
     @Test
-    public void NameTest() {
-        assertEquals("Steve", testController.getName());
+    public void createProfile() {
+        Profile profile = new Profile("Test", "test@example.com");
+        assertEquals(testController.createProfile("Test", "test@example.com"), profile);
     }
 
     @Test
-    public void EmailTest() {
-        assertEquals("example@example.org", testController.getEmail());
+    public void getProfile() {
+        assertEquals(testController.getProfile(), new Profile("GUEST", "(no email address)"));
+    }
+
+    @Test
+    public void importInvalidProfile() {
+        assertFalse(testController.importProfile(null));
+    }
+
+    @Test
+    public void setValidProfile() {
+        assertTrue(testController.setCurrentProfile(new Profile("", "")));
+    }
+
+    @Test
+    public void setInvalidProfile() {
+        assertFalse(testController.setCurrentProfile(new Profile("x", "y")));
     }
 }
