@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Iteration 2 Finished - No Tests/Javadocs">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Iteration 2 - Javadocs WIP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AboutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/ProfileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/ProfileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Version.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/AboutScreenTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/FrameTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileScreen.java" afterDir="false" />
     </list>
@@ -80,44 +88,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Run app">
+  <component name="RunManager" selected="JUnit.app.tests in Creative-Tech-Brains">
     <configuration name="Run app" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="Creative-Tech-Brains" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AboutControllerTest.TeamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="360 Assignment 1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.AboutControllerTest" />
-      <option name="METHOD_NAME" value="TeamTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AboutControllerTest.VersionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="360 Assignment 1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.AboutControllerTest" />
-      <option name="METHOD_NAME" value="VersionTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,29 +129,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app.tests in 360 Assignment 1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="360 Assignment 1" />
+    <configuration name="ProfileControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Creative-Tech-Brains" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileControllerTest.setInvalidProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Creative-Tech-Brains" />
+      <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="app.models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="app.views.*" />
+          <option name="PATTERN" value="app.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
+      <option name="METHOD_NAME" value="setInvalidProfile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app.tests in Creative-Tech-Brains" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Creative-Tech-Brains" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
+        <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
+        <item itemvalue="JUnit.ProfileControllerTest" />
         <item itemvalue="JUnit.FrameTest.run" />
         <item itemvalue="JUnit.FrameTest" />
-        <item itemvalue="JUnit.app.tests in 360 Assignment 1" />
-        <item itemvalue="JUnit.AboutControllerTest.VersionTest" />
-        <item itemvalue="JUnit.AboutControllerTest.TeamTest" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701139050239</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Iteration 2 - Javadocs WIP">
+      <option name="closed" value="true" />
+      <created>1701150106784</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701150106784</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +317,8 @@
     <MESSAGE value="WIP" />
     <MESSAGE value="Iteration 2 Back-end" />
     <MESSAGE value="Iteration 2 Finished - No Tests/Javadocs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iteration 2 Finished - No Tests/Javadocs" />
+    <MESSAGE value="Iteration 2 - Javadocs WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iteration 2 - Javadocs WIP" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -325,6 +327,6 @@
       <FILTER>app.models.*</FILTER>
       <FILTER>app.views.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1699584306826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1701153788864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -7,7 +7,7 @@ import java.awt.*;
 import java.io.File;
 
 /**
- * Display's user information with <code>Profile</code> manipulation functionality.
+ * Displays user information with <code>Profile</code> manipulation functionality.
  */
 public class ProfileScreen extends JFrame {
     private static final String PROFILE_FRAME_NAME = "Profile";

@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+ * Author: Harman Singh
+ */
+
 class AboutControllerTest {
     private AboutController testController;
 
@@ -15,13 +19,8 @@ class AboutControllerTest {
     }
 
     @Test
-    public void VersionTest() {
-        assertEquals( "1.0.0",testController.getVersion());
-    }
-
-    @Test
-    public void TeamTest() {
-        assertArrayEquals(new String []{"Darrel Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
+    public void teamTest() {
+        assertArrayEquals(new String []{"Darrell Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
                 "Zarif Mazumder"}, testController.getTeam());
     }
 }

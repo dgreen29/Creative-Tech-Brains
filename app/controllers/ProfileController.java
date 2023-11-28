@@ -30,7 +30,7 @@ public final class ProfileController {
      * Creates an instance of a <code>Profile</code>
      * @param name - Name
      * @param email - Email Address
-     * @return
+     * @return created <code>Profile</code>
      */
     public Profile createProfile(String name, String email) {
         Profile profile = new Profile(name, email);
@@ -41,7 +41,7 @@ public final class ProfileController {
 
     /**
      *
-     * @return true if File is written
+     * @return true if <code>File</code> is written
      */
     public boolean exportProfile() {
         try {
@@ -86,6 +86,11 @@ public final class ProfileController {
         return currentProfile.getEmail();
     }
 
+    /**
+     * Sets valid current <code>Profile</code>.
+     * @param profile given <code>Profile</code>
+     * @return did set
+     */
     public boolean setCurrentProfile(Profile profile) {
         if (!validateProfile(profile)) {
             return false;
@@ -95,8 +100,8 @@ public final class ProfileController {
     }
 
     /**
-     * Checks if given <code>Profile</code> is valid. Profiles list must already contain it.
-     * @param profile given Profile
+     * Checks if given <code>Profile</code> is valid. The stored list must already contain it.
+     * @param profile given <code>Profile</code>
      * @return result of contains
      */
     public boolean validateProfile(Profile profile) {

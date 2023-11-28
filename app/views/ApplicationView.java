@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  */
 
 /**
- * Display's the main menu of the application.
+ * Displays the main menu of the application.
  */
 public class ApplicationView extends JFrame {
     private static final String APPLICATION_NAME = "the App";
@@ -68,6 +68,7 @@ public class ApplicationView extends JFrame {
             this.aboutController = aboutController;
             this.profileController = profileController;
         }
+
         /**
          * Opens <code>AboutScreen</code>.
          * @param e <code>ActionEvent</code>

@@ -1,20 +1,13 @@
 package app.models;
 
-/*
- * @author Darrell Green, Jr. (DJ Green)
- * @author Zarif Mazumder
- * @author Harman Singh
- * @author Vindhriko Chandran Cain
- *
- * @version 11.26.23
- *
- *
- */
-
 import java.io.Serializable;
 
+/*
+ * Author: Zarif Mazumder
+ */
+
 /**
- * The Profile class stores a user's app data.
+ * The <code>Profile</code> class stores a user's app data.
  */
 public final class Profile implements Serializable {
     private static final String DEFAULT_PROFILE_NAME = "GUEST";
@@ -22,31 +15,37 @@ public final class Profile implements Serializable {
     private String name;
     private String email;
 
+    /**
+     * Creates a GUEST account if empty <code>String</code> parameters given.
+     * @param name Name
+     * @param email Email Address
+     */
     public Profile(String name, String email) {
         this.name = name.isEmpty() ? DEFAULT_PROFILE_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
     }
 
-    /**
-     * Method purpose: This getter method is meant to return a
-     * specific name value in the form of a String.
-     * @return name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Method purpose: This getter method is meant to return a
-     * specific email value in the form of a String.
-     * @return email
-     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * @return Name of <code>Profile</code>
+     */
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Profile profile)) {
+            return false;
+        }
+        return (profile.name.equals(this.name) && profile.email.equals(this.email));
     }
 }
