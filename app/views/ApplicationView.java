@@ -1,5 +1,6 @@
 package app.views;
 
+import app.Main;
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
 import javax.swing.*;
@@ -8,43 +9,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /*
- * @author Darrell Green, Jr. (DJ Green)
- * @author Zarif Mazumder
- * @author Harman Singh
- * @author Vindhriko Chandran Cain
- * 
- * @version 11.8.23
- * 
- * Application view class
+ * Authors: Darrell Green Jr., Harman Singh, Zarif Mazumder
+ */
+
+/**
+ * Displays the main menu of the application.
  */
 public class ApplicationView extends JFrame {
-	/**
-	 * String containing the app's name.
-	 */
-    private final String APPLICATION_NAME = "the App";
-    /**
-     * String containing the about button's name.
-     */
-    private final String ABOUT_BUTTON_NAME = "About";
-    /**
-     * Int containing width of app.
-     */
+    private static final String APPLICATION_NAME = "the App";
+    private static final String ABOUT_BUTTON_NAME = "About";
+    private static final String PROFILE_BUTTON_NAME = "Profile";
     private final int appWidth = 500;
-    /**
-     * Int containing height of app.
-     */
     private final int appHeight = 500;
-    /**
-     * Creates AboutController object.
-     */
     private final AboutController aboutController;
-    /**
-     * Creates ProfileController object.
-     */
     private final ProfileController profileController;
-    /**
-     * ApplicationView constructor.
-     */
+
     public ApplicationView() {
         aboutController = new AboutController();
         profileController = new ProfileController();
@@ -52,52 +31,35 @@ public class ApplicationView extends JFrame {
         this.setSize(appWidth, appHeight);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.add(displayAboutBtn(), BorderLayout.NORTH);
+        this.add(displayAboutButton(), BorderLayout.NORTH);
+        this.add(displayProfileButton(), BorderLayout.CENTER);
     }
-    /**
-     * Creates about button.
-     * @return
-     */
-    private JButton displayAboutBtn() {
+
+    private JButton displayAboutButton() {
         JButton aboutBtn = new JButton(ABOUT_BUTTON_NAME);
         aboutBtn.addActionListener(new AboutListener(this, aboutController, profileController));
         return aboutBtn;
     }
-    /**
-     * returns app's width.
-     * @return
-     */
+
+    private JButton displayProfileButton() {
+        JButton prfBtn = new JButton(PROFILE_BUTTON_NAME);
+        prfBtn.addActionListener(new ProfileListener(profileController));
+        return prfBtn;
+    }
+
     public int getAppWidth() {
         return appWidth;
     }
-    /**
-     * returns app's height.
-     * @return
-     */
+
     public int getAppHeight() {
         return appHeight;
     }
 
     private static class AboutListener implements ActionListener {
-    	/**
-    	 * Creates ApplicationView object.
-    	 */
         private final ApplicationView applicationView;
-        /**
-         * creates AboutController object.
-         */
         private final AboutController aboutController;
-        /**
-         * Creates ProfileController object.
-         */
         private final ProfileController profileController;
 
-        /**
-         * AboutListener constructor.
-         * @param applicationView
-         * @param aboutController
-         * @param profileController
-         */
         public AboutListener(
                 ApplicationView applicationView,
                 AboutController aboutController,
@@ -106,9 +68,10 @@ public class ApplicationView extends JFrame {
             this.aboutController = aboutController;
             this.profileController = profileController;
         }
+
         /**
-         * opens the about screen.
-         * @param e
+         * Opens <code>AboutScreen</code>.
+         * @param e <code>ActionEvent</code>
          */
         public void actionPerformed(ActionEvent e) {
             try {
@@ -121,4 +84,24 @@ public class ApplicationView extends JFrame {
         }
     }
 
+    private class ProfileListener implements ActionListener {
+        private final ProfileController profileController;
+
+        public ProfileListener(
+                ProfileController profileController) {
+            this.profileController = profileController;
+        }
+
+        /**
+         * Opens <code>ProfileScreen</code>.
+         * @param e <code>ActionEvent</code>
+         */
+        public void actionPerformed(ActionEvent e) {
+            try {
+                Main.setCurrentView(new ProfileScreen(appWidth, appHeight, this.profileController));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 }
