@@ -1,54 +1,51 @@
 package app.models;
 
+import java.io.Serializable;
+
 /*
- * @author Darrell Green, Jr. (DJ Green)
- * @author Zarif Mazumder
- * @author Harman Singh
- * @author Vindhriko Chandran Cain
- *
- * @version 11.8.23
- *
- * Program Purpose: The purpose of this program is to satisfy the
- * Project UI and About Screen requirements laid out in the project
- * description as referenced by the Client Interview.
+ * Author: Zarif Mazumder
  */
 
 /**
- * Class Purpose: The Profile class is part of the models package
- * and is used to store a user's information.
+ * The <code>Profile</code> class stores a user's app data.
  */
-public final class Profile {
-
-    /*
-    Declaring a private static String variable named name and
-    initializing it with the value "Steve". This variable is also
-    declared as final. This value is meant to hold a user's name.
-     */
-    private static final String name = "Steve";
-
-    /*
-    Declaring a private static String variable named email and
-    initializing it with the value "Steve". This variable is also
-    declared as final. This value is meant to hold a user's email
-    address.
-     */
-    private static final String email = "example@example.org";
+public final class Profile implements Serializable {
+    private static final String DEFAULT_PROFILE_NAME = "GUEST";
+    private static final String DEFAULT_EMAIL = "(no email address)";
+    private String name;
+    private String email;
 
     /**
-     * Method purpose: This getter method is meant to return a
-     * specific name value in the form of a String.
-     * @return name
+     * Creates a GUEST account if empty <code>String</code> parameters given.
+     * @param name Name
+     * @param email Email Address
      */
-    public static String getName() {
+    public Profile(String name, String email) {
+        this.name = name.isEmpty() ? DEFAULT_PROFILE_NAME : name;
+        this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
+    }
+
+    public String getName() {
         return name;
     }
 
-    /**
-     * Method purpose: This getter method is meant to return a
-     * specific email value in the form of a String.
-     * @return email
-     */
-    public static String getEmail() {
+    public String getEmail() {
         return email;
+    }
+
+    /**
+     * @return Name of <code>Profile</code>
+     */
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Profile profile)) {
+            return false;
+        }
+        return (profile.name.equals(this.name) && profile.email.equals(this.email));
     }
 }
