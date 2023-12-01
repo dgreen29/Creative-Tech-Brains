@@ -17,26 +17,9 @@ public final class ProfileReader {
      * @return resulting created <code>Profile</code>
      * @throws IOException Reading file error
      */
-    public static Profile createProfile(File data) throws IOException {
-        ObjectInputStream ois = null;
-        FileInputStream fin = null;
-        try {
-            fin = new FileInputStream(data);
-            ois = new ObjectInputStream(fin);
+    public static Profile createProfile(File data) throws IOException, ClassNotFoundException {
+        try (FileInputStream fin = new FileInputStream(data); ObjectInputStream ois = new ObjectInputStream(fin)) {
             return (Profile) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                if (ois != null) {
-                    ois.close();
-                }
-                if (fin != null) {
-                    fin.close();
-                }
-            } catch (IOException e) {
-                System.out.println("Failed to close output stream.");
-            }
         }
     }
 }

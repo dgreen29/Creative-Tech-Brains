@@ -19,23 +19,9 @@ public final class ProfileWriter {
      * @throws IOException Writing file error
      */
     public static void exportProfile(Profile profile) throws IOException {
-        ObjectOutputStream oos = null;
-        FileOutputStream fout = null;
-        try {
-            fout = new FileOutputStream(profile.getName(), true);
-            oos = new ObjectOutputStream(fout);
+        try (FileOutputStream fOut = new FileOutputStream(profile.getName(), true);
+             ObjectOutputStream oos = new ObjectOutputStream(fOut)) {
             oos.writeObject(profile);
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-                }
-                if (fout != null) {
-                    fout.close();
-                }
-            } catch (IOException e) {
-                System.out.println("Failed to close output stream.");
-            }
         }
     }
 }
