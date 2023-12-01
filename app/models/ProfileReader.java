@@ -27,9 +27,15 @@ public final class ProfileReader {
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         } finally {
-            if (ois != null) {
-                ois.close();
-                fin.close();
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+                if (fin != null) {
+                    fin.close();
+                }
+            } catch (IOException e) {
+                System.out.println("Failed to close output stream.");
             }
         }
     }

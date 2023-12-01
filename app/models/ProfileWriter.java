@@ -26,9 +26,15 @@ public final class ProfileWriter {
             oos = new ObjectOutputStream(fout);
             oos.writeObject(profile);
         } finally {
-            if (oos != null) {
-                oos.close();
-                fout.close();
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+                if (fout != null) {
+                    fout.close();
+                }
+            } catch (IOException e) {
+                System.out.println("Failed to close output stream.");
             }
         }
     }
