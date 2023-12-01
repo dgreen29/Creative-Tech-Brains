@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Iteration 2 - comments and tests">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Properly catch stream close operations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +285,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701153896009</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Code Review Guide">
+      <option name="closed" value="true" />
+      <created>1701227075713</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701227075713</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Properly catch stream close operations">
+      <option name="closed" value="true" />
+      <created>1701406675569</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701406675569</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +333,9 @@
     <MESSAGE value="Iteration 2 Finished - No Tests/Javadocs" />
     <MESSAGE value="Iteration 2 - Javadocs WIP" />
     <MESSAGE value="Iteration 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iteration 2" />
+    <MESSAGE value="Code Review Guide" />
+    <MESSAGE value="Properly catch stream close operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Properly catch stream close operations" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
