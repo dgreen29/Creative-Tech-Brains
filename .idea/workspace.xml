@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Iteration 2 - comments and tests">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Properly catch stream close operations with Java ARM">
+      <change afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/ProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/AppDesign.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
