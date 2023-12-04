@@ -1,19 +1,23 @@
 package app.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Author: Zarif Mazumder
  */
 
 /**
- * The <code>Profile</code> class stores a user's app data.
+ * Stores a user's app data.
  */
 public final class Profile implements Serializable {
     private static final String DEFAULT_PROFILE_NAME = "GUEST";
     private static final String DEFAULT_EMAIL = "(no email address)";
-    private String name;
-    private String email;
+    private final String name;
+    private final String email;
+    private Privilege privilege;
+    private final List<Project> projects;
 
     /**
      * Creates a GUEST account if empty <code>String</code> parameters given.
@@ -23,7 +27,12 @@ public final class Profile implements Serializable {
     public Profile(String name, String email) {
         this.name = name.isEmpty() ? DEFAULT_PROFILE_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
+        privilege = Privilege.GUEST;
+        projects = new ArrayList<>();
+        projects.add(new Project());
     }
+
+    // TODO: loadProfile
 
     public String getName() {
         return name;
@@ -31,6 +40,10 @@ public final class Profile implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
     }
 
     /**
@@ -46,6 +59,19 @@ public final class Profile implements Serializable {
         if (!(o instanceof Profile profile)) {
             return false;
         }
-        return (profile.name.equals(this.name) && profile.email.equals(this.email));
+        return (this.name.equals(profile.getName()) && this.email.equals(profile.getEmail()));
+    }
+
+    public enum Privilege {
+        GUEST,
+        ADMIN
+    }
+
+    public Privilege getPrivilege() {
+        return privilege;
+    }
+
+    public void setPrivilege(Privilege privilege) {
+        this.privilege = privilege;
     }
 }

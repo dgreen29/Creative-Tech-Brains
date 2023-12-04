@@ -19,11 +19,13 @@ import java.util.List;
 public final class ProfileController {
     private static final String DEFAULT_PROFILE_NAME = "GUEST";
     private static final String DEFAULT_EMAIL = "(no email address)";
-    private List<Profile> profiles = new ArrayList<>();
+    private final List<Profile> profiles = new ArrayList<>();
     private Profile currentProfile;
+    private final ProjectController projectController;
 
     public ProfileController() {
         currentProfile = createProfile(DEFAULT_PROFILE_NAME, DEFAULT_EMAIL);
+        projectController = new ProjectController(this);
     }
 
     /**
@@ -106,5 +108,9 @@ public final class ProfileController {
      */
     public boolean validateProfile(Profile profile) {
         return profiles.contains(profile);
+    }
+
+    public ProjectController getProjectController() {
+        return projectController;
     }
 }

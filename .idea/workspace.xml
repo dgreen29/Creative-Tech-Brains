@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Properly catch stream close operations with Java ARM">
-      <change afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/ProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="base back-end layout for code deliverable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/AppDesign.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +55,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -293,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701153896009</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="base layout for code deliverable">
+      <option name="closed" value="true" />
+      <created>1701643021592</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701643021593</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +337,9 @@
     <MESSAGE value="Iteration 2 Finished - No Tests/Javadocs" />
     <MESSAGE value="Iteration 2 - Javadocs WIP" />
     <MESSAGE value="Iteration 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iteration 2" />
+    <MESSAGE value="base layout for code deliverable" />
+    <MESSAGE value="base back-end layout for code deliverable" />
+    <option name="LAST_COMMIT_MESSAGE" value="base back-end layout for code deliverable" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

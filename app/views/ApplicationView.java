@@ -3,6 +3,8 @@ package app.views;
 import app.Main;
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
+import app.controllers.ProjectController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,10 +25,12 @@ public class ApplicationView extends JFrame {
     private final int appHeight = 500;
     private final AboutController aboutController;
     private final ProfileController profileController;
+    private final ProjectController projectController;
 
     public ApplicationView() {
         aboutController = new AboutController();
         profileController = new ProfileController();
+        projectController = profileController.getProjectController();
         this.setTitle(APPLICATION_NAME);
         this.setSize(appWidth, appHeight);
         this.setLocationRelativeTo(null);
