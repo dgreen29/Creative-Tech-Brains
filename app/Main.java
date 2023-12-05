@@ -19,16 +19,12 @@ public class Main {
      *             method by default.
      */
     public static void main(String[] args) {
-        displayApplicationView();
+        setCurrentView(new ApplicationView());
     }
 
     public static void setCurrentView(JFrame view) {
         currentView = view;
         currentView.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         currentView.setVisible(true);
-    }
-
-    private static void displayApplicationView() {
-        setCurrentView(new ApplicationView());
     }
 }

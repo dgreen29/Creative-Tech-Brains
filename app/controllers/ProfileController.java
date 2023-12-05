@@ -1,8 +1,7 @@
 package app.controllers;
 
 import app.models.Profile;
-import app.models.ProfileReader;
-import app.models.ProfileWriter;
+import app.models.ProfileIO;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,14 +16,12 @@ import java.util.List;
  * Handles functionality and communication between Views and the <code>Profile</code> model.
  */
 public final class ProfileController {
-    private static final String DEFAULT_PROFILE_NAME = "GUEST";
-    private static final String DEFAULT_EMAIL = "(no email address)";
     private final List<Profile> profiles = new ArrayList<>();
     private Profile currentProfile;
     private final ProjectController projectController;
 
     public ProfileController() {
-        currentProfile = createProfile(DEFAULT_PROFILE_NAME, DEFAULT_EMAIL);
+        currentProfile = createProfile("", "");
         projectController = new ProjectController(this);
     }
 
@@ -47,7 +44,7 @@ public final class ProfileController {
      */
     public boolean exportProfile() {
         try {
-            ProfileWriter.exportProfile(currentProfile);
+            ProfileIO.exportProfile(currentProfile);
             return true;
         } catch (IOException e) {
             return false;
@@ -64,7 +61,7 @@ public final class ProfileController {
             return false;
         }
         try {
-            currentProfile = ProfileReader.createProfile(data);
+            currentProfile = ProfileIO.importProfile(data);
             profiles.add(currentProfile);
             return true;
         } catch (IOException | ClassNotFoundException e) {
@@ -72,12 +69,8 @@ public final class ProfileController {
         }
     }
 
-    /**
-     * Returns the current <code>Profile</code>. Creates default <code>Profile</code> if none exist.
-     * @return currentProfile
-     */
     public Profile getProfile() {
-        return currentProfile != null ? currentProfile : createProfile(DEFAULT_PROFILE_NAME, DEFAULT_EMAIL);
+        return currentProfile;
     }
 
     public String getName() {

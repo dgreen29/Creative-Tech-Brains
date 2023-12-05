@@ -13,7 +13,7 @@ import java.awt.*;
  * Displays the team and version info.
  */
 public final class AboutScreen extends JDialog {
-    private final String ABOUT = "About";
+    private static final String TITLE_NAME = "About";
     private final AboutController aboutController;
     private final ProfileController profileController;
 
@@ -21,7 +21,7 @@ public final class AboutScreen extends JDialog {
                        ProfileController profileController) {
         this.aboutController = aboutController;
         this.profileController = profileController;
-        this.setTitle(ABOUT);
+        this.setTitle(TITLE_NAME);
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(applicationView.getAppWidth()+200, applicationView.getAppHeight() / 2);
         this.setLocationRelativeTo(null);

@@ -1,22 +1,21 @@
 package app.controllers;
 
-import app.models.Team;
-import app.models.Version;
+import app.models.About;
 
 /*
  * Author: Zarif Mazumder
  */
 
 /**
- * Passes information from <code>Team</code> and <code>Version</code> models to the view.
+ * Passes information from <code>About</code> model to the view.
  */
 public final class AboutController {
 
     public String[] getTeam() {
-        return Team.getTeam();
+        return About.getTeam();
     }
 
     public String getVersion() {
-        return Version.getVersion();
+        return About.getVersion();
     }
 }

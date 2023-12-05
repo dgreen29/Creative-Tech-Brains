@@ -12,7 +12,7 @@ import java.util.List;
  * Stores a user's app data.
  */
 public final class Profile implements Serializable {
-    private static final String DEFAULT_PROFILE_NAME = "GUEST";
+    private static final String DEFAULT_NAME = "GUEST";
     private static final String DEFAULT_EMAIL = "(no email address)";
     private final String name;
     private final String email;
@@ -25,7 +25,7 @@ public final class Profile implements Serializable {
      * @param email Email Address
      */
     public Profile(String name, String email) {
-        this.name = name.isEmpty() ? DEFAULT_PROFILE_NAME : name;
+        this.name = name.isEmpty() ? DEFAULT_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
         privilege = Privilege.GUEST;
         projects = new ArrayList<>();

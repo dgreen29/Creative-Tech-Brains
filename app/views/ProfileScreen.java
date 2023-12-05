@@ -14,7 +14,7 @@ import java.io.File;
  * Displays user information with <code>Profile</code> manipulation functionality.
  */
 public class ProfileScreen extends JFrame {
-    private static final String PROFILE_FRAME_NAME = "Profile";
+    private static final String TITLE_NAME = "Profile";
     private static final String CREATE_BUTTON_NAME = "Create Profile";
     private static final String IMPORT_BUTTON_NAME = "Import Profile";
     private static final String IMPORT_SUCCESS_MESSAGE = "Profile Import success";
@@ -31,7 +31,7 @@ public class ProfileScreen extends JFrame {
         this.appHeight = appHeight;
         this.appWidth = appWidth;
         this.profileController = profileController;
-        this.setTitle(PROFILE_FRAME_NAME);
+        this.setTitle(TITLE_NAME);
         this.setSize(this.appWidth, this.appHeight);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
