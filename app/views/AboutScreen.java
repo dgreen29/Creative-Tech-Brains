@@ -5,12 +5,9 @@ import app.controllers.ProfileController;
 import javax.swing.*;
 import java.awt.*;
 
-/*
- * Author: Zarif Mazumder
- */
-
 /**
  * Displays the team and version info.
+ * @author Zarif Mazumder
  */
 public final class AboutScreen extends JDialog {
     private static final String TITLE_NAME = "About";
@@ -33,12 +30,20 @@ public final class AboutScreen extends JDialog {
         this.add(displayTeam(), BorderLayout.CENTER);
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return profile <code>JLabel</code>
+     */
     private JLabel displayProfile() {
         JLabel heading = new JLabel();
         heading.setText("This app is registered to: " + profileController.getName());
         return heading;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return team <code>JLabel</code>
+     */
     private JLabel displayTeam() {
         JLabel text = new JLabel();
         String[] team = aboutController.getTeam();
@@ -46,6 +51,10 @@ public final class AboutScreen extends JDialog {
         return text;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return version <code>JLabel</code>
+     */
     private JLabel displayVersion() {
         JLabel text = new JLabel();
         text.setText("Version: " + aboutController.getVersion());

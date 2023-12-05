@@ -6,12 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
-/*
- * Author: Darrell Green, Jr., Harman Singh, Zarif Mazumder
- */
-
 /**
  * Displays user information with <code>Profile</code> manipulation functionality.
+ * @author Darrell Green, Jr., Harman Singh, Zarif Mazumder
  */
 public class ProfileScreen extends JFrame {
     private static final String TITLE_NAME = "Profile";
@@ -45,6 +42,10 @@ public class ProfileScreen extends JFrame {
 
     }
 
+    /**
+     * @author Harman Singh
+     * @return user info <code>JPanel</code>
+     */
     private JPanel displayUserInfo() {
         JPanel userInfoPanel = new JPanel(new GridLayout(1, 2));
         userInfoPanel.add(new JLabel("User: " + this.profileController.getName()));
@@ -52,6 +53,10 @@ public class ProfileScreen extends JFrame {
         return userInfoPanel;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return button <code>JPanel</code>
+     */
     private JPanel displayButtonPanel() {
         JPanel panel = new JPanel();
         panel.add(displayCreateButton());
@@ -60,6 +65,10 @@ public class ProfileScreen extends JFrame {
         return panel;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return create <code>JButton</code>
+     */
     private JButton displayCreateButton() {
         JButton createBtn = new JButton(CREATE_BUTTON_NAME);
         createBtn.addActionListener(e -> {
@@ -85,6 +94,10 @@ public class ProfileScreen extends JFrame {
         return createBtn;
     }
 
+    /**
+     * Updates the user info <code>JPanel</code>.
+     * @author Zarif Mazumder
+     */
     private void updateUserInfoDisplay() {
         this.remove(userInfoPanel);
         userInfoPanel = displayUserInfo();
@@ -93,6 +106,10 @@ public class ProfileScreen extends JFrame {
         this.revalidate();
     }
 
+    /**
+     * @author Harman Singh, Zarif Mazumder
+     * @return import <code>JButton</code>
+     */
     private JButton displayImportButton() {
         JButton importBtn = new JButton(IMPORT_BUTTON_NAME);
         importBtn.addActionListener(e -> {
@@ -112,6 +129,10 @@ public class ProfileScreen extends JFrame {
         return importBtn;
     }
 
+    /**
+     * @author Harman Singh
+     * @return export <code>JButton</code>
+     */
     private JButton displayExportButton() {
         JButton exportBtn = new JButton(EXPORT_BUTTON_NAME);
         exportBtn.addActionListener(e -> {

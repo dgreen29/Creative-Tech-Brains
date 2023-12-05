@@ -8,12 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Author: Zarif Mazumder
- */
-
 /**
  * Handles functionality and communication between Views and the <code>Profile</code> model.
+ * @author Zarif Mazumder
  */
 public final class ProfileController {
     private final List<Profile> profiles = new ArrayList<>();
@@ -39,7 +36,8 @@ public final class ProfileController {
     }
 
     /**
-     *
+     * Writes current profile to a file.
+     * @author Zarif Mazumder
      * @return true if <code>File</code> is written
      */
     public boolean exportProfile() {
@@ -53,6 +51,7 @@ public final class ProfileController {
 
     /**
      * Takes <code>Proile</code> from given <code>File</code>.
+     * @author Zarif Mazumder
      * @param data input <code>File</code>
      * @return true if <code>File</code> contains <code>Profile</code> object data.
      */
@@ -69,20 +68,33 @@ public final class ProfileController {
         }
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return <code>Profile</code>
+     */
     public Profile getProfile() {
         return currentProfile;
     }
 
+    /**
+     * @author Darrell Green, Jr., Zarif Mazumder
+     * @return name
+     */
     public String getName() {
         return currentProfile.getName();
     }
 
+    /**
+     * @author Darrell Green, Jr., Zarif Mazumder
+     * @return email
+     */
     public String getEmail() {
         return currentProfile.getEmail();
     }
 
     /**
      * Sets valid current <code>Profile</code>.
+     * @author Zarif Mazumder
      * @param profile given <code>Profile</code>
      * @return did set
      */
@@ -96,6 +108,7 @@ public final class ProfileController {
 
     /**
      * Checks if given <code>Profile</code> is valid. The stored list must already contain it.
+     * @author Zarif Mazumder
      * @param profile given <code>Profile</code>
      * @return result of contains
      */
@@ -103,6 +116,10 @@ public final class ProfileController {
         return profiles.contains(profile);
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return <code>ProjectController</code>
+     */
     public ProjectController getProjectController() {
         return projectController;
     }

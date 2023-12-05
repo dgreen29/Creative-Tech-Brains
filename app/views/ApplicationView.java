@@ -10,15 +10,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/*
- * Authors: Darrell Green Jr., Harman Singh, Zarif Mazumder
- */
-
 /**
  * Displays the main menu of the application.
+ * @author Darrell Green Jr., Harman Singh, Zarif Mazumder
  */
 public class ApplicationView extends JFrame {
-    private static final String APPLICATION_NAME = "the App";
+    private static final String TITLE_NAME = "the App";
     private static final String ABOUT_BUTTON_NAME = "About";
     private static final String PROFILE_BUTTON_NAME = "Profile";
     private final int appWidth = 500;
@@ -31,7 +28,7 @@ public class ApplicationView extends JFrame {
         aboutController = new AboutController();
         profileController = new ProfileController();
         projectController = profileController.getProjectController();
-        this.setTitle(APPLICATION_NAME);
+        this.setTitle(TITLE_NAME);
         this.setSize(appWidth, appHeight);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
@@ -39,42 +36,51 @@ public class ApplicationView extends JFrame {
         this.add(displayProfileButton(), BorderLayout.CENTER);
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return about <code>JButton</code>
+     */
     private JButton displayAboutButton() {
         JButton aboutBtn = new JButton(ABOUT_BUTTON_NAME);
         aboutBtn.addActionListener(new AboutListener(this, aboutController, profileController));
         return aboutBtn;
     }
 
+    /**
+     * @author Harman Singh
+     * @return about <code>JButton</code>
+     */
     private JButton displayProfileButton() {
         JButton prfBtn = new JButton(PROFILE_BUTTON_NAME);
         prfBtn.addActionListener(new ProfileListener(profileController));
         return prfBtn;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return <code>JFrame</code> width in pixels
+     */
     public int getAppWidth() {
         return appWidth;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return <code>JFrame</code> height in pixels
+     */
     public int getAppHeight() {
         return appHeight;
     }
 
-    private static class AboutListener implements ActionListener {
-        private final ApplicationView applicationView;
-        private final AboutController aboutController;
-        private final ProfileController profileController;
-
-        public AboutListener(
-                ApplicationView applicationView,
-                AboutController aboutController,
-                ProfileController profileController) {
-            this.applicationView = applicationView;
-            this.aboutController = aboutController;
-            this.profileController = profileController;
-        }
+    /**
+     * @author Harman Singh, Zarif Mazumder
+     */
+    private record AboutListener(ApplicationView applicationView, AboutController aboutController,
+                                 ProfileController profileController) implements ActionListener {
 
         /**
          * Opens <code>AboutScreen</code>.
+         * @author Harman Singh, Zarif Mazumder
          * @param e <code>ActionEvent</code>
          */
         public void actionPerformed(ActionEvent e) {
@@ -88,6 +94,9 @@ public class ApplicationView extends JFrame {
         }
     }
 
+    /**
+     * @author Harman Singh
+     */
     private class ProfileListener implements ActionListener {
         private final ProfileController profileController;
 
@@ -98,6 +107,7 @@ public class ApplicationView extends JFrame {
 
         /**
          * Opens <code>ProfileScreen</code>.
+         * @author Harman Singh
          * @param e <code>ActionEvent</code>
          */
         public void actionPerformed(ActionEvent e) {

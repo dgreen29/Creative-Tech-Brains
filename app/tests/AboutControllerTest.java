@@ -6,10 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*
- * Author: Harman Singh
+/**
+ * @author Harman Singh
  */
-
 class AboutControllerTest {
     private AboutController testController;
 

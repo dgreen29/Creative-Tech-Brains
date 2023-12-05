@@ -4,11 +4,12 @@ import app.views.ApplicationView;
 import javax.swing.*;
 
 /*
+ * TCSS 360 B w/ Mr. Jeffrey Weiss
  * Authors: Darrell Green, Jr., Harman Singh, Vindhriko Chandran Cain, Zarif Mazumder
  */
 
 /**
- * This is the Main driver class of the entire program.
+ * Driver class of the entire program.
  */
 public class Main {
     private static JFrame currentView;
@@ -22,6 +23,10 @@ public class Main {
         setCurrentView(new ApplicationView());
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @param view view
+     */
     public static void setCurrentView(JFrame view) {
         currentView = view;
         currentView.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

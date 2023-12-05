@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Author: Zarif Mazumder
- */
-
 /**
  * Stores a user's app data.
+ * @author Zarif Mazumder
  */
 public final class Profile implements Serializable {
     private static final String DEFAULT_NAME = "GUEST";
@@ -34,19 +31,32 @@ public final class Profile implements Serializable {
 
     // TODO: loadProfile
 
+    /**
+     * @author Zarif Mazumder
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return list of projects
+     */
     public List<Project> getProjects() {
         return projects;
     }
 
     /**
+     * @author Zarif Mazumder
      * @return Name of <code>Profile</code>
      */
     @Override
@@ -54,6 +64,11 @@ public final class Profile implements Serializable {
         return name;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @param o <code>Object</code> instance of <code>Profile</code>
+     * @return true if equal in name and email
+     */
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Profile profile)) {
@@ -62,15 +77,27 @@ public final class Profile implements Serializable {
         return (this.name.equals(profile.getName()) && this.email.equals(profile.getEmail()));
     }
 
+    /**
+     * Facilitates purview of <code>Profile</code>
+     * @author Zarif Mazumder
+     */
     public enum Privilege {
         GUEST,
         ADMIN
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return <code>Privilege</code>
+     */
     public Privilege getPrivilege() {
         return privilege;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @param privilege <code>Privilege</code>
+     */
     public void setPrivilege(Privilege privilege) {
         this.privilege = privilege;
     }

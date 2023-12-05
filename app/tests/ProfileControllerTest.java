@@ -5,16 +5,11 @@ import app.models.Profile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-/*
- * Authors: Harman Singh, Zarif Mazumder
+/**
+ * @author Harman Singh, Zarif Mazumder
  */
-
 public class ProfileControllerTest {
     private ProfileController testController;
 
