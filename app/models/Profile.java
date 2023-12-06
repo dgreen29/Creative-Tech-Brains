@@ -29,7 +29,20 @@ public final class Profile implements Serializable {
         projects.add(new Project());
     }
 
-    // TODO: loadProfile
+    public Profile(String name, String email, Privilege privilege) {
+        this.name = name.isEmpty() ? DEFAULT_NAME : name;
+        this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
+        this.privilege = privilege;
+        projects = new ArrayList<>();
+        projects.add(new Project());
+    }
+
+    public Profile(String name, String email, Privilege privilege, ArrayList<Project> projects) {
+        this.name = name.isEmpty() ? DEFAULT_NAME : name;
+        this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
+        this.privilege = privilege;
+        this.projects = projects;
+    }
 
     /**
      * @author Zarif Mazumder

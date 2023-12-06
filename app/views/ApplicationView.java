@@ -42,7 +42,15 @@ public class ApplicationView extends JFrame {
      */
     private JButton displayAboutButton() {
         JButton aboutBtn = new JButton(ABOUT_BUTTON_NAME);
-        aboutBtn.addActionListener(new AboutListener(this, aboutController, profileController));
+        aboutBtn.addActionListener(e -> {
+            try {
+                AboutScreen dialog = new AboutScreen(this, aboutController, profileController);
+                dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                dialog.setVisible(true);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
         return aboutBtn;
     }
 
@@ -52,7 +60,13 @@ public class ApplicationView extends JFrame {
      */
     private JButton displayProfileButton() {
         JButton prfBtn = new JButton(PROFILE_BUTTON_NAME);
-        prfBtn.addActionListener(new ProfileListener(profileController));
+        prfBtn.addActionListener(e -> {
+            try {
+                Main.setCurrentView(new ProfileScreen(appWidth, appHeight, profileController));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
         return prfBtn;
     }
 
@@ -70,52 +84,5 @@ public class ApplicationView extends JFrame {
      */
     public int getAppHeight() {
         return appHeight;
-    }
-
-    /**
-     * @author Harman Singh, Zarif Mazumder
-     */
-    private record AboutListener(ApplicationView applicationView, AboutController aboutController,
-                                 ProfileController profileController) implements ActionListener {
-
-        /**
-         * Opens <code>AboutScreen</code>.
-         * @author Harman Singh, Zarif Mazumder
-         * @param e <code>ActionEvent</code>
-         */
-        public void actionPerformed(ActionEvent e) {
-            try {
-                AboutScreen dialog = new AboutScreen(applicationView, aboutController, profileController);
-                dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                dialog.setVisible(true);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * @author Harman Singh
-     */
-    private class ProfileListener implements ActionListener {
-        private final ProfileController profileController;
-
-        public ProfileListener(
-                ProfileController profileController) {
-            this.profileController = profileController;
-        }
-
-        /**
-         * Opens <code>ProfileScreen</code>.
-         * @author Harman Singh
-         * @param e <code>ActionEvent</code>
-         */
-        public void actionPerformed(ActionEvent e) {
-            try {
-                Main.setCurrentView(new ProfileScreen(appWidth, appHeight, this.profileController));
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
     }
 }
