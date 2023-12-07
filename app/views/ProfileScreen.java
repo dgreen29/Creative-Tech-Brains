@@ -36,6 +36,7 @@ public class ProfileScreen extends JFrame {
     }
 
     /**
+     * Creates a panel to display user profile information
      * @author Harman Singh
      * @return user info <code>JPanel</code>
      */
@@ -47,6 +48,7 @@ public class ProfileScreen extends JFrame {
     }
 
     /**
+     * Creates a panel that contains the buttons on the profile page
      * @author Zarif Mazumder
      * @return button <code>JPanel</code>
      */
@@ -59,6 +61,7 @@ public class ProfileScreen extends JFrame {
     }
 
     /**
+     * Creates a button used to create a new user profile
      * @author Zarif Mazumder
      * @return create <code>JButton</code>
      */
@@ -100,6 +103,7 @@ public class ProfileScreen extends JFrame {
     }
 
     /**
+     * Creates a button that is used to import a profile
      * @author Harman Singh, Zarif Mazumder
      * @return import <code>JButton</code>
      */
@@ -123,6 +127,7 @@ public class ProfileScreen extends JFrame {
     }
 
     /**
+     * Creates a button that can export a user profile
      * @author Harman Singh
      * @return export <code>JButton</code>
      */
