@@ -30,13 +30,9 @@ public class ProfileScreen extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         userInfoPanel = displayUserInfo();
-
-        //Place info panel on the screen
-        this.add(userInfoPanel, BorderLayout.CENTER);
-
-        //Add I/O buttons to frame
-        this.add(displayButtonPanel(), BorderLayout.PAGE_END);
-
+        this.setJMenuBar(new NavigationBar());
+        this.add(userInfoPanel, BorderLayout.CENTER); // Place info panel on the screen
+        this.add(displayButtonPanel(), BorderLayout.PAGE_END); // Add I/O buttons to frame
     }
 
     /**

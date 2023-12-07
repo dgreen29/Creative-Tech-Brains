@@ -24,20 +24,9 @@ public final class AboutScreen extends JDialog {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         JPanel northPanel = new JPanel(new BorderLayout());
-        northPanel.add(displayProfile(), BorderLayout.WEST);
         northPanel.add(displayVersion(), BorderLayout.EAST);
         this.add(northPanel, BorderLayout.NORTH);
         this.add(displayTeam(), BorderLayout.CENTER);
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * @return profile <code>JLabel</code>
-     */
-    private JLabel displayProfile() {
-        JLabel heading = new JLabel();
-        heading.setText("This app is registered to: " + profileController.getName());
-        return heading;
     }
 
     /**

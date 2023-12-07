@@ -5,7 +5,6 @@ import java.io.*;
 /**
  * Handles profile import/export from given data.
  * @author Zarif Mazumder
- * TODO: Proper read/write to/from CSV
  */
 public final class ProfileIO {
 
