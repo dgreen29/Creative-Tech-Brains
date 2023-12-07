@@ -36,7 +36,7 @@ public final class AboutScreen extends JDialog {
      */
     private JLabel displayProfile() {
         JLabel heading = new JLabel();
-        heading.setText("This app is registered to: " + profileController.getName());
+        heading.setText("This app is registered to: " + Main.getName());
         return heading;
     }
 

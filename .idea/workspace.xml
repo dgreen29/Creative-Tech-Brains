@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP">
-      <change afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Properly catch stream close operations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/BudgetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/DetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/AppDesign.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +18,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -55,9 +47,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -67,39 +56,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "zarif",
-    "last_opened_file_path": "/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development & Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "coverage",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;zarif&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development &amp; Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;coverage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="app.tests" />
-    </key>
-  </component>
+}</component>
   <component name="RunManager" selected="Application.Run app">
     <configuration name="Run app" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
@@ -307,47 +285,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701153896009</updated>
     </task>
-    <task id="LOCAL-00013" summary="base layout for code deliverable">
+    <task id="LOCAL-00013" summary="Code Review Guide">
       <option name="closed" value="true" />
-      <created>1701643021592</created>
+      <created>1701227075713</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1701643021593</updated>
+      <updated>1701227075713</updated>
     </task>
-    <task id="LOCAL-00014" summary="base back-end layout for code deliverable">
+    <task id="LOCAL-00014" summary="Properly catch stream close operations">
       <option name="closed" value="true" />
-      <created>1701657842113</created>
+      <created>1701406675569</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1701657842113</updated>
+      <updated>1701406675569</updated>
     </task>
-    <task id="LOCAL-00015" summary="code review suggestions">
-      <option name="closed" value="true" />
-      <created>1701814703841</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1701814703841</updated>
-    </task>
-    <task id="LOCAL-00016" summary="code review suggestions">
-      <option name="closed" value="true" />
-      <created>1701818293861</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1701818293861</updated>
-    </task>
-    <task id="LOCAL-00017" summary="WIP">
-      <option name="closed" value="true" />
-      <created>1701839673040</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1701839673040</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,15 +328,14 @@
     <MESSAGE value="User interaction diagram for adding item to project budget" />
     <MESSAGE value="Design deliverable WIP" />
     <MESSAGE value="Deliverable 2 diagrams" />
+    <MESSAGE value="WIP" />
     <MESSAGE value="Iteration 2 Back-end" />
     <MESSAGE value="Iteration 2 Finished - No Tests/Javadocs" />
     <MESSAGE value="Iteration 2 - Javadocs WIP" />
     <MESSAGE value="Iteration 2" />
-    <MESSAGE value="base layout for code deliverable" />
-    <MESSAGE value="base back-end layout for code deliverable" />
-    <MESSAGE value="code review suggestions" />
-    <MESSAGE value="WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
+    <MESSAGE value="Code Review Guide" />
+    <MESSAGE value="Properly catch stream close operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Properly catch stream close operations" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
