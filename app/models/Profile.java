@@ -24,7 +24,7 @@ public final class Profile implements Serializable {
     public Profile(String name, String email) {
         this.name = name.isEmpty() ? DEFAULT_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
-        privilege = Privilege.GUEST;
+        privilege = Privilege.USER;
         projects = new ArrayList<>();
         projects.add(new Project());
     }
@@ -95,7 +95,7 @@ public final class Profile implements Serializable {
      * @author Zarif Mazumder
      */
     public enum Privilege {
-        GUEST,
+        USER,
         ADMIN
     }
 

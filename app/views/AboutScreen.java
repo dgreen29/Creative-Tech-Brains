@@ -1,5 +1,6 @@
 package app.views;
 
+import app.Main;
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
 import javax.swing.*;
@@ -14,13 +15,12 @@ public final class AboutScreen extends JDialog {
     private final AboutController aboutController;
     private final ProfileController profileController;
 
-    public AboutScreen(ApplicationView applicationView, AboutController aboutController,
-                       ProfileController profileController) {
-        this.aboutController = aboutController;
+    public AboutScreen(ProfileController profileController) {
+        aboutController = new AboutController();
         this.profileController = profileController;
         this.setTitle(TITLE_NAME);
         this.setModalityType(ModalityType.APPLICATION_MODAL);
-        this.setSize(applicationView.getAppWidth()+200, applicationView.getAppHeight() / 2);
+        this.setSize(Main.APP_WIDTH + 200, Main.APP_HEIGHT / 2);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         JPanel northPanel = new JPanel(new BorderLayout());

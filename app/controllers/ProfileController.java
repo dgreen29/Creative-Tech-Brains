@@ -93,6 +93,14 @@ public final class ProfileController {
     }
 
     /**
+     * @author Zarif Mazumder
+     * @return privilege
+     */
+    public String getPrivilege() {
+        return currentProfile.getPrivilege().toString();
+    }
+
+    /**
      * Sets valid current <code>Profile</code>.
      * @author Zarif Mazumder
      * @param profile given <code>Profile</code>

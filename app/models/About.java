@@ -7,7 +7,7 @@ package app.models;
 public final class About {
     private static final String[] TEAM = {"Darrell Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
             "Zarif Mazumder"};
-    private final static String VERSION = "1.1.0";
+    private final static String VERSION = "1.2.0";
 
     /**
      * @author Vindhriko Chandran Cain, Zarif Mazumder

@@ -1,5 +1,6 @@
 package app.views;
 
+import app.Main;
 import app.controllers.ProfileController;
 
 import javax.swing.*;
@@ -20,16 +21,12 @@ public class ProfileScreen extends JFrame {
     private static final String EXPORT_SUCCESS_MESSAGE = "Profile Export success";
     private static final String EXPORT_FAIL_MESSAGE = "Profile Export fail";
     private final ProfileController profileController;
-    private final int appWidth;
-    private final int appHeight;
     private JPanel userInfoPanel;
 
-    public ProfileScreen(int appWidth, int appHeight, ProfileController profileController) {
-        this.appHeight = appHeight;
-        this.appWidth = appWidth;
+    public ProfileScreen(ProfileController profileController) {
         this.profileController = profileController;
         this.setTitle(TITLE_NAME);
-        this.setSize(this.appWidth, this.appHeight);
+        this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         userInfoPanel = displayUserInfo();
@@ -73,7 +70,7 @@ public class ProfileScreen extends JFrame {
         JButton createBtn = new JButton(CREATE_BUTTON_NAME);
         createBtn.addActionListener(e -> {
             JDialog dialog = new JDialog();
-            dialog.setSize((int) (appWidth/1.5), (int) (appHeight/1.5));
+            dialog.setSize((int) (Main.APP_WIDTH/1.5), (int) (Main.APP_HEIGHT/1.5));
             dialog.setLayout(new FlowLayout());
             JTextField nameField = new JTextField("", 10);
             JTextField emailField = new JTextField("", 10);
@@ -120,7 +117,7 @@ public class ProfileScreen extends JFrame {
             updateUserInfoDisplay();
             JDialog dialog = new JDialog();
             dialog.add(new JLabel(importStatus));
-            dialog.setSize(appWidth/2, appHeight/2);
+            dialog.setSize(Main.APP_WIDTH/2, Main.APP_WIDTH/2);
             dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
@@ -139,7 +136,7 @@ public class ProfileScreen extends JFrame {
             String exportStatus = profileController.exportProfile() ? EXPORT_SUCCESS_MESSAGE : EXPORT_FAIL_MESSAGE;
             JDialog dialog = new JDialog();
             dialog.add(new JLabel(exportStatus));
-            dialog.setSize(appWidth/2, appHeight/2);
+            dialog.setSize(Main.APP_WIDTH/2, Main.APP_HEIGHT/2);
             dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
