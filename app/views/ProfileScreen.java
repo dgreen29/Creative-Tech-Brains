@@ -95,6 +95,7 @@ public class ProfileScreen extends JFrame {
         this.remove(userInfoPanel);
         userInfoPanel = displayUserInfo();
         this.add(userInfoPanel, BorderLayout.CENTER);
+        this.setJMenuBar(new NavigationBar());
         this.repaint();
         this.revalidate();
     }
