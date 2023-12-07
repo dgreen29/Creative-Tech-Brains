@@ -7,6 +7,7 @@ import java.io.*;
  * @author Zarif Mazumder
  */
 public final class ProfileIO {
+    private static final String FILE_EXTENSION = ".txt";
 
     /**
      * Writes <code>Profile</code> to a <code>File</code> of the <code>Profile</code>'s name.
@@ -15,7 +16,7 @@ public final class ProfileIO {
      * @throws IOException Writing file error
      */
     public static void exportProfile(Profile profile) throws IOException {
-        try (FileOutputStream fOut = new FileOutputStream(profile.getName(), true);
+        try (FileOutputStream fOut = new FileOutputStream(profile.getName() + FILE_EXTENSION, true);
              ObjectOutputStream oos = new ObjectOutputStream(fOut)) {
             oos.writeObject(profile);
         }

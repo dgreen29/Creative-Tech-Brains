@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Merge correction">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Implementation of Detail">
+      <change afterPath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/BudgetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/DetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileScreen.java" afterDir="false" />
     </list>
@@ -347,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701919877671</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Implementation of Detail">
+      <option name="closed" value="true" />
+      <created>1701923169685</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701923169685</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +400,8 @@
     <MESSAGE value="code review suggestions" />
     <MESSAGE value="WIP" />
     <MESSAGE value="Merge correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge correction" />
+    <MESSAGE value="Implementation of Detail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of Detail" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

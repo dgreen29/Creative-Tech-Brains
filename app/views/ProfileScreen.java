@@ -29,10 +29,22 @@ public class ProfileScreen extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        userInfoPanel = displayUserInfo();
         this.setJMenuBar(new NavigationBar());
-        this.add(userInfoPanel, BorderLayout.CENTER); // Place info panel on the screen
-        this.add(displayButtonPanel(), BorderLayout.PAGE_END); // Add I/O buttons to frame
+        this.add(displayContent(), BorderLayout.CENTER);
+        this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @return content
+     */
+    private JPanel displayContent() {
+        JPanel content = new JPanel();
+        content.setLayout(new BorderLayout());
+        userInfoPanel = displayUserInfo();
+        content.add(userInfoPanel, BorderLayout.CENTER); // Place info panel on the screen
+        content.add(displayButtonPanel(), BorderLayout.PAGE_END); // Add I/O buttons to frame
+        return content;
     }
 
     /**

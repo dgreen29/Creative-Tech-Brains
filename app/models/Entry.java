@@ -1,12 +1,13 @@
 package app.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Represents a spreadsheet entry.
  * @author Zarif Mazumder
  */
-public class Entry {
+public class Entry implements Serializable {
     private BigDecimal cost;
     private String name;
 
@@ -77,6 +78,6 @@ public class Entry {
         if (!(o instanceof Entry entry)) {
             return false;
         }
-        return (this.cost.equals(entry.getCost()) && this.name.equals(this.getName()));
+        return (this.cost.compareTo(entry.getCost()) == 0 && this.name.equals(this.getName()));
     }
 }

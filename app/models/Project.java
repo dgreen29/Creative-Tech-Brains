@@ -1,20 +1,23 @@
 package app.models;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  * Represents a project.
  * @author Zarif Mazumder
  */
-public class Project {
+public class Project implements Serializable {
     private final Budget budget;
     private final LinkedList<Item> checklist;
     private final Detail detail;
+    private String name;
 
     public Project() {
         detail = new Detail();
         checklist = new LinkedList<>();
         budget = new Budget();
+        name = "Project 1";
     }
 
     /**
@@ -66,5 +69,21 @@ public class Project {
      */
     public void removeItem(int index) {
         checklist.remove(index);
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }

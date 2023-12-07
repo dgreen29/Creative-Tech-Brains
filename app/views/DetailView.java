@@ -22,32 +22,29 @@ public class DetailView extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         this.setJMenuBar(new NavigationBar());
-        displayDocument();
+        this.add(displayContent(), BorderLayout.CENTER);
+        this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
     }
 
     /**
      * @author Zarif Mazumder
+     * @return content
      */
-    private void displayDocument() {
+    private JPanel displayContent() {
+        JPanel content = new JPanel();
+        content.setLayout(new BorderLayout());
         JTextArea doc = new JTextArea(detailController.getText());
         doc.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        this.add(doc, BorderLayout.CENTER);
-        displaySaveButton(doc);
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * @param document text field
-     */
-    private void displaySaveButton(JTextArea document) {
+        content.add(doc, BorderLayout.CENTER);
         JButton saveBtn = new JButton("Save");
         saveBtn.addActionListener(e -> {
-            detailController.setText(document.getText());
+            detailController.setText(doc.getText());
             saveBtn.setText("Saved!");
             Timer timer = new Timer(500, f -> saveBtn.setText("Save"));
             timer.setRepeats(false);
             timer.start();
         });
-        this.add(saveBtn, BorderLayout.SOUTH);
+        content.add(saveBtn, BorderLayout.SOUTH);
+        return content;
     }
 }
