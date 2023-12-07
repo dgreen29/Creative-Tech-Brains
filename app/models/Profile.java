@@ -13,7 +13,7 @@ public final class Profile implements Serializable {
     private static final String DEFAULT_EMAIL = "(no email address)";
     private final String name;
     private final String email;
-    private Privilege privilege;
+    private transient Privilege privilege;
     private final List<Project> projects;
 
     /**

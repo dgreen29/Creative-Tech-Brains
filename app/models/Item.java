@@ -1,10 +1,12 @@
 package app.models;
 
+import java.io.Serializable;
+
 /**
  * Represents a checklist item.
  * @author Zarif Mazumder
  */
-public class Item {
+public class Item implements Serializable {
     private String text;
     private boolean done;
 

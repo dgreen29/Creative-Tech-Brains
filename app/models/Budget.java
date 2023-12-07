@@ -1,5 +1,6 @@
 package app.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 
@@ -7,7 +8,7 @@ import java.util.LinkedList;
  * Represents a list of items and their costs.
  * @author Zarif Mazumder
  */
-public class Budget {
+public class Budget implements Serializable {
     private final LinkedList<Entry> entries;
 
     public Budget() {
