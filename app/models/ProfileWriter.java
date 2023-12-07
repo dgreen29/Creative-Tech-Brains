@@ -19,9 +19,17 @@ public final class ProfileWriter {
      * @throws IOException Writing file error
      */
     public static void exportProfile(Profile profile) throws IOException {
-        try (FileOutputStream fOut = new FileOutputStream(profile.getName(), true);
-             ObjectOutputStream oos = new ObjectOutputStream(fOut)) {
+        ObjectOutputStream oos = null;
+        FileOutputStream fout = null;
+        try {
+            fout = new FileOutputStream(profile.getName(), true);
+            oos = new ObjectOutputStream(fout);
             oos.writeObject(profile);
+        } finally {
+            if (oos != null) {
+                oos.close();
+                fout.close();
+            }
         }
     }
 }
