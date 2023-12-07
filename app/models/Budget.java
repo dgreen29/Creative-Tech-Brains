@@ -40,7 +40,7 @@ public class Budget implements Serializable {
      * @param cost in USD
      * @param name name
      */
-    public void setEntry(int index, double cost, String name) {
+    public void setEntry(int index, BigDecimal cost, String name) {
         Entry entry = entries.get(index);
         entry.setCost(cost);
         entry.setName(name);

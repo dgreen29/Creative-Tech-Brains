@@ -8,21 +8,21 @@ import java.math.BigDecimal;
  * @author Zarif Mazumder
  */
 public class Entry implements Serializable {
-    private double cost;
+    private BigDecimal cost;
     private String name;
 
     public Entry() {
-        this.cost = 0.0;
+        this.cost = BigDecimal.ZERO;
         this.name = "";
     }
 
     public Entry(String name) {
-        this.cost = 0;
+        this.cost = BigDecimal.ZERO;
         this.name = name;
 
     }
 
-    public Entry(double cost, String name) {
+    public Entry(BigDecimal cost, String name) {
         this.cost = cost;
         this.name = name;
     }
@@ -31,7 +31,7 @@ public class Entry implements Serializable {
      * @author Zarif Mazumder
      * @return cost
      */
-    public double getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
@@ -39,7 +39,7 @@ public class Entry implements Serializable {
      * @author Zarif Mazumder
      * @param cost in USD
      */
-    public void setCost(double cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 

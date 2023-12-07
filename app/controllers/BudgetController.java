@@ -22,7 +22,7 @@ public class BudgetController {
      * @param cost in USD
      * @param name name
      */
-    public void addEntry(double cost, String name) {
+    public void addEntry(BigDecimal cost, String name) {
         projectController.getProject().getBudget().addEntry(new Entry(cost, name));
     }
 
@@ -33,7 +33,7 @@ public class BudgetController {
      * @param cost in USD
      * @param name name
      */
-    public void setEntry(int index, double cost, String name) {
+    public void setEntry(int index, BigDecimal cost, String name) {
         projectController.getProject().getBudget().setEntry(index, cost, name);
     }
 

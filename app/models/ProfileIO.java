@@ -15,7 +15,7 @@ public final class ProfileIO {
      * @throws IOException Writing file error
      */
     public static void exportProfile(Profile profile) throws IOException {
-        try (FileOutputStream fOut = new FileOutputStream(profile.getName() + ".ser", true);
+        try (FileOutputStream fOut = new FileOutputStream(profile.getName(), true);
              ObjectOutputStream oos = new ObjectOutputStream(fOut)) {
             oos.writeObject(profile);
         }
