@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Merge correction" />
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Merge correction">
+      <change afterPath="$PROJECT_DIR$/github-action-maven-tutorial.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileScreen.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,31 +60,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;zarif&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development &amp; Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;coverage&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "zarif",
+    "last_opened_file_path": "/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development & Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -90,10 +95,10 @@
   </component>
   <component name="RunManager" selected="Application.Run app">
     <configuration name="Run app" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="Creative-Tech-Brains" />
+      <module name="github-action-maven-tutorial" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,6 +179,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Run app" />
+      <item itemvalue="JUnit.ProfileControllerTest" />
+      <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
+      <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
+      <item itemvalue="JUnit.FrameTest" />
+      <item itemvalue="JUnit.FrameTest.run" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
@@ -381,6 +394,17 @@
     <MESSAGE value="Merge correction" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge correction" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/ProfileController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/360_Assignment_1$app_tests_in_360_Assignment_1.ic" NAME="app.tests in 360 Assignment 1 Coverage Results" MODIFIED="1699584573201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.tests.*</FILTER>
@@ -388,9 +412,9 @@
       <FILTER>app.models.*</FILTER>
       <FILTER>app.views.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1699584306826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_Creative_Tech_Brains.ic" NAME="app.tests in Creative-Tech-Brains Coverage Results" MODIFIED="1701154437918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.tests.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1701154666826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
