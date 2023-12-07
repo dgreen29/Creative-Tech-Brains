@@ -1,10 +1,12 @@
 package app.models;
 
+import java.io.Serializable;
+
 /**
  * A <code>Project</code>'s description.
  * @author Zarif Mazumder
  */
-public class Detail {
+public class Detail implements Serializable {
     private String text;
 
     public Detail() {

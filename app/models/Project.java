@@ -1,12 +1,13 @@
 package app.models;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  * Represents a project.
  * @author Zarif Mazumder
  */
-public class Project {
+public class Project implements Serializable {
     private final Budget budget;
     private final LinkedList<Item> checklist;
     private final Detail detail;

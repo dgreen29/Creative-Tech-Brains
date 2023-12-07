@@ -1,27 +1,28 @@
 package app.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Represents a spreadsheet entry.
  * @author Zarif Mazumder
  */
-public class Entry {
-    private BigDecimal cost;
+public class Entry implements Serializable {
+    private double cost;
     private String name;
 
     public Entry() {
-        this.cost = BigDecimal.ZERO;
+        this.cost = 0.0;
         this.name = "";
     }
 
     public Entry(String name) {
-        this.cost = BigDecimal.ZERO;
+        this.cost = 0;
         this.name = name;
 
     }
 
-    public Entry(BigDecimal cost, String name) {
+    public Entry(double cost, String name) {
         this.cost = cost;
         this.name = name;
     }
@@ -30,7 +31,7 @@ public class Entry {
      * @author Zarif Mazumder
      * @return cost
      */
-    public BigDecimal getCost() {
+    public double getCost() {
         return cost;
     }
 
@@ -38,7 +39,7 @@ public class Entry {
      * @author Zarif Mazumder
      * @param cost in USD
      */
-    public void setCost(BigDecimal cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 
@@ -77,6 +78,6 @@ public class Entry {
         if (!(o instanceof Entry entry)) {
             return false;
         }
-        return (this.cost.equals(entry.getCost()) && this.name.equals(this.getName()));
+        return (this.cost == entry.getCost() && this.name.equals(this.getName()));
     }
 }
