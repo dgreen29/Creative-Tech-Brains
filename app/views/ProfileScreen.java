@@ -1,20 +1,18 @@
 package app.views;
 
+import app.Main;
 import app.controllers.ProfileController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
-/*
- * Author: Darrell Green, Jr., Harman Singh, Zarif Mazumder
- */
-
 /**
  * Displays user information with <code>Profile</code> manipulation functionality.
+ * @author Darrell Green, Jr., Harman Singh, Zarif Mazumder
  */
 public class ProfileScreen extends JFrame {
-    private static final String PROFILE_FRAME_NAME = "Profile";
+    private static final String TITLE_NAME = "Profile";
     private static final String CREATE_BUTTON_NAME = "Create Profile";
     private static final String IMPORT_BUTTON_NAME = "Import Profile";
     private static final String IMPORT_SUCCESS_MESSAGE = "Profile Import success";
@@ -23,16 +21,12 @@ public class ProfileScreen extends JFrame {
     private static final String EXPORT_SUCCESS_MESSAGE = "Profile Export success";
     private static final String EXPORT_FAIL_MESSAGE = "Profile Export fail";
     private final ProfileController profileController;
-    private final int appWidth;
-    private final int appHeight;
     private JPanel userInfoPanel;
 
-    public ProfileScreen(int appWidth, int appHeight, ProfileController profileController) {
-        this.appHeight = appHeight;
-        this.appWidth = appWidth;
+    public ProfileScreen(ProfileController profileController) {
         this.profileController = profileController;
-        this.setTitle(PROFILE_FRAME_NAME);
-        this.setSize(this.appWidth, this.appHeight);
+        this.setTitle(TITLE_NAME);
+        this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         userInfoPanel = displayUserInfo();
@@ -45,6 +39,10 @@ public class ProfileScreen extends JFrame {
 
     }
 
+    /**
+     * @author Harman Singh
+     * @return user info <code>JPanel</code>
+     */
     private JPanel displayUserInfo() {
         JPanel userInfoPanel = new JPanel(new GridLayout(1, 2));
         userInfoPanel.add(new JLabel("User: " + this.profileController.getName()));
@@ -52,6 +50,10 @@ public class ProfileScreen extends JFrame {
         return userInfoPanel;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return button <code>JPanel</code>
+     */
     private JPanel displayButtonPanel() {
         JPanel panel = new JPanel();
         panel.add(displayCreateButton());
@@ -60,11 +62,15 @@ public class ProfileScreen extends JFrame {
         return panel;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return create <code>JButton</code>
+     */
     private JButton displayCreateButton() {
         JButton createBtn = new JButton(CREATE_BUTTON_NAME);
         createBtn.addActionListener(e -> {
             JDialog dialog = new JDialog();
-            dialog.setSize((int) (appWidth/1.5), (int) (appHeight/1.5));
+            dialog.setSize((int) (Main.APP_WIDTH/1.5), (int) (Main.APP_HEIGHT/1.5));
             dialog.setLayout(new FlowLayout());
             JTextField nameField = new JTextField("", 10);
             JTextField emailField = new JTextField("", 10);
@@ -85,6 +91,10 @@ public class ProfileScreen extends JFrame {
         return createBtn;
     }
 
+    /**
+     * Updates the user info <code>JPanel</code>.
+     * @author Zarif Mazumder
+     */
     private void updateUserInfoDisplay() {
         this.remove(userInfoPanel);
         userInfoPanel = displayUserInfo();
@@ -93,6 +103,10 @@ public class ProfileScreen extends JFrame {
         this.revalidate();
     }
 
+    /**
+     * @author Harman Singh, Zarif Mazumder
+     * @return import <code>JButton</code>
+     */
     private JButton displayImportButton() {
         JButton importBtn = new JButton(IMPORT_BUTTON_NAME);
         importBtn.addActionListener(e -> {
@@ -103,7 +117,7 @@ public class ProfileScreen extends JFrame {
             updateUserInfoDisplay();
             JDialog dialog = new JDialog();
             dialog.add(new JLabel(importStatus));
-            dialog.setSize(appWidth/2, appHeight/2);
+            dialog.setSize(Main.APP_WIDTH/2, Main.APP_WIDTH/2);
             dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
@@ -112,13 +126,17 @@ public class ProfileScreen extends JFrame {
         return importBtn;
     }
 
+    /**
+     * @author Harman Singh
+     * @return export <code>JButton</code>
+     */
     private JButton displayExportButton() {
         JButton exportBtn = new JButton(EXPORT_BUTTON_NAME);
         exportBtn.addActionListener(e -> {
             String exportStatus = profileController.exportProfile() ? EXPORT_SUCCESS_MESSAGE : EXPORT_FAIL_MESSAGE;
             JDialog dialog = new JDialog();
             dialog.add(new JLabel(exportStatus));
-            dialog.setSize(appWidth/2, appHeight/2);
+            dialog.setSize(Main.APP_WIDTH/2, Main.APP_HEIGHT/2);
             dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);

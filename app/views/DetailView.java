@@ -1,6 +1,7 @@
 package app.views;
 
 import app.Main;
+import app.controllers.DetailController;
 import app.controllers.ProfileController;
 import app.controllers.ProjectController;
 
@@ -8,17 +9,19 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Displays the main menu of the application.
- * @author Darrell Green Jr., Harman Singh, Zarif Mazumder
+ * Displays the screen showing the details of a project.
+ * @author Zarif Mazumder
  */
-public class ApplicationView extends JFrame {
-    private static final String TITLE_NAME = "Projects";
+public class DetailView extends JFrame {
+    private static final String TITLE_NAME = "Detail";
+    private final DetailController detailController;
     private final ProfileController profileController;
     private final ProjectController projectController;
 
-    public ApplicationView(ProfileController profileController) {
+    public DetailView(ProfileController profileController) {
         this.profileController = profileController;
         projectController = profileController.getProjectController();
+        detailController = new DetailController(projectController);
         this.setTitle(TITLE_NAME);
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);

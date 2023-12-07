@@ -1,19 +1,20 @@
 package app.models;
 
 import java.io.Serializable;
-
-/*
- * Author: Zarif Mazumder
- */
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * The <code>Profile</code> class stores a user's app data.
+ * Stores a user's app data.
+ * @author Zarif Mazumder
  */
 public final class Profile implements Serializable {
-    private static final String DEFAULT_PROFILE_NAME = "GUEST";
+    private static final String DEFAULT_NAME = "GUEST";
     private static final String DEFAULT_EMAIL = "(no email address)";
-    private String name;
-    private String email;
+    private final String name;
+    private final String email;
+    private Privilege privilege;
+    private final List<Project> projects;
 
     /**
      * Creates a GUEST account if empty <code>String</code> parameters given.
@@ -21,19 +22,54 @@ public final class Profile implements Serializable {
      * @param email Email Address
      */
     public Profile(String name, String email) {
-        this.name = name.isEmpty() ? DEFAULT_PROFILE_NAME : name;
+        this.name = name.isEmpty() ? DEFAULT_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
+        privilege = Privilege.USER;
+        projects = new ArrayList<>();
+        projects.add(new Project());
     }
 
+    public Profile(String name, String email, Privilege privilege) {
+        this.name = name.isEmpty() ? DEFAULT_NAME : name;
+        this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
+        this.privilege = privilege;
+        projects = new ArrayList<>();
+        projects.add(new Project());
+    }
+
+    public Profile(String name, String email, Privilege privilege, ArrayList<Project> projects) {
+        this.name = name.isEmpty() ? DEFAULT_NAME : name;
+        this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
+        this.privilege = privilege;
+        this.projects = projects;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
 
     /**
+     * @author Zarif Mazumder
+     * @return list of projects
+     */
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    /**
+     * @author Zarif Mazumder
      * @return Name of <code>Profile</code>
      */
     @Override
@@ -41,11 +77,41 @@ public final class Profile implements Serializable {
         return name;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @param o <code>Object</code> instance of <code>Profile</code>
+     * @return true if equal in name and email
+     */
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Profile profile)) {
             return false;
         }
-        return (profile.name.equals(this.name) && profile.email.equals(this.email));
+        return (this.name.equals(profile.getName()) && this.email.equals(profile.getEmail()));
+    }
+
+    /**
+     * Facilitates purview of <code>Profile</code>
+     * @author Zarif Mazumder
+     */
+    public enum Privilege {
+        USER,
+        ADMIN
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @return <code>Privilege</code>
+     */
+    public Privilege getPrivilege() {
+        return privilege;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param privilege <code>Privilege</code>
+     */
+    public void setPrivilege(Privilege privilege) {
+        this.privilege = privilege;
     }
 }
