@@ -10,6 +10,9 @@ import java.util.LinkedList;
  * @author Zarif Mazumder
  */
 public class BudgetController {
+    /**
+     * Reference to the app's project controller.
+     */
     private final ProjectController projectController;
 
     public BudgetController(ProjectController projectController) {

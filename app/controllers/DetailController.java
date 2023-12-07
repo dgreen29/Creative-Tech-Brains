@@ -5,6 +5,9 @@ package app.controllers;
  * @author Zarif Mazumder
  */
 public class DetailController {
+    /**
+     * Reference to the app's project controller.
+     */
     private final ProjectController projectController;
 
     public DetailController(ProjectController projectController) {

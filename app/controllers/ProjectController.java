@@ -10,7 +10,13 @@ import java.util.LinkedList;
  * @author Zarif Mazumder
  */
 public class ProjectController {
+    /**
+     * Reference to the current project that the controller is manipulating.
+     */
     private Project currentProject;
+    /**
+     * Reference to the app's profile controller.
+     */
     private final ProfileController profileController;
 
     public ProjectController(ProfileController profileController) {

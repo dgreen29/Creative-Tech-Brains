@@ -1,13 +1,20 @@
 package app.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Represents a spreadsheet entry.
  * @author Zarif Mazumder
  */
-public class Entry {
+public class Entry implements Serializable {
+    /**
+     * Stores the cost of the budget entry.
+     */
     private BigDecimal cost;
+    /**
+     * Stores the name of the budget entry.
+     */
     private String name;
 
     public Entry() {
