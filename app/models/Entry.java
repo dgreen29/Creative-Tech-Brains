@@ -78,6 +78,6 @@ public class Entry implements Serializable {
         if (!(o instanceof Entry entry)) {
             return false;
         }
-        return (this.cost == entry.getCost() && this.name.equals(this.getName()));
+        return (this.cost.equals(entry.getCost()) && this.name.equals(this.getName()));
     }
 }
