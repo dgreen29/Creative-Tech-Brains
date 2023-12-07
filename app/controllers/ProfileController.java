@@ -63,7 +63,7 @@ public final class ProfileController {
             currentProfile = ProfileIO.importProfile(data);
             profiles.add(currentProfile);
             return true;
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             return false;
         }
     }
