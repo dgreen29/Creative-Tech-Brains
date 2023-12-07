@@ -7,7 +7,13 @@ import java.io.Serializable;
  * @author Zarif Mazumder
  */
 public class Item implements Serializable {
+    /**
+     * String storing the checklist item's text.
+     */
     private String text;
+    /**
+     * Boolean storing whether the checklist item is completed.
+     */
     private boolean done;
 
     public Item() {

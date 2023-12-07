@@ -8,8 +8,17 @@ import java.util.LinkedList;
  * @author Zarif Mazumder
  */
 public class Project implements Serializable {
+    /**
+     * Stores the budget object corresponding to this project.
+     */
     private final Budget budget;
+    /**
+     * Stores the checklist corresponding to this project.
+     */
     private final LinkedList<Item> checklist;
+    /**
+     * Stores the details object for this project.
+     */
     private final Detail detail;
 
     public Project() {

@@ -9,11 +9,29 @@ import java.util.List;
  * @author Zarif Mazumder
  */
 public final class Profile implements Serializable {
+    /**
+     * Constant String storing the name of the default profile.
+     */
     private static final String DEFAULT_NAME = "GUEST";
+    /**
+     * Constant String containing the email address for the default profile.
+     */
     private static final String DEFAULT_EMAIL = "(no email address)";
+    /**
+     * String storing the profile's name.
+     */
     private final String name;
+    /**
+     * String storing the profile's email address.
+     */
     private final String email;
+    /**
+     * Enum for storing the profile's privilege level.
+     */
     private transient Privilege privilege;
+    /**
+     * List of projects belonging to the profile.
+     */
     private final List<Project> projects;
 
     /**
