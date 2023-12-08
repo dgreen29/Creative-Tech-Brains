@@ -14,7 +14,17 @@ import java.util.regex.Pattern;
  * @author Zarif Mazumder
  */
 public final class ProfileController {
+    /**
+     * Stores the list of profiles.
+     */
+    private final List<Profile> profiles = new ArrayList<>();
+    /**
+     * The current active profile.
+     */
     private Profile currentProfile;
+    /**
+     * Reference to the app's project controller.
+     */
     private final ProjectController projectController;
 
     public ProfileController() {

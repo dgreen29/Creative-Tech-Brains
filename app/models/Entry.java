@@ -8,7 +8,13 @@ import java.math.BigDecimal;
  * @author Zarif Mazumder
  */
 public class Entry implements Serializable {
+    /**
+     * Stores the cost of the budget entry.
+     */
     private BigDecimal cost;
+    /**
+     * Stores the name of the budget entry.
+     */
     private String name;
 
     public Entry() {

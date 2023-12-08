@@ -9,6 +9,9 @@ import java.util.LinkedList;
  * @author Zarif Mazumder
  */
 public class Budget implements Serializable {
+    /**
+     * The linked list that stores all the budget entries in a project.
+     */
     private final LinkedList<Entry> entries;
 
     public Budget() {

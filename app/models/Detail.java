@@ -7,6 +7,9 @@ import java.io.Serializable;
  * @author Zarif Mazumder
  */
 public class Detail implements Serializable {
+    /**
+     * String containing the details of the project.
+     */
     private String text;
 
     public Detail() {
