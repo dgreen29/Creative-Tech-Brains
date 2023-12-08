@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Handles functionality and communication between Views and the <code>Profile</code> model.
@@ -39,7 +40,6 @@ public final class ProfileController {
      */
     public Profile createProfile(String name, String email) {
         Profile profile = new Profile(name, email);
-        profiles.add(profile);
         currentProfile = profile;
         return profile;
     }
@@ -70,7 +70,6 @@ public final class ProfileController {
         }
         try {
             currentProfile = ProfileIO.importProfile(data);
-            profiles.add(currentProfile);
             return true;
         } catch (IOException | ClassNotFoundException e) {
             return false;
@@ -110,27 +109,40 @@ public final class ProfileController {
     }
 
     /**
-     * Sets valid current <code>Profile</code>.
+     * Sets current <code>Profile</code>.
      * @author Zarif Mazumder
      * @param profile given <code>Profile</code>
      * @return did set
      */
     public boolean setCurrentProfile(Profile profile) {
-        if (!validateProfile(profile)) {
-            return false;
-        }
         currentProfile = profile;
         return true;
     }
 
+    public enum invalidCredentials {
+        NAME,
+        EMAIL,
+        IS_VALID
+    }
+
     /**
-     * Checks if given <code>Profile</code> is valid. The stored list must already contain it.
-     * @author Zarif Mazumder
-     * @param profile given <code>Profile</code>
-     * @return result of contains
+     * Checks if <code>Profile</code> can be created using given data
+     * @author Darrell Green, Jr., Zarif Mazumder
      */
-    public boolean validateProfile(Profile profile) {
-        return profiles.contains(profile);
+    public ArrayList<invalidCredentials> validateProfile(String name, String email) {
+        ArrayList<invalidCredentials> errors = new ArrayList<>();
+        if (name == null || name.isEmpty()) {
+            errors.add(invalidCredentials.NAME);
+        }
+        String regexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+        if (email == null || email.isEmpty() || !Pattern.matches(regexPattern, email)) {
+            /* https://www.rfc-editor.org/info/rfc5322 */
+            errors.add(invalidCredentials.EMAIL);
+        }
+        if (errors.isEmpty()) {
+            errors.add(invalidCredentials.IS_VALID);
+        }
+        return errors;
     }
 
     /**

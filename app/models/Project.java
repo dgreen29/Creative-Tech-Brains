@@ -20,11 +20,13 @@ public class Project implements Serializable {
      * Stores the details object for this project.
      */
     private final Detail detail;
+    private String name;
 
     public Project() {
         detail = new Detail();
         checklist = new LinkedList<>();
         budget = new Budget();
+        name = "Project 1";
     }
 
     /**
@@ -76,5 +78,21 @@ public class Project implements Serializable {
      */
     public void removeItem(int index) {
         checklist.remove(index);
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }

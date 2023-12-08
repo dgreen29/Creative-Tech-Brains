@@ -24,5 +24,6 @@ public class ApplicationView extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         this.setJMenuBar(new NavigationBar());
+        this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
     }
 }
