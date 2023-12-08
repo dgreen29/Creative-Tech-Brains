@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Implementation of Detail">
-      <change afterPath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProfileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/BudgetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/DetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,6 +178,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Run app" />
+      <item itemvalue="JUnit.ProfileControllerTest" />
+      <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
+      <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
+      <item itemvalue="JUnit.FrameTest" />
+      <item itemvalue="JUnit.FrameTest.run" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />

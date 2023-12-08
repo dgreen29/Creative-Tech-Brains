@@ -6,6 +6,7 @@ import app.controllers.ProfileController;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Displays user information with <code>Profile</code> manipulation functionality.
@@ -20,8 +21,10 @@ public class ProfileScreen extends JFrame {
     private static final String EXPORT_BUTTON_NAME = "Export Profile";
     private static final String EXPORT_SUCCESS_MESSAGE = "Profile Export success";
     private static final String EXPORT_FAIL_MESSAGE = "Profile Export fail";
+    private static final String INVALID_NAME_ERROR_MESSAGE = "Name is invalid.";
+    private static final String INVALID_EMAIL_ERROR_MESSAGE = "Email is invalid.";
     private final ProfileController profileController;
-    private JPanel userInfoPanel;
+    private JPanel content;
 
     public ProfileScreen(ProfileController profileController) {
         this.profileController = profileController;
@@ -41,9 +44,9 @@ public class ProfileScreen extends JFrame {
     private JPanel displayContent() {
         JPanel content = new JPanel();
         content.setLayout(new BorderLayout());
-        userInfoPanel = displayUserInfo();
-        content.add(userInfoPanel, BorderLayout.CENTER); // Place info panel on the screen
+        content.add(displayUserInfo(), BorderLayout.CENTER); // Place info panel on the screen
         content.add(displayButtonPanel(), BorderLayout.PAGE_END); // Add I/O buttons to frame
+        this.content = content;
         return content;
     }
 
@@ -79,21 +82,22 @@ public class ProfileScreen extends JFrame {
      */
     private JButton displayCreateButton() {
         JButton createBtn = new JButton(CREATE_BUTTON_NAME);
+        JLabel errorMsg = new JLabel("");
+        errorMsg.setForeground(Color.RED);
+        errorMsg.setVisible(false);
         createBtn.addActionListener(e -> {
             JDialog dialog = new JDialog();
-            dialog.setSize((int) (Main.APP_WIDTH/1.5), (int) (Main.APP_HEIGHT/1.5));
+            dialog.setSize((Main.APP_WIDTH/2), (int) (Main.APP_HEIGHT/1.5));
             dialog.setLayout(new FlowLayout());
-            JTextField nameField = new JTextField("", 10);
-            JTextField emailField = new JTextField("", 10);
+            JTextField nameField = new JTextField("", 15);
+            JTextField emailField = new JTextField("", 15);
+            dialog.add(new JLabel("Name:"));
             dialog.add(nameField);
+            dialog.add(new JLabel("Email:"));
             dialog.add(emailField);
-            JButton submitBtn = new JButton("Submit");
-            submitBtn.addActionListener(f -> {
-                profileController.createProfile(nameField.getText(), emailField.getText());
-                updateUserInfoDisplay();
-                dialog.dispose();
-            });
+            JButton submitBtn = generateSubmitBtn(nameField, emailField, dialog, errorMsg);
             dialog.add(submitBtn);
+            dialog.add(errorMsg);
             dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
@@ -102,14 +106,47 @@ public class ProfileScreen extends JFrame {
         return createBtn;
     }
 
+    private JButton generateSubmitBtn(JTextField nameField, JTextField emailField, JDialog dialog, JLabel errorMsg) {
+        JButton submitBtn = new JButton("Submit");
+        submitBtn.addActionListener(f -> {
+            ArrayList<ProfileController.invalidCredentials> validationMessages = profileController.validateProfile(
+                    nameField.getText(), emailField.getText());
+            if (validationMessages.get(0) == ProfileController.invalidCredentials.IS_VALID) {
+                profileController.createProfile(nameField.getText(), emailField.getText());
+                dialog.dispose();
+                updateContentDisplay();
+            } else {
+                displayValidationError(validationMessages, errorMsg, dialog);
+            }
+        });
+        return submitBtn;
+    }
+
+    private void displayValidationError(ArrayList<ProfileController.invalidCredentials> validationMessages,
+                                        JLabel errorMsg, JDialog dialog) {
+        StringBuilder sb = new StringBuilder();
+        for (ProfileController.invalidCredentials iC : validationMessages) {
+            if (iC == ProfileController.invalidCredentials.NAME) {
+                sb.append(INVALID_NAME_ERROR_MESSAGE).append(" ");
+            }
+            if (iC == ProfileController.invalidCredentials.EMAIL) {
+                sb.append(INVALID_EMAIL_ERROR_MESSAGE).append(" ");
+            }
+        }
+        errorMsg.setText(sb.toString());
+        errorMsg.setVisible(true);
+        dialog.repaint();
+        dialog.revalidate();
+    }
+
     /**
      * Updates the user info <code>JPanel</code>.
      * @author Zarif Mazumder
      */
-    private void updateUserInfoDisplay() {
-        this.remove(userInfoPanel);
-        userInfoPanel = displayUserInfo();
-        this.add(userInfoPanel, BorderLayout.CENTER);
+    private void updateContentDisplay() {
+        this.remove(content);
+        content = displayContent();
+        this.add(content, BorderLayout.CENTER);
         this.setJMenuBar(new NavigationBar());
         this.repaint();
         this.revalidate();
@@ -127,7 +164,7 @@ public class ProfileScreen extends JFrame {
             jfc.showOpenDialog(null);
             String importStatus = profileController.importProfile(jfc.getSelectedFile()) ?
                     IMPORT_SUCCESS_MESSAGE : IMPORT_FAIL_MESSAGE;
-            updateUserInfoDisplay();
+            updateContentDisplay();
             JDialog dialog = new JDialog();
             dialog.add(new JLabel(importStatus));
             dialog.setSize(Main.APP_WIDTH/2, Main.APP_WIDTH/2);
