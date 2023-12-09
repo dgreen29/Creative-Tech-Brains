@@ -108,6 +108,9 @@ public final class Profile implements Serializable {
         return (this.name.equals(profile.getName()) && this.email.equals(profile.getEmail()));
     }
 
+    public void addProject(Project newProject) {
+    }
+
     /**
      * Facilitates purview of <code>Profile</code>
      * @author Zarif Mazumder
