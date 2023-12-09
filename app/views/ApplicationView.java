@@ -7,10 +7,6 @@ import app.controllers.ProjectController;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Displays the main menu of the application.
- * @author Darrell Green Jr., Harman Singh, Zarif Mazumder
- */
 public class ApplicationView extends JFrame {
     private static final String TITLE_NAME = "Projects";
     private final ProfileController profileController;
@@ -23,7 +19,12 @@ public class ApplicationView extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setJMenuBar(new NavigationBar());
-        this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Don't forget to handle window closing
+        NavigationBar navigationBar = new NavigationBar();
+        navigationBar.setDoubleBuffered(true);
+        this.setJMenuBar(navigationBar);
+        ProjectSelectBar projectSelectBar = new ProjectSelectBar();
+        projectSelectBar.setDoubleBuffered(true);
+        this.add(projectSelectBar, BorderLayout.SOUTH);
     }
 }
