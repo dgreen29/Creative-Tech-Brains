@@ -1,14 +1,13 @@
 package app.controllers;
 
 import app.models.Profile;
-import app.models.ProfileIO;
+import app.models.ProfileFactory;
 import app.models.Project;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -20,7 +19,7 @@ public final class ProfileController {
     /**
      * Stores the list of profiles.
      */
-    private final List<Profile> profiles = new ArrayList<>();
+    private final ArrayList<Profile> profiles = new ArrayList<>();
     /**
      * The current active profile.
      */
@@ -36,6 +35,14 @@ public final class ProfileController {
     }
 
     /**
+     * @author Zarif Mazumder
+     * @return profiles
+     */
+    public ArrayList<Profile> getProfiles() {
+        return profiles;
+    }
+
+    /**
      * Creates an instance of a <code>Profile</code>
      * @param name - Name
      * @param email - Email Address
@@ -44,6 +51,7 @@ public final class ProfileController {
     public Profile createProfile(String name, String email) {
         Profile profile = new Profile(name, email);
         currentProfile = profile;
+        profiles.add(profile);
         return profile;
     }
 
@@ -58,7 +66,7 @@ public final class ProfileController {
      */
     public boolean exportProfile() {
         try {
-            ProfileIO.exportProfile(currentProfile);
+            ProfileFactory.exportProfile(currentProfile);
             return true;
         } catch (IOException e) {
             return false;
@@ -76,14 +84,15 @@ public final class ProfileController {
             try (Scanner rowScanner = new Scanner(line)) {
                 rowScanner.useDelimiter(",");
                 while (rowScanner.hasNext()) {
-                    System.out.print(scanner.next());
+                    System.out.print(scanner.next()); // TODO
                 }
             }
         }
+        scanner.close();
     }
 
     /**
-     * Takes <code>Proile</code> from given <code>File</code>.
+     * Takes <code>Profile</code> from given <code>File</code>.
      * @author Zarif Mazumder
      * @param data input <code>File</code>
      * @return true if <code>File</code> contains <code>Profile</code> object data.
@@ -93,9 +102,9 @@ public final class ProfileController {
             return false;
         }
         try {
-            currentProfile = ProfileIO.importProfile(data);
+            currentProfile = ProfileFactory.importProfile(data);
             return true;
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             return false;
         }
     }
@@ -186,7 +195,7 @@ public final class ProfileController {
      * Item[] = {Profile:Name, Text, Done}
      * Entry[] = {Profile:Name, Cost, Name, Quantity}
      */
-    public List<Boolean> generateDB() throws IOException {
-        return ProfileIO.generateDB();
+    public void generateDB() throws IOException {
+        ProfileFactory.generateDB();
     }
 }

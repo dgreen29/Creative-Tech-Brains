@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProfileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/DetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/AppDesign.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +59,7 @@
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="3fe3cd21-87fa-48e7-987d-66efd32327aa" />
-        <option name="url" value="https://github.com/dgreen29/Creative-Tech-Brains" />
+        <option name="url" value="git@github.com:dgreen29/Creative-Tech-Brains.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -211,6 +223,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-7a0a4d15" />
+        <option value="jdk-20.0.2-corretto-20.0.2.1-8336523bb0d9-dc1606b7" />
         <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-abbd5a8d" />
       </set>
     </attachedChunks>
@@ -415,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702182166598</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1702183396053</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1702183396053</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

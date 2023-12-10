@@ -1,13 +1,13 @@
 package app.models;
 
-import java.io.Serializable;
+import java.io.IOException;
 import java.util.LinkedList;
 
 /**
  * Represents a project.
  * @author Zarif Mazumder
  */
-public class Project implements Serializable {
+public class Project {
     /**
      * Stores the budget object corresponding to this project.
      */
@@ -42,7 +42,7 @@ public class Project implements Serializable {
      * @return checklist
      */
     public LinkedList<Item> getChecklist() {
-        return new LinkedList<>(checklist);
+        return checklist;
     }
 
     /**

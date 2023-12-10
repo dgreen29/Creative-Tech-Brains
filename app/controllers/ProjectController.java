@@ -1,8 +1,10 @@
 package app.controllers;
 
 import app.models.Item;
+import app.models.ProfileFactory;
 import app.models.Project;
 
+import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -64,7 +66,7 @@ public class ProjectController {
      * @param index location of <code>Entry</code>
      * @param text text
      */
-    public void setItem(int index, String text) {
+    public void setItem(int index, String text) throws IOException {
         currentProject.setItem(index, text);
     }
 

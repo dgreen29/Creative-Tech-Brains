@@ -1,5 +1,7 @@
 package app.controllers;
 
+import app.models.Project;
+
 /**
  * Handles functionality and communication between <code>DetailView</code> and the <code>Detail</code> model.
  * @author Zarif Mazumder
@@ -27,6 +29,7 @@ public class DetailController {
      * @param text text
      */
     public void setText(String text) {
-        projectController.getProject().getDetail().setText(text);
+        Project project = projectController.getProject();
+        project.getDetail().setText(project.getName(), text);
     }
 }

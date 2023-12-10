@@ -1,12 +1,12 @@
 package app.models;
 
-import java.io.Serializable;
+import java.io.IOException;
 
 /**
  * A <code>Project</code>'s description.
  * @author Zarif Mazumder
  */
-public class Detail implements Serializable {
+public class Detail {
     /**
      * String containing the details of the project.
      */
@@ -30,9 +30,10 @@ public class Detail implements Serializable {
 
     /**
      * @author Zarif Mazumder
+     * @param name <code>Project</code> name
      * @param text text
      */
-    public void setText(String text) {
+    public void setText(String name, String text) {
         this.text = text;
     }
 }

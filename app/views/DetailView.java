@@ -38,9 +38,12 @@ public class DetailView extends JFrame {
         content.add(doc, BorderLayout.CENTER);
         JButton saveBtn = new JButton("Save");
         saveBtn.addActionListener(e -> {
-            detailController.setText(doc.getText());
             saveBtn.setText("Saved!");
-            Timer timer = new Timer(500, f -> saveBtn.setText("Save"));
+            saveBtn.setForeground(Color.GREEN);
+            Timer timer = new Timer(500, f -> {
+                saveBtn.setForeground(Color.BLACK);
+                saveBtn.setText("Save");
+            });
             timer.setRepeats(false);
             timer.start();
         });

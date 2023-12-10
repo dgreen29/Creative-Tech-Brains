@@ -1,6 +1,5 @@
 package app.models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +7,11 @@ import java.util.List;
  * Stores a user's app data.
  * @author Zarif Mazumder
  */
-public final class Profile implements Serializable {
+public final class Profile {
     /**
      * Constant String storing the name of the default profile.
      */
-    private static final String DEFAULT_NAME = "GUEST";
+    public static final String DEFAULT_NAME = "GUEST";
     /**
      * Constant String containing the email address for the default profile.
      */
@@ -29,7 +28,7 @@ public final class Profile implements Serializable {
     /**
      * Enum for storing the profile's privilege level.
      */
-    private transient Privilege privilege;
+    private Privilege privilege;
     /**
      * List of projects belonging to the profile.
      */

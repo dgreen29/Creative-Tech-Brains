@@ -1,7 +1,9 @@
 package app;
 
 import app.controllers.ProfileController;
+import app.models.ProfileFactory;
 import app.views.ApplicationView;
+
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -51,11 +53,9 @@ public class Main {
      */
     private static void createDatabase() {
         try {
-            if (profileController.generateDB().contains(false)) {
-                throw new RuntimeException("Could not create database.");
-            }
+            profileController.generateDB();
         } catch (IOException e) {
-            throw new RuntimeException("Could not create database.");
+            throw new RuntimeException(e);
         }
     }
 
@@ -68,7 +68,17 @@ public class Main {
             currentView.dispose();
         }
         currentView = view;
-        currentView.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        currentView.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                try {
+                    ProfileFactory.writeToDB(profileController);
+                    System.exit(0);
+                } catch (IOException e) {
+                    throw new RuntimeException("Error writing to database.");
+                }
+            }
+        });
         currentView.setVisible(true);
     }
 }
