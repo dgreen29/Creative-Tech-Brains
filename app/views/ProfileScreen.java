@@ -77,7 +77,7 @@ public class ProfileScreen extends JFrame {
 
     /**
      * Creates a button used to create a new user profile
-     * @author Zarif Mazumder
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
      * @return create <code>JButton</code>
      */
     private JButton displayCreateButton() {
