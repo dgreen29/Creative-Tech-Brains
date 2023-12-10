@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -187,17 +186,7 @@ public final class ProfileController {
      * Item[] = {Profile:Name, Text, Done}
      * Entry[] = {Profile:Name, Cost, Name, Quantity}
      */
-    public List<Boolean> generateDB() {
-        try {
-            File profileDB = new File("profile.csv");
-            File projectDB = new File("project.csv");
-            File detailDB = new File("detail.csv");
-            File itemDB = new File("item.csv");
-            File entryDB = new File("entry.csv");
-            return Arrays.asList(profileDB.createNewFile(), projectDB.createNewFile(), detailDB.createNewFile(),
-                    itemDB.createNewFile(), entryDB.createNewFile());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public List<Boolean> generateDB() throws IOException {
+        return ProfileIO.generateDB();
     }
 }

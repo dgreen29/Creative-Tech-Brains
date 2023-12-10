@@ -1,6 +1,8 @@
 package app.models;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Handles profile import/export from given data.
@@ -8,6 +10,16 @@ import java.io.*;
  */
 public final class ProfileIO {
     private static final String FILE_EXTENSION = ".txt";
+
+    public static List<Boolean> generateDB() throws IOException {
+        File profileDB = new File("profile.csv");
+        File projectDB = new File("project.csv");
+        File detailDB = new File("detail.csv");
+        File itemDB = new File("item.csv");
+        File entryDB = new File("entry.csv");
+        return Arrays.asList(profileDB.createNewFile(), projectDB.createNewFile(), detailDB.createNewFile(),
+                itemDB.createNewFile(), entryDB.createNewFile());
+    }
 
     /**
      * Writes <code>Profile</code> to a <code>File</code> of the <code>Profile</code>'s name.

@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 /*
  * TCSS 360 B w/ Mr. Jeffrey Weiss
@@ -52,7 +50,11 @@ public class Main {
      * @author Zarif Mazumder
      */
     private static void createDatabase() {
-        if (profileController.generateDB().contains(false)) {
+        try {
+            if (profileController.generateDB().contains(false)) {
+                throw new RuntimeException("Could not create database.");
+            }
+        } catch (IOException e) {
             throw new RuntimeException("Could not create database.");
         }
     }
