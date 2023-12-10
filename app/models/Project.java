@@ -1,6 +1,5 @@
 package app.models;
 
-import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -27,6 +26,13 @@ public class Project {
         checklist = new LinkedList<>();
         budget = new Budget();
         this.name = name;
+    }
+
+    public Project(ProjectBuilder projectBuilder) {
+        this.detail = projectBuilder.detail;
+        this.checklist = projectBuilder.checklist;
+        this.budget = projectBuilder.budget;
+        this.name = projectBuilder.name;
     }
 
     /**
@@ -94,5 +100,32 @@ public class Project {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static class ProjectBuilder {
+        private final String name;
+        private Detail detail = new Detail();
+        private LinkedList<Item> checklist = new LinkedList<>();
+        private Budget budget = new Budget();
+
+        public ProjectBuilder(String name) {
+            this.name = name;
+        }
+
+        public void setDetail(Detail detail) {
+            this.detail = detail;
+        }
+
+        public void setChecklist(LinkedList<Item> checklist) {
+            this.checklist = checklist;
+        }
+
+        public void setBudget(Budget budget) {
+            this.budget = budget;
+        }
+
+        public Project build() {
+            return new Project(this);
+        }
     }
 }

@@ -19,7 +19,7 @@ public final class ProfileController {
     /**
      * Stores the list of profiles.
      */
-    private final ArrayList<Profile> profiles = new ArrayList<>();
+    private ArrayList<Profile> profiles = new ArrayList<>();
     /**
      * The current active profile.
      */
@@ -78,17 +78,7 @@ public final class ProfileController {
      * @param db csv
      */
     public void loadProfiles(File db) throws FileNotFoundException {
-        Scanner scanner = new Scanner(db);
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            try (Scanner rowScanner = new Scanner(line)) {
-                rowScanner.useDelimiter(",");
-                while (rowScanner.hasNext()) {
-                    System.out.print(scanner.next()); // TODO
-                }
-            }
-        }
-        scanner.close();
+        profiles = ProfileFactory.readFromDB(db);
     }
 
     /**
@@ -103,6 +93,7 @@ public final class ProfileController {
         }
         try {
             currentProfile = ProfileFactory.importProfile(data);
+            profiles.add(currentProfile);
             return true;
         } catch (IOException e) {
             return false;
@@ -191,9 +182,9 @@ public final class ProfileController {
      * Database Design:
      * Profile[] = {Name, Email, Privilege}
      * Project[] = {Profile:Name, 1:Name, n:Name}
-     * Detail[] = {Profile:Name, Text}
-     * Item[] = {Profile:Name, Text, Done}
-     * Entry[] = {Profile:Name, Cost, Name, Quantity}
+     * Detail[] = {Project:Name, Text}
+     * Item[] = {Project:Name, Text, Done}
+     * Entry[] = {Project:Name, Cost, Name, Quantity}
      */
     public void generateDB() throws IOException {
         ProfileFactory.generateDB();

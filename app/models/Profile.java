@@ -16,7 +16,7 @@ public final class Profile {
      * Constant String containing the email address for the default profile.
      */
     private static final String DEFAULT_EMAIL = "(no email address)";
-    private static final String DEFAULT_PROJECT_NAME = "Project 1";
+    public static final String DEFAULT_PROJECT_NAME = "Project 1";
     /**
      * String storing the profile's name.
      */

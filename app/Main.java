@@ -37,13 +37,9 @@ public class Main {
 
     private static void loadDatabase() {
         File profileDB = new File("profile.csv");
-        if (profileDB.exists()) {
-            try {
-                profileController.loadProfiles(profileDB);
-            } catch (FileNotFoundException e) {
-                createDatabase();
-            }
-        } else {
+        try {
+            profileController.loadProfiles(profileDB);
+        } catch (FileNotFoundException e) {
             createDatabase();
         }
     }
