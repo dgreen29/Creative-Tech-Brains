@@ -1,51 +1,49 @@
 package app.views;
 
 import app.Main;
+import app.controllers.ProfileController;
 import app.models.Profile;
 import app.models.Project;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 /**
  * Displays all projects that can be switched to.
- * @author Zarif Mazumder
+ * @author Darrell Green, Jr., Zarif Mazumder
  */
 public final class ProjectSelectBar extends JPanel {
-    public ProjectSelectBar() {
+    private final ProfileController profileController;
+
+    public ProjectSelectBar(ProfileController profileController) {
+        setDoubleBuffered(true);
+        this.profileController = profileController;
         this.setBorder(new BevelBorder(BevelBorder.LOWERED));
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         displayProjects(Main.getProfileController().getProfile());
     }
+
+    /**
+     * @author Darrell Green, Jr., Zarif Mazumder
+     * @param profile current profile
+     */
     private void displayProjects(Profile profile) {
         // Create "+" button before adding project buttons
         JButton addButton = new JButton("+");
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Open dialog to enter the new project name
-                String newProjectName = JOptionPane.showInputDialog("Enter the name of the new Project");
+        addButton.addActionListener(e -> {
+            // Open dialog to enter the new project name
+            String newProjectName = JOptionPane.showInputDialog("Enter the name of the new Project").trim();
 
-                // Create new Project and add it to the profile
-                if (newProjectName != null && !newProjectName.trim().isEmpty()) {
-                    Project newProject = new Project();
-                    newProject.setName(newProjectName);
-                    profile.addProject(newProject);
+            // Create new Project and add it to the profile
+            if (newProjectName.isEmpty()) {
+                profileController.createProject(newProjectName);
 
-                    // Add a new button with the name of the new Project at the left side
-                    JButton newProjectButton = new JButton(newProject.getName());
-                    ProjectSelectBar.this.add(newProjectButton, ProjectSelectBar.this.getComponentCount() - 1);
-
-                    // redraw the select bar to show the newly added project
-                    ProjectSelectBar.this.revalidate();
-                    ProjectSelectBar.this.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Project name cannot be empty. Please try again.");
-                }
-
+                // redraw the select bar to show the newly added project
+                displayProjects(profile);
+                this.revalidate();
+                this.repaint();
+            } else {
+                JOptionPane.showMessageDialog(null, "Project name cannot be empty. Please try again.");
             }
         });
 

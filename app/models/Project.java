@@ -22,11 +22,11 @@ public class Project implements Serializable {
     private final Detail detail;
     private String name;
 
-    public Project() {
+    public Project(String name) {
         detail = new Detail();
         checklist = new LinkedList<>();
         budget = new Budget();
-        name = "Project 1";
+        this.name = name;
     }
 
     /**

@@ -81,6 +81,6 @@ public class BudgetView extends JFrame {
             listModel.addElement(newItem);
         });
         this.add(addItemButton, BorderLayout.SOUTH);
-        this.add(new ProjectSelectBar(), BorderLayout.PAGE_END);
+        this.add(new ProjectSelectBar(profileController), BorderLayout.PAGE_END);
     }
 }

@@ -23,12 +23,9 @@ public class ApplicationView extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Don't forget to handle window closing
         NavigationBar navigationBar = new NavigationBar();
-        navigationBar.setDoubleBuffered(true);
         this.setJMenuBar(navigationBar);
-        ProjectSelectBar projectSelectBar = new ProjectSelectBar();
-        projectSelectBar.setDoubleBuffered(true);
+        ProjectSelectBar projectSelectBar = new ProjectSelectBar(profileController);
         this.add(projectSelectBar, BorderLayout.SOUTH);
     }
 }

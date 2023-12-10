@@ -23,7 +23,7 @@ public class DetailView extends JFrame {
         this.setLayout(new BorderLayout());
         this.setJMenuBar(new NavigationBar());
         this.add(displayContent(), BorderLayout.CENTER);
-        this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
+        this.add(new ProjectSelectBar(profileController), BorderLayout.SOUTH);
     }
 
     /**

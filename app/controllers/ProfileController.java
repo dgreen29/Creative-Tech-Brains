@@ -2,6 +2,7 @@ package app.controllers;
 
 import app.models.Profile;
 import app.models.ProfileIO;
+import app.models.Project;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -46,6 +47,10 @@ public final class ProfileController {
         return profile;
     }
 
+    public void createProject(String name) {
+        currentProfile.addProject(new Project(name));
+    }
+
     /**
      * Writes current profile to a file.
      * @author Zarif Mazumder
@@ -82,17 +87,17 @@ public final class ProfileController {
      * @param data input <code>File</code>
      * @return true if <code>File</code> contains <code>Profile</code> object data.
      */
-//    public boolean importProfile(File data) {
-//        if (data == null) {
-//            return false;
-//        }
-//        try {
-//            currentProfile = ProfileIO.importProfile(data);
-//            return true;
-//        } catch (IOException | ClassNotFoundException e) {
-//            return false;
-//        }
-//    }
+    public boolean importProfile(File data) {
+        if (data == null) {
+            return false;
+        }
+        try {
+            currentProfile = ProfileIO.importProfile(data);
+            return true;
+        } catch (IOException | ClassNotFoundException e) {
+            return false;
+        }
+    }
 
     /**
      * @author Zarif Mazumder

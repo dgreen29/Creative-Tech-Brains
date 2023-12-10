@@ -14,6 +14,7 @@ public final class NavigationBar extends JMenuBar {
      * Default constructor that creates a bar with the default buttons.
      */
     public NavigationBar() {
+        setDoubleBuffered(true);
         ProfileController pc = Main.getProfileController();
         JMenuItem budgetBtn = new JMenuItem("Budget");
         JMenuItem detailBtn = new JMenuItem("Detail");

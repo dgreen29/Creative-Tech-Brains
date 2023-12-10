@@ -17,6 +17,7 @@ public final class Profile implements Serializable {
      * Constant String containing the email address for the default profile.
      */
     private static final String DEFAULT_EMAIL = "(no email address)";
+    private static final String DEFAULT_PROJECT_NAME = "Project 1";
     /**
      * String storing the profile's name.
      */
@@ -44,7 +45,7 @@ public final class Profile implements Serializable {
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
         privilege = Privilege.USER;
         projects = new ArrayList<>();
-        projects.add(new Project());
+        projects.add(new Project(DEFAULT_PROJECT_NAME));
     }
 
     public Profile(String name, String email, Privilege privilege) {
@@ -52,7 +53,7 @@ public final class Profile implements Serializable {
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
         this.privilege = privilege;
         projects = new ArrayList<>();
-        projects.add(new Project());
+        projects.add(new Project(DEFAULT_PROJECT_NAME));
     }
 
     public Profile(String name, String email, Privilege privilege, ArrayList<Project> projects) {
@@ -108,7 +109,8 @@ public final class Profile implements Serializable {
         return (this.name.equals(profile.getName()) && this.email.equals(profile.getEmail()));
     }
 
-    public void addProject(Project newProject) {
+    public void addProject(Project project) {
+        projects.add(project);
     }
 
     /**
