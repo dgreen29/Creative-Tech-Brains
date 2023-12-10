@@ -8,13 +8,26 @@ import app.controllers.ProjectController;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- * Displays the screen showing the <code>Budget</code> of a project.
- */
+class TooltipJListCellRenderer extends DefaultListCellRenderer {
+    private final ArrayList<String> tooltips;
+
+    public TooltipJListCellRenderer(ArrayList<String> tooltips){
+        this.tooltips = tooltips;
+    }
+
+    @Override
+    public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+        JComponent component = (JComponent) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+        String tooltip = tooltips.size() > index ? tooltips.get(index) : null;
+        component.setToolTipText(tooltip);
+        return component;
+    }
+}
+
 public class BudgetView extends JFrame {
     private static final String TITLE_NAME = "Budget";
     private final BudgetController budgetController;
@@ -25,8 +38,8 @@ public class BudgetView extends JFrame {
     private JTextField costField;
     private JTextField quantityField;
     private JButton uploadButton;
-    private DefaultListModel<String> listModel;
-    private JList<String> itemList;
+    private DefaultListModel<JLabel> listModel;
+    private JList<JLabel> itemList;
 
     public BudgetView(ProfileController profileController) {
         this.profileController = profileController;
@@ -60,9 +73,9 @@ public class BudgetView extends JFrame {
                     "JPG & GIF Images", "jpg", "gif");
             chooser.setFileFilter(filter);
             int returnVal = chooser.showOpenDialog(null);
-            if(returnVal == JFileChooser.APPROVE_OPTION) {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = chooser.getSelectedFile();
-                // handle the selected image file
+                // handle the selected image file...
             }
         });
         newItemPanel.add(uploadButton);
@@ -76,10 +89,35 @@ public class BudgetView extends JFrame {
 
         JButton addItemButton = new JButton("Add Item");
         addItemButton.addActionListener(e -> {
-            String newItem = "Name: " + nameField.getText() + ", Cost: " + costField.getText() + ", QTY: " + quantityField.getText();
-            listModel.addElement(newItem);
+            String itemName = nameField.getText();
+
+            try {
+                double itemCost = Double.parseDouble(costField.getText());
+                int itemQuantity = Integer.parseInt(quantityField.getText());
+
+                if (itemName != null && !itemName.trim().isEmpty()) {
+                    budgetController.addItem(itemName, itemCost, itemQuantity);
+
+                    String tooltip = "Name: " + itemName + ", Cost: " + String.format("%.2f", itemCost) + ", QTY: " + itemQuantity;
+
+                    JLabel itemLabel = new JLabel(itemName);
+                    itemLabel.setToolTipText(tooltip);
+
+                    listModel.addElement(itemLabel);
+
+                    SwingUtilities.invokeLater(() -> {
+                        itemList.revalidate();
+                        itemList.repaint();
+                    });
+                } else {
+                    JOptionPane.showMessageDialog(null, "Item name cannot be empty. Please try again.");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Cost and Quantity should be valid numbers. Please enter again.");
+            }
         });
         this.add(addItemButton, BorderLayout.SOUTH);
         this.add(new ProjectSelectBar(), BorderLayout.PAGE_END);
+        newItemPanel.add(addItemButton);
     }
 }

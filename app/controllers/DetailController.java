@@ -1,5 +1,8 @@
 package app.controllers;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Handles functionality and communication between
  * <code>DetailView</code> and the <code>Detail</code> model.
@@ -18,6 +21,18 @@ public class DetailController {
         this.projectController = projectController;
     }
 
+    public static List<String> getLogsTitles() {
+        return Arrays.asList(new String[0]);
+    }
+
+    public static void selectLog(String selectedLogTitle) {
+
+    }
+
+    public static String getCurrentLogTitle() {
+        return null;
+    }
+
     /**
      * Returns the text of the detail.
      * @author Zarif Mazumder
@@ -34,5 +49,14 @@ public class DetailController {
      */
     public void setText(String text) {
         projectController.getProject().getDetail().setText(text);
+    }
+
+    public String[] getLogTitles() {
+
+        return new String[0];
+    }
+
+    public void setLogTitle(String text) {
+
     }
 }

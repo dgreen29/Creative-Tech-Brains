@@ -63,4 +63,7 @@ public class BudgetController {
     public LinkedList<Entry> getEntries() {
         return projectController.getProject().getBudget().getEntries();
     }
+
+    public void addItem(String itemName, double itemCost, int itemQuantity) {
+    }
 }

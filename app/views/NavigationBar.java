@@ -18,7 +18,7 @@ public final class NavigationBar extends JMenuBar {
         JMenuItem budgetBtn = new JMenuItem("Budget");
         JMenuItem detailBtn = new JMenuItem("Detail");
         JMenuItem projectsBtn = new JMenuItem("Projects");
-        JMenuItem profileBtn = new JMenuItem(pc.getPrivilege() + " " + pc.getName());
+        JMenuItem profileBtn = new JMenuItem(pc.getName());
         JMenuItem aboutBtn = new JMenuItem("About");
         budgetBtn.addActionListener(e -> Main.setCurrentView(new BudgetView(pc)));
         detailBtn.addActionListener(e -> Main.setCurrentView(new DetailView(pc)));
