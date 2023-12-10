@@ -4,9 +4,11 @@ import app.models.Profile;
 import app.models.ProfileIO;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -58,23 +60,39 @@ public final class ProfileController {
         }
     }
 
+    public void loadProfiles(File db) {
+        try (Scanner scanner = new Scanner(db)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                try (Scanner rowScanner = new Scanner(line)) {
+                    rowScanner.useDelimiter(",");
+                    while (rowScanner.hasNext()) {
+                        System.out.print(scanner.next());
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Takes <code>Proile</code> from given <code>File</code>.
      * @author Zarif Mazumder
      * @param data input <code>File</code>
      * @return true if <code>File</code> contains <code>Profile</code> object data.
      */
-    public boolean importProfile(File data) {
-        if (data == null) {
-            return false;
-        }
-        try {
-            currentProfile = ProfileIO.importProfile(data);
-            return true;
-        } catch (IOException | ClassNotFoundException e) {
-            return false;
-        }
-    }
+//    public boolean importProfile(File data) {
+//        if (data == null) {
+//            return false;
+//        }
+//        try {
+//            currentProfile = ProfileIO.importProfile(data);
+//            return true;
+//        } catch (IOException | ClassNotFoundException e) {
+//            return false;
+//        }
+//    }
 
     /**
      * @author Zarif Mazumder
@@ -151,5 +169,9 @@ public final class ProfileController {
      */
     public ProjectController getProjectController() {
         return projectController;
+    }
+
+    public void generateDB() {
+
     }
 }

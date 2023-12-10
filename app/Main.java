@@ -3,6 +3,7 @@ package app;
 import app.controllers.ProfileController;
 import app.views.ApplicationView;
 import javax.swing.*;
+import java.io.File;
 
 /*
  * TCSS 360 B w/ Mr. Jeffrey Weiss
@@ -26,6 +27,12 @@ public class Main {
     public static void main(String[] args) {
         profileController = new ProfileController();
         setCurrentView(new ApplicationView(profileController));
+        File db = new File("database.csv");
+        if (db.exists()) {
+            profileController.loadProfiles(db);
+        } else {
+            profileController.generateDB();
+        }
     }
 
     public static ProfileController getProfileController() {
