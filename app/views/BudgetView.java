@@ -35,7 +35,7 @@ public class BudgetView extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setJMenuBar(new NavigationBar());
+        this.setJMenuBar(new NavigationBar(profileController));
 
         JPanel newItemPanel = new JPanel(new GridLayout(0, 2));
 

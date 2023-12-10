@@ -20,7 +20,7 @@ public final class ProjectSelectBar extends JPanel {
         this.profileController = profileController;
         this.setBorder(new BevelBorder(BevelBorder.LOWERED));
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        displayProjects(Main.getProfileController().getProfile());
+        displayProjects(profileController.getProfile());
     }
 
     /**

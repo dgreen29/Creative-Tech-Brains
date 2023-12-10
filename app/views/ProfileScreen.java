@@ -32,7 +32,7 @@ public class ProfileScreen extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setJMenuBar(new NavigationBar());
+        this.setJMenuBar(new NavigationBar(profileController));
         this.add(displayContent(), BorderLayout.CENTER);
         this.add(new ProjectSelectBar(profileController), BorderLayout.SOUTH);
     }
@@ -147,7 +147,7 @@ public class ProfileScreen extends JFrame {
         this.remove(content);
         content = displayContent();
         this.add(content, BorderLayout.CENTER);
-        this.setJMenuBar(new NavigationBar());
+        this.setJMenuBar(new NavigationBar(profileController));
         this.repaint();
         this.revalidate();
     }

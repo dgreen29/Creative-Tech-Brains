@@ -23,7 +23,7 @@ public class ApplicationView extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        NavigationBar navigationBar = new NavigationBar();
+        NavigationBar navigationBar = new NavigationBar(profileController);
         this.setJMenuBar(navigationBar);
         ProjectSelectBar projectSelectBar = new ProjectSelectBar(profileController);
         this.add(projectSelectBar, BorderLayout.SOUTH);

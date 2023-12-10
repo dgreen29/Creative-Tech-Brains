@@ -59,14 +59,6 @@ public class Main {
 
     /**
      * @author Zarif Mazumder
-     * @return profile controller
-     */
-    public static ProfileController getProfileController() {
-        return profileController;
-    }
-
-    /**
-     * @author Zarif Mazumder
      * @param view view
      */
     public static void setCurrentView(JFrame view) {
