@@ -4,16 +4,19 @@ import java.io.*;
 
 /**
  * Handles profile import/export from given data.
+ *
  * @author Zarif Mazumder
  */
 public final class ProfileIO {
-    private static final String FILE_EXTENSION = ".txt";
+    private static final String FILE_EXTENSION = ".txt"; // File extension for profile files.
 
     /**
-     * Writes <code>Profile</code> to a <code>File</code> of the <code>Profile</code>'s name.
-     * @author Zarif Mazumder
-     * @param profile given <code>Profile</code>
-     * @throws IOException Writing file error
+     * Exports a profile to a file.
+     *
+     * @param profile The profile to export.
+     *
+     * @throws IOException If there is an error while exporting the
+     * profile.
      */
     public static void exportProfile(Profile profile) throws IOException {
         try (FileOutputStream fOut = new FileOutputStream(profile.getName() + FILE_EXTENSION, true);

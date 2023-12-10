@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Improve ProfileScreen error handling UI&#10;&#10;The commit involves refinement of the ProfileScreen class. Instead of just displaying error messages within the initial profile creation frame, it now uses separate dialog boxes with proper titles for error alerts. The code for possible form submission outcomes have been encapsulated into individual JDialogs for a clearer and more user-friendly experience..">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Add functionality to create and display new projects&#10;&#10;A method `addProject()` was added to the `Profile` class for creating new projects. The `ProjectSelectBar` class was updated to include a button for adding new projects to a profile. When a user clicks the &quot;+&quot; button, a dialog is opened for the user to input the name of the new project. Upon confirmation, the new project is created, added to the profile, and displayed on the bar.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AboutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/About.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,7 +397,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701923169685</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add functionality to create and display new projects&#10;&#10;A method `addProject()` was added to the `Profile` class for creating new projects. The `ProjectSelectBar` class was updated to include a button for adding new projects to a profile. When a user clicks the &quot;+&quot; button, a dialog is opened for the user to input the name of the new project. Upon confirmation, the new project is created, added to the profile, and displayed on the bar.">
+      <option name="closed" value="true" />
+      <created>1702166310288</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1702166310288</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +442,8 @@
     <MESSAGE value="WIP" />
     <MESSAGE value="Merge correction" />
     <MESSAGE value="Implementation of Detail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of Detail" />
+    <MESSAGE value="Add functionality to create and display new projects&#10;&#10;A method `addProject()` was added to the `Profile` class for creating new projects. The `ProjectSelectBar` class was updated to include a button for adding new projects to a profile. When a user clicks the &quot;+&quot; button, a dialog is opened for the user to input the name of the new project. Upon confirmation, the new project is created, added to the profile, and displayed on the bar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add functionality to create and display new projects&#10;&#10;A method `addProject()` was added to the `Profile` class for creating new projects. The `ProjectSelectBar` class was updated to include a button for adding new projects to a profile. When a user clicks the &quot;+&quot; button, a dialog is opened for the user to input the name of the new project. Upon confirmation, the new project is created, added to the profile, and displayed on the bar." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

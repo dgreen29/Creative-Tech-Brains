@@ -7,20 +7,26 @@ import java.io.Serializable;
  * @author Zarif Mazumder
  */
 public class Detail implements Serializable {
-    /**
-     * String containing the details of the project.
-     */
-    private String text;
 
+    private String text; // Description of the project.
+
+    /**
+     * Creates an empty <code>Detail</code>.
+     */
     public Detail() {
         text = "";
     }
 
+    /**
+     * Creates a <code>Detail</code> with the given text.
+     * @param text
+     */
     public Detail(String text) {
         this.text = text;
     }
 
     /**
+     * Returns the text of the detail.
      * @author Zarif Mazumder
      * @return text
      */
@@ -29,6 +35,7 @@ public class Detail implements Serializable {
     }
 
     /**
+     * Sets the text of the detail.
      * @author Zarif Mazumder
      * @param text text
      */

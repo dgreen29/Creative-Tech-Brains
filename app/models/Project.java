@@ -4,24 +4,22 @@ import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
+ *
  * Represents a project.
  * @author Zarif Mazumder
  */
 public class Project implements Serializable {
-    /**
-     * Stores the budget object corresponding to this project.
-     */
-    private final Budget budget;
-    /**
-     * Stores the checklist corresponding to this project.
-     */
-    private final LinkedList<Item> checklist;
-    /**
-     * Stores the details object for this project.
-     */
-    private final Detail detail;
-    private String name;
 
+    private final Budget budget; // Budget of the project.
+
+    private final LinkedList<Item> checklist; // Checklist of the project.
+
+    private final Detail detail; // Description of the project.
+    private String name; // Name of the project.
+
+    /**
+     * Represents a project.
+     */
     public Project() {
         detail = new Detail();
         checklist = new LinkedList<>();
@@ -30,6 +28,7 @@ public class Project implements Serializable {
     }
 
     /**
+     * Returns the budget of the project.
      * @author Zarif Mazumder
      * @return <code>Budget</code>
      */
@@ -38,6 +37,7 @@ public class Project implements Serializable {
     }
 
     /**
+     * Returns the checklist of the project.
      * @author Zarif Mazumder
      * @return checklist
      */
@@ -46,6 +46,7 @@ public class Project implements Serializable {
     }
 
     /**
+     * Returns the description of the project.
      * @author Zarif Mazumder
      * @return <code>Detail</code>
      */
@@ -62,6 +63,7 @@ public class Project implements Serializable {
     }
 
     /**
+     * Sets the text of the <code>Item</code> at the given index.
      * @author Zarif Mazumder
      * @param index location of item
      * @param text text
@@ -81,6 +83,7 @@ public class Project implements Serializable {
     }
 
     /**
+     * Returns the name of the project.
      * @author Zarif Mazumder
      * @return name
      */
@@ -89,6 +92,7 @@ public class Project implements Serializable {
     }
 
     /**
+     * Sets the name of the project.
      * @author Zarif Mazumder
      * @param name name
      */

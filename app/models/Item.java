@@ -7,26 +7,30 @@ import java.io.Serializable;
  * @author Zarif Mazumder
  */
 public class Item implements Serializable {
-    /**
-     * String storing the checklist item's text.
-     */
-    private String text;
-    /**
-     * Boolean storing whether the checklist item is completed.
-     */
-    private boolean done;
 
+    private String text; // Description of the checklist item.
+
+    private boolean done; // Whether the item is done or not.
+
+    /**
+     * Creates an empty <code>Item</code>.
+     */
     public Item() {
         this.text = "";
         this.done = false;
     }
 
+    /**
+     * Creates an <code>Item</code> with the given text.
+     * @param text
+     */
     public Item(String text) {
         this.text = text;
         this.done = false;
     }
 
     /**
+     * Creates an <code>Item</code> with the given text and state.
      * @author Zarif Mazumder
      * @return text
      */
@@ -35,6 +39,7 @@ public class Item implements Serializable {
     }
 
     /**
+     * Sets the text of the detail.
      * @author Zarif Mazumder
      * @param text text
      */
@@ -43,6 +48,7 @@ public class Item implements Serializable {
     }
 
     /**
+     * Returns whether the item is done or not.
      * @author Zarif Mazumder
      * @return boolean
      */
@@ -51,6 +57,7 @@ public class Item implements Serializable {
     }
 
     /**
+     * Sets the state of the item to done or not done.
      * @author Zarif Mazumder
      * @param state boolean
      */

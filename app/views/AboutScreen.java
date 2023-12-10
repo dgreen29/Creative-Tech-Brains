@@ -11,10 +11,14 @@ import java.awt.*;
  * @author Zarif Mazumder
  */
 public final class AboutScreen extends JDialog {
-    private static final String TITLE_NAME = "About";
-    private final AboutController aboutController;
-    private final ProfileController profileController;
+    private static final String TITLE_NAME = "About"; // Name of the title.
+    private final AboutController aboutController; // Reference to the AboutController.
+    private final ProfileController profileController; // Reference to the ProfileController.
 
+    /**
+     * Creates an AboutScreen object.
+     * @param profileController the ProfileController object.
+     */
     public AboutScreen(ProfileController profileController) {
         aboutController = new AboutController();
         this.profileController = profileController;

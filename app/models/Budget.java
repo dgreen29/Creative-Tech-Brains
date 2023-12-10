@@ -9,16 +9,19 @@ import java.util.LinkedList;
  * @author Zarif Mazumder
  */
 public class Budget implements Serializable {
-    /**
-     * The linked list that stores all the budget entries in a project.
-     */
+
+    // List of entries in the budget.
     private final LinkedList<Entry> entries;
 
+    /**
+     * Creates an empty budget.
+     */
     public Budget() {
         entries = new LinkedList<>();
     }
 
     /**
+     * Returns the list of entries in the budget.
      * @author Zarif Mazumder
      * @return LinkedList&lt;Entry&gt; of entries
      */
@@ -32,6 +35,7 @@ public class Budget implements Serializable {
      * @param entry entry(cost, name)
      */
     public void addEntry(Entry entry) {
+
         entries.add(entry);
     }
 

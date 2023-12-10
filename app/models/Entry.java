@@ -8,32 +8,42 @@ import java.math.BigDecimal;
  * @author Zarif Mazumder
  */
 public class Entry implements Serializable {
-    /**
-     * Stores the cost of the budget entry.
-     */
-    private BigDecimal cost;
-    /**
-     * Stores the name of the budget entry.
-     */
-    private String name;
 
+    private BigDecimal cost; // Cost of the budget entry.
+
+    private String name; // Name of the budget entry.
+
+    /**
+     * Creates an empty <code>Entry</code>.
+     */
     public Entry() {
         this.cost = BigDecimal.ZERO;
         this.name = "";
     }
 
+    /**
+     * Creates an <code>Entry</code> with the given name.
+     * @param name
+     */
     public Entry(String name) {
         this.cost = BigDecimal.ZERO;
         this.name = name;
 
     }
 
+    /**
+     * Creates an <code>Entry</code> with the given cost and
+     * name.
+     * @param cost
+     * @param name
+     */
     public Entry(BigDecimal cost, String name) {
         this.cost = cost;
         this.name = name;
     }
 
     /**
+     * Returns the cost of the entry.
      * @author Zarif Mazumder
      * @return cost
      */
@@ -42,6 +52,7 @@ public class Entry implements Serializable {
     }
 
     /**
+     * Sets the cost of the entry.
      * @author Zarif Mazumder
      * @param cost in USD
      */
@@ -50,6 +61,7 @@ public class Entry implements Serializable {
     }
 
     /**
+     * Returns the name of the entry.
      * @author Zarif Mazumder
      * @return name
      */
@@ -58,6 +70,7 @@ public class Entry implements Serializable {
     }
 
     /**
+     * Sets the name of the entry.
      * @author Zarif Mazumder
      * @param name name
      */
@@ -66,6 +79,8 @@ public class Entry implements Serializable {
     }
 
     /**
+     * Returns the <code>String</code> representation of the
+     * <code>Entry</code> in the format of "cost name".
      * @author Zarif Mazumder
      * @return <code>String</code> representation of <code>Entry</code>
      */
@@ -75,6 +90,9 @@ public class Entry implements Serializable {
     }
 
     /**
+     * Returns true if the given <code>Object</code> is an
+     * <code>Entry</code> with the same cost and name as this
+     * <code>Entry</code>.
      * @author Zarif Mazumder
      * @param o <code>Object</code> instance of <code>Entry</code>
      * @return true if equal in cost and name

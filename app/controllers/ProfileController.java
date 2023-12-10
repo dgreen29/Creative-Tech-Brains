@@ -10,23 +10,27 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * Handles functionality and communication between Views and the <code>Profile</code> model.
+ * Handles functionality and communication between Views
+ * and the <code>Profile</code> model.
  * @author Zarif Mazumder
  */
 public final class ProfileController {
-    /**
-     * Stores the list of profiles.
-     */
+    // TODO: Add functionality to create new profiles.
     private final List<Profile> profiles = new ArrayList<>();
-    /**
-     * The current active profile.
-     */
+
     private Profile currentProfile;
     /**
      * Reference to the app's project controller.
      */
     private final ProjectController projectController;
 
+    /**
+     * Controller class that handles the functionality related to
+     * profile management.
+     * This class contains methods to create a profile, manage the
+     * current profile, and interact with the project controller.
+     * @param projectController
+     */
     public ProfileController() {
         currentProfile = createProfile("", "");
         projectController = new ProjectController(this);
@@ -62,7 +66,8 @@ public final class ProfileController {
      * Takes <code>Proile</code> from given <code>File</code>.
      * @author Zarif Mazumder
      * @param data input <code>File</code>
-     * @return true if <code>File</code> contains <code>Profile</code> object data.
+     * @return true if <code>File</code> contains
+     * <code>Profile</code> object data.
      */
     public boolean importProfile(File data) {
         if (data == null) {
@@ -119,6 +124,10 @@ public final class ProfileController {
         return true;
     }
 
+    /**
+     * Represents the possible invalid credentials when validating
+     * a profile.
+     */
     public enum invalidCredentials {
         NAME,
         EMAIL,
@@ -126,7 +135,8 @@ public final class ProfileController {
     }
 
     /**
-     * Checks if <code>Profile</code> can be created using given data
+     * Checks if <code>Profile</code> can be created using given
+     * data.
      * @author Darrell Green, Jr., Zarif Mazumder
      */
     public ArrayList<invalidCredentials> validateProfile(String name, String email) {
@@ -146,6 +156,7 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the list of profiles.
      * @author Zarif Mazumder
      * @return <code>ProjectController</code>
      */

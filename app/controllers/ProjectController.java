@@ -6,25 +6,29 @@ import app.models.Project;
 import java.util.LinkedList;
 
 /**
- * Handles functionality and communication between <code>Project</code> model and various models and controllers.
+ * Handles functionality and communication between
+ * <code>Project</code> model and various models and
+ * controllers.
  * @author Zarif Mazumder
  */
 public class ProjectController {
-    /**
-     * Reference to the current project that the controller is manipulating.
-     */
+    // Reference to the app's project controller.
     private Project currentProject;
-    /**
-     * Reference to the app's profile controller.
-     */
+    // Reference to the app's profile controller.
     private final ProfileController profileController;
 
+    /**
+     * Handles functionality and communication between
+     * Project model and various models and controllers.
+     */
     public ProjectController(ProfileController profileController) {
         this.profileController = profileController;
         currentProject = profileController.getProfile().getProjects().get(0);
     }
 
     /**
+     * Returns the current <code>Project</code> in the current
+     * <code>Profile</code>.
      * @author Zarif Mazumder
      * @return current <code>Project</code>
      */
@@ -42,6 +46,8 @@ public class ProjectController {
     }
 
     /**
+     * Returns the list of <code>Project</code>s in the current
+     * <code>Profile</code>.
      * @author Zarif Mazumder
      * @return checklist
      */
@@ -59,6 +65,7 @@ public class ProjectController {
     }
 
     /**
+     * Modifies given <code>Item</code> in the checklist.
      * @author Zarif Mazumder
      * @param index location of <code>Entry</code>
      * @param text text
