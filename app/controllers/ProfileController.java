@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -65,19 +66,20 @@ public final class ProfileController {
         }
     }
 
-    public void loadProfiles(File db) {
-        try (Scanner scanner = new Scanner(db)) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                try (Scanner rowScanner = new Scanner(line)) {
-                    rowScanner.useDelimiter(",");
-                    while (rowScanner.hasNext()) {
-                        System.out.print(scanner.next());
-                    }
+    /**
+     * Load profiles from database.
+     * @param db csv
+     */
+    public void loadProfiles(File db) throws FileNotFoundException {
+        Scanner scanner = new Scanner(db);
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            try (Scanner rowScanner = new Scanner(line)) {
+                rowScanner.useDelimiter(",");
+                while (rowScanner.hasNext()) {
+                    System.out.print(scanner.next());
                 }
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -176,7 +178,26 @@ public final class ProfileController {
         return projectController;
     }
 
-    public void generateDB() {
-
+    /**
+     * @author Zarif Mazumder
+     * Database Design:
+     * Profile[] = {Name, Email, Privilege}
+     * Project[] = {Profile:Name, 1:Name, n:Name}
+     * Detail[] = {Profile:Name, Text}
+     * Item[] = {Profile:Name, Text, Done}
+     * Entry[] = {Profile:Name, Cost, Name, Quantity}
+     */
+    public List<Boolean> generateDB() {
+        try {
+            File profileDB = new File("profile.csv");
+            File projectDB = new File("project.csv");
+            File detailDB = new File("detail.csv");
+            File itemDB = new File("item.csv");
+            File entryDB = new File("entry.csv");
+            return Arrays.asList(profileDB.createNewFile(), projectDB.createNewFile(), detailDB.createNewFile(),
+                    itemDB.createNewFile(), entryDB.createNewFile());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

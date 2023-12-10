@@ -12,25 +12,16 @@ public class Entry implements Serializable {
      * Stores the cost of the budget entry.
      */
     private BigDecimal cost;
+    private int quantity;
     /**
      * Stores the name of the budget entry.
      */
     private String name;
 
-    public Entry() {
-        this.cost = BigDecimal.ZERO;
-        this.name = "";
-    }
-
-    public Entry(String name) {
-        this.cost = BigDecimal.ZERO;
-        this.name = name;
-
-    }
-
-    public Entry(BigDecimal cost, String name) {
+    public Entry(BigDecimal cost, String name, int quantity) {
         this.cost = cost;
         this.name = name;
+        this.quantity = quantity;
     }
 
     /**
@@ -51,6 +42,21 @@ public class Entry implements Serializable {
 
     /**
      * @author Zarif Mazumder
+     * @return quantity
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    /**
+     * @author Zarif Mazumder
      * @return name
      */
     public String getName() {
@@ -59,7 +65,6 @@ public class Entry implements Serializable {
 
     /**
      * @author Zarif Mazumder
-     * @param name name
      */
     public void setName(String name) {
         this.name = name;

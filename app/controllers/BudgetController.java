@@ -25,8 +25,8 @@ public class BudgetController {
      * @param cost in USD
      * @param name name
      */
-    public void addEntry(BigDecimal cost, String name) {
-        projectController.getProject().getBudget().addEntry(new Entry(cost, name));
+    public void addEntry(BigDecimal cost, String name, int quantity) {
+        projectController.getProject().getBudget().addEntry(new Entry(cost, name, quantity));
     }
 
     /**
