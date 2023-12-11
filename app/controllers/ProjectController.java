@@ -72,9 +72,10 @@ public class ProjectController {
      * @author Zarif Mazumder
      * @param index location of <code>Entry</code>
      * @param text text
+     * @param isDone isDone
      */
-    public void setItem(int index, String text) {
-        currentProject.setItem(index, text);
+    public void setItem(int index, String text, boolean isDone) {
+        currentProject.setItem(index, text, isDone);
     }
 
     /**
