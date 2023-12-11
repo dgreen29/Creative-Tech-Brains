@@ -1,13 +1,12 @@
 package app.models;
 
-import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  * Represents a project.
  * @author Zarif Mazumder
  */
-public class Project implements Serializable {
+public class Project {
     /**
      * Stores the budget object corresponding to this project.
      */
@@ -22,11 +21,18 @@ public class Project implements Serializable {
     private final Detail detail;
     private String name;
 
-    public Project() {
+    public Project(String name) {
         detail = new Detail();
         checklist = new LinkedList<>();
         budget = new Budget();
-        name = "Project 1";
+        this.name = name;
+    }
+
+    public Project(ProjectBuilder projectBuilder) {
+        this.detail = projectBuilder.detail;
+        this.checklist = projectBuilder.checklist;
+        this.budget = projectBuilder.budget;
+        this.name = projectBuilder.name;
     }
 
     /**
@@ -42,7 +48,7 @@ public class Project implements Serializable {
      * @return checklist
      */
     public LinkedList<Item> getChecklist() {
-        return new LinkedList<>(checklist);
+        return checklist;
     }
 
     /**
@@ -94,5 +100,32 @@ public class Project implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static class ProjectBuilder {
+        private final String name;
+        private Detail detail = new Detail();
+        private LinkedList<Item> checklist = new LinkedList<>();
+        private Budget budget = new Budget();
+
+        public ProjectBuilder(String name) {
+            this.name = name;
+        }
+
+        public void setDetail(Detail detail) {
+            this.detail = detail;
+        }
+
+        public void setChecklist(LinkedList<Item> checklist) {
+            this.checklist = checklist;
+        }
+
+        public void setBudget(Budget budget) {
+            this.budget = budget;
+        }
+
+        public Project build() {
+            return new Project(this);
+        }
     }
 }

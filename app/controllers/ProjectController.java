@@ -10,6 +10,7 @@ import java.util.LinkedList;
  * @author Zarif Mazumder
  */
 public class ProjectController {
+
     /**
      * Reference to the current project that the controller is manipulating.
      */
@@ -39,6 +40,15 @@ public class ProjectController {
      */
     public void setCurrentProject(int index) {
         currentProject = profileController.getProfile().getProjects().get(index);
+    }
+
+    /**
+     * Sets the current <code>Project</code>.
+     * @author Zarif Mazumder
+     * @param project <code>Project</code>
+     */
+    public void setCurrentProject(Project project) {
+        currentProject = project;
     }
 
     /**

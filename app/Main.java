@@ -1,8 +1,13 @@
 package app;
 
 import app.controllers.ProfileController;
-import app.views.ApplicationView;
+import app.models.ProfileFactory;
+import app.views.ProjectsView;
+
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /*
  * TCSS 360 B w/ Mr. Jeffrey Weiss
@@ -20,16 +25,34 @@ public class Main {
 
     /**
      * Driver method.
+     * @author Zarif Mazumder
      * @param args A generic String array that gets passed into the
      *             method by default.
      */
     public static void main(String[] args) {
         profileController = new ProfileController();
-        setCurrentView(new ApplicationView(profileController));
+        setCurrentView(new ProjectsView(profileController));
+        loadDatabase();
     }
 
-    public static ProfileController getProfileController() {
-        return profileController;
+    private static void loadDatabase() {
+        File profileDB = new File("profile.csv");
+        try {
+            profileController.loadProfiles(profileDB);
+        } catch (FileNotFoundException e) {
+            createDatabase();
+        }
+    }
+
+    /**
+     * @author Zarif Mazumder
+     */
+    private static void createDatabase() {
+        try {
+            profileController.generateDB();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -41,7 +64,17 @@ public class Main {
             currentView.dispose();
         }
         currentView = view;
-        currentView.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        currentView.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                try {
+                    ProfileFactory.writeToDB(profileController);
+                    System.exit(0);
+                } catch (IOException e) {
+                    throw new RuntimeException("Error writing to database.");
+                }
+            }
+        });
         currentView.setVisible(true);
     }
 }

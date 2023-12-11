@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Improve ProfileScreen error handling UI&#10;&#10;The commit involves refinement of the ProfileScreen class. Instead of just displaying error messages within the initial profile creation frame, it now uses separate dialog boxes with proper titles for error alerts. The code for possible form submission outcomes have been encapsulated into individual JDialogs for a clearer and more user-friendly experience..">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP database">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/BudgetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/github-action-maven-tutorial.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +59,7 @@
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="3fe3cd21-87fa-48e7-987d-66efd32327aa" />
-        <option name="url" value="https://github.com/dgreen29/Creative-Tech-Brains" />
+        <option name="url" value="git@github.com:dgreen29/Creative-Tech-Brains.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -54,7 +67,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -65,35 +78,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Run app.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;DJ&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development &amp; Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Run app.executor": "Debug",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "zarif",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/darrellgreenjr./Desktop/College Courses/UW Tacoma/AUTUMN 2023 QUARTER/TCSS 360 Software Development & Quality Assurance Techniques/Software Development Group Project/Creative-Tech-Brains",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -107,7 +121,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="github-action-maven-tutorial" />
+      <module name="Creative-Tech-Brains" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -210,6 +224,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-7a0a4d15" />
+        <option value="jdk-20.0.2-corretto-20.0.2.1-8336523bb0d9-dc1606b7" />
         <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-abbd5a8d" />
       </set>
     </attachedChunks>
@@ -382,7 +397,63 @@
       <option name="project" value="LOCAL" />
       <updated>1701923169685</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1702177993719</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1702177993719</updated>
+    </task>
+    <task id="LOCAL-00021" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1702178048578</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1702178048578</updated>
+    </task>
+    <task id="LOCAL-00022" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1702181440492</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1702181440492</updated>
+    </task>
+    <task id="LOCAL-00023" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1702182166598</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1702182166598</updated>
+    </task>
+    <task id="LOCAL-00024" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1702183396053</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1702183396053</updated>
+    </task>
+    <task id="LOCAL-00025" summary="WIP database">
+      <option name="closed" value="true" />
+      <created>1702200836953</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702200836953</updated>
+    </task>
+    <task id="LOCAL-00026" summary="WIP database">
+      <option name="closed" value="true" />
+      <created>1702250060661</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1702250060661</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,10 +487,27 @@
     <MESSAGE value="base layout for code deliverable" />
     <MESSAGE value="base back-end layout for code deliverable" />
     <MESSAGE value="code review suggestions" />
-    <MESSAGE value="WIP" />
     <MESSAGE value="Merge correction" />
     <MESSAGE value="Implementation of Detail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of Detail" />
+    <MESSAGE value="WIP" />
+    <MESSAGE value="WIP database" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP database" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/models/ProfileFactory.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/models/ProfileFactory.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

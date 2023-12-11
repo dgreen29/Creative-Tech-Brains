@@ -7,13 +7,12 @@ import app.controllers.ProjectController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Displays the screen showing the <code>Budget</code> of a project.
+ * @author Darrell Green, Jr., Zarif Mazumder
  */
 public class BudgetView extends JFrame {
     private static final String TITLE_NAME = "Budget";
@@ -21,12 +20,12 @@ public class BudgetView extends JFrame {
     private final ProfileController profileController;
     private final ProjectController projectController;
 
-    private JTextField nameField;
-    private JTextField costField;
-    private JTextField quantityField;
-    private JButton uploadButton;
-    private DefaultListModel<String> listModel;
-    private JList<String> itemList;
+    private final JTextField nameField;
+    private final JTextField costField;
+    private final JTextField quantityField;
+    private final JButton uploadButton;
+    private final DefaultListModel<String> listModel;
+    private final JList<String> itemList;
 
     public BudgetView(ProfileController profileController) {
         this.profileController = profileController;
@@ -36,7 +35,7 @@ public class BudgetView extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setJMenuBar(new NavigationBar());
+        this.setJMenuBar(new NavigationBar(profileController));
 
         JPanel newItemPanel = new JPanel(new GridLayout(0, 2));
 
@@ -80,6 +79,6 @@ public class BudgetView extends JFrame {
             listModel.addElement(newItem);
         });
         this.add(addItemButton, BorderLayout.SOUTH);
-        this.add(new ProjectSelectBar(), BorderLayout.PAGE_END);
+        this.add(new ProjectSelectBar(profileController), BorderLayout.PAGE_END);
     }
 }

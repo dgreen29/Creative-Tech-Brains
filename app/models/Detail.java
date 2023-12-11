@@ -1,19 +1,18 @@
 package app.models;
 
-import java.io.Serializable;
-
 /**
  * A <code>Project</code>'s description.
  * @author Zarif Mazumder
  */
-public class Detail implements Serializable {
+public class Detail {
+    public static final String DEFAULT_TEXT = "Write a description of your current project";
     /**
      * String containing the details of the project.
      */
     private String text;
 
     public Detail() {
-        text = "";
+        text = DEFAULT_TEXT;
     }
 
     public Detail(String text) {

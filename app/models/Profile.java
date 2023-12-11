@@ -1,6 +1,5 @@
 package app.models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,15 +7,16 @@ import java.util.List;
  * Stores a user's app data.
  * @author Zarif Mazumder
  */
-public final class Profile implements Serializable {
+public final class Profile {
     /**
      * Constant String storing the name of the default profile.
      */
-    private static final String DEFAULT_NAME = "GUEST";
+    public static final String DEFAULT_NAME = "GUEST";
     /**
      * Constant String containing the email address for the default profile.
      */
     private static final String DEFAULT_EMAIL = "(no email address)";
+    public static final String DEFAULT_PROJECT_NAME = "Project 1";
     /**
      * String storing the profile's name.
      */
@@ -28,11 +28,11 @@ public final class Profile implements Serializable {
     /**
      * Enum for storing the profile's privilege level.
      */
-    private transient Privilege privilege;
+    private Privilege privilege;
     /**
      * List of projects belonging to the profile.
      */
-    private final List<Project> projects;
+    private List<Project> projects;
 
     /**
      * Creates a GUEST account if empty <code>String</code> parameters given.
@@ -44,7 +44,7 @@ public final class Profile implements Serializable {
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
         privilege = Privilege.USER;
         projects = new ArrayList<>();
-        projects.add(new Project());
+        projects.add(new Project(DEFAULT_PROJECT_NAME));
     }
 
     public Profile(String name, String email, Privilege privilege) {
@@ -52,14 +52,7 @@ public final class Profile implements Serializable {
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
         this.privilege = privilege;
         projects = new ArrayList<>();
-        projects.add(new Project());
-    }
-
-    public Profile(String name, String email, Privilege privilege, ArrayList<Project> projects) {
-        this.name = name.isEmpty() ? DEFAULT_NAME : name;
-        this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
-        this.privilege = privilege;
-        this.projects = projects;
+        projects.add(new Project(DEFAULT_PROJECT_NAME));
     }
 
     /**
@@ -88,6 +81,14 @@ public final class Profile implements Serializable {
 
     /**
      * @author Zarif Mazumder
+     * @param projects list of projects
+     */
+    public void setProjects(ArrayList<Project> projects) {
+        this.projects = projects;
+    }
+
+    /**
+     * @author Zarif Mazumder
      * @return Name of <code>Profile</code>
      */
     @Override
@@ -108,7 +109,8 @@ public final class Profile implements Serializable {
         return (this.name.equals(profile.getName()) && this.email.equals(profile.getEmail()));
     }
 
-    public void addProject(Project newProject) {
+    public void addProject(Project project) {
+        projects.add(project);
     }
 
     /**

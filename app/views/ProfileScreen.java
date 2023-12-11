@@ -23,7 +23,6 @@ public class ProfileScreen extends JFrame {
     private static final String EXPORT_FAIL_MESSAGE = "Profile Export fail";
     private static final String INVALID_NAME_ERROR_MESSAGE = "Name is invalid.";
     private static final String INVALID_EMAIL_ERROR_MESSAGE = "Email is invalid.";
-    private JLabel createProfileTitle;
     private final ProfileController profileController;
     private JPanel content;
 
@@ -33,9 +32,9 @@ public class ProfileScreen extends JFrame {
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setJMenuBar(new NavigationBar());
+        this.setJMenuBar(new NavigationBar(profileController));
         this.add(displayContent(), BorderLayout.CENTER);
-        this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
+        this.add(new ProjectSelectBar(profileController), BorderLayout.SOUTH);
     }
 
     /**
@@ -78,8 +77,7 @@ public class ProfileScreen extends JFrame {
 
     /**
      * Creates a button used to create a new user profile
-     * @author Zarif Mazumder
-     * @author Darrell Green, Jr. (DJ Green)
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
      * @return create <code>JButton</code>
      */
     private JButton displayCreateButton() {
@@ -93,8 +91,6 @@ public class ProfileScreen extends JFrame {
             dialog.setLayout(new FlowLayout());
             JTextField nameField = new JTextField("", 15);
             JTextField emailField = new JTextField("", 15);
-            createProfileTitle = new JLabel("Create Profile");
-            dialog.setTitle(createProfileTitle.getText());
             dialog.add(new JLabel("Name:"));
             dialog.add(nameField);
             dialog.add(new JLabel("Email:"));
@@ -151,7 +147,7 @@ public class ProfileScreen extends JFrame {
         this.remove(content);
         content = displayContent();
         this.add(content, BorderLayout.CENTER);
-        this.setJMenuBar(new NavigationBar());
+        this.setJMenuBar(new NavigationBar(profileController));
         this.repaint();
         this.revalidate();
     }
