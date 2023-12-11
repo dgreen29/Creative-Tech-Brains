@@ -72,9 +72,10 @@ public class Project {
      * @param index location of item
      * @param text text
      */
-    public void setItem(int index, String text) {
+    public void setItem(int index, String text, boolean isDone) {
         Item item = checklist.get(index);
         item.setText(text);
+        item.setDone(isDone);
     }
 
     /**

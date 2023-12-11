@@ -103,7 +103,7 @@ public final class ProfileFactory {
 
     /**
      * Read <code>Item</code> rows from database.
-     * Item[] = {Profile:Name, Text, Done}
+     * Item[] = {Profile:Name, Index, Text, isDone}
      * @author Zarif Mazumder
      * @param projectBuilder out variable
      * @param name <code>Project</code> name
@@ -114,7 +114,8 @@ public final class ProfileFactory {
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             if (values[0].equals(name)) {
-                checklist.add(new Item(values[1].replaceAll("\\b%2C\\b", ",")));
+                checklist.add(Integer.parseInt(values[1]), new Item(
+                        values[2].replaceAll("\\b%2C\\b", ","), Boolean.parseBoolean(values[3])));
             }
         }
         projectBuilder.setChecklist(checklist);
@@ -171,7 +172,7 @@ public final class ProfileFactory {
                 LinkedList<Item> checklist = project.getChecklist();
                 for (int i = 0; i < checklist.size(); i++) {
                     Item item = checklist.get(i);
-                    writeItemRow(itemStringBuilder, projectName, i, item.getText());
+                    writeItemRow(itemStringBuilder, projectName, i, item.getText(), item.isDone());
                 }
                 LinkedList<Entry> entries = project.getBudget().getEntries();
                 for (int i = 0; i < entries.size(); i++) {
@@ -233,12 +234,14 @@ public final class ProfileFactory {
      * @param index index
      * @param text <code>Item</code> text
      */
-    public static void writeItemRow(StringBuilder sb, String name, Integer index, String text) {
+    public static void writeItemRow(StringBuilder sb, String name, Integer index, String text, Boolean isDone) {
         sb.append(name.replaceAll(",", "%2C"))
                 .append(",")
                 .append(index)
                 .append(",")
                 .append(text.replaceAll(",", "%2C"))
+                .append(",")
+                .append(isDone.toString())
                 .append(System.lineSeparator());
     }
 

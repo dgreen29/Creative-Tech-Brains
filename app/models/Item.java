@@ -12,16 +12,16 @@ public class Item {
     /**
      * Boolean storing whether the checklist item is completed.
      */
-    private boolean done;
-
-    public Item() {
-        this.text = "";
-        this.done = false;
-    }
+    private boolean isDone;
 
     public Item(String text) {
         this.text = text;
-        this.done = false;
+        this.isDone = false;
+    }
+
+    public Item(String text, boolean isDone) {
+        this.text = text;
+        this.isDone = isDone;
     }
 
     /**
@@ -45,7 +45,7 @@ public class Item {
      * @return boolean
      */
     public boolean isDone() {
-        return done;
+        return isDone;
     }
 
     /**
@@ -53,6 +53,6 @@ public class Item {
      * @param state boolean
      */
     public void setDone(boolean state) {
-        done = state;
+        isDone = state;
     }
 }
