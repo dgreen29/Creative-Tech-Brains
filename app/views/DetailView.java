@@ -3,7 +3,7 @@ package app.views;
 import app.Main;
 import app.controllers.DetailController;
 import app.controllers.ProfileController;
-
+import app.controllers.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
