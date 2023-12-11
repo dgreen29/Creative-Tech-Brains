@@ -8,15 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Displays the main menu of the application.
+ * Displays projects with progress and checklist.
  * @author Darrell Green Jr., Harman Singh, Zarif Mazumder
  */
-public class ApplicationView extends JFrame {
+public class ProjectsView extends JFrame {
     private static final String TITLE_NAME = "Projects";
     private final ProfileController profileController;
     private final ProjectController projectController;
 
-    public ApplicationView(ProfileController profileController) {
+    public ProjectsView(ProfileController profileController) {
         this.profileController = profileController;
         projectController = profileController.getProjectController();
         this.setTitle(TITLE_NAME);

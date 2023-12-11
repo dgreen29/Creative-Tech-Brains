@@ -5,10 +5,10 @@ import app.controllers.ProfileController;
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.regex.Pattern;
 
 /**
- * Handles profile import/export. Note: commas in user <code>String</code> input replaced with "%2C" on CSV write.
+ * Handles profile import/export.
+ * Note: commas in user <code>String</code> input replaced with "%2C" on CSV write.
  * @author Zarif Mazumder
  */
 public final class ProfileFactory {
@@ -44,9 +44,9 @@ public final class ProfileFactory {
         Scanner scanner = new Scanner(db);
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
-            Profile profile = new Profile(values[0].replaceAll("\\b%2C\\b", ","), values[1],
-                    Profile.Privilege.valueOf(values[2]));
-            profile.addProject(readFromProjectDB(profile, values[0]));
+            String formattedName = values[0].replaceAll("\\b%2C\\b", ",");
+            Profile profile = new Profile(formattedName, values[1], Profile.Privilege.valueOf(values[2]));
+            profile.setProjects(readFromProjectDB(values[0]));
             profiles.add(profile);
         }
         scanner.close();
@@ -57,12 +57,12 @@ public final class ProfileFactory {
      * Read <code>Project</code> row from database.
      * This is a short-circuiting terminal operation.
      * @author Zarif Mazumder
-     * @param profile out variable
      * @param name key = <code>Profile</code>'s name
      * @return <code>Profile</code>
      */
-    public static Project readFromProjectDB(Profile profile, String name) {
-        Scanner scanner = new Scanner("project.csv");
+    public static ArrayList<Project> readFromProjectDB(String name) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File("project.csv"));
+        ArrayList<Project> projects = new ArrayList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             if (values[0].equals(name)) {
@@ -72,11 +72,13 @@ public final class ProfileFactory {
                     readFromDetailDB(projectBuilder, projectName);
                     readFromItemDB(projectBuilder, projectName);
                     readFromEntryDB(projectBuilder, projectName);
-                    return projectBuilder.build();
+                    projects.add(projectBuilder.build());
                 }
+                return projects;
             }
         }
-        return new Project(Profile.DEFAULT_PROJECT_NAME);
+        projects.add(new Project(Profile.DEFAULT_PROJECT_NAME));
+        return projects;
     }
 
     /**
@@ -86,8 +88,9 @@ public final class ProfileFactory {
      * @param projectBuilder out variable
      * @param name <code>Project</code> name
      */
-    public static void readFromDetailDB(Project.ProjectBuilder projectBuilder, String name) {
-        Scanner scanner = new Scanner("detail.csv");
+    public static void readFromDetailDB(Project.ProjectBuilder projectBuilder, String name)
+            throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File("detail.csv"));
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             if (values[0].equals(name)) {
@@ -105,8 +108,8 @@ public final class ProfileFactory {
      * @param projectBuilder out variable
      * @param name <code>Project</code> name
      */
-    public static void readFromItemDB(Project.ProjectBuilder projectBuilder, String name) {
-        Scanner scanner = new Scanner("item.csv");
+    public static void readFromItemDB(Project.ProjectBuilder projectBuilder, String name) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File("item.csv"));
         LinkedList<Item> checklist = new LinkedList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
@@ -124,8 +127,9 @@ public final class ProfileFactory {
      * @param projectBuilder out variable
      * @param name <code>Project</code> name
      */
-    public static void readFromEntryDB(Project.ProjectBuilder projectBuilder, String name) {
-        Scanner scanner = new Scanner("entry.csv");
+    public static void readFromEntryDB(Project.ProjectBuilder projectBuilder, String name)
+            throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File("entry.csv"));
         Budget budget = new Budget();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
@@ -145,63 +149,61 @@ public final class ProfileFactory {
      */
     public static void writeToDB(ProfileController profileController) throws IOException {
         ArrayList<Profile> profiles = profileController.getProfiles();
+        FileWriter profileFileWriter = new FileWriter("profile.csv");
+        FileWriter projectFileWriter = new FileWriter("project.csv");
+        FileWriter detailFileWriter = new FileWriter("detail.csv");
+        FileWriter itemFileWriter = new FileWriter("item.csv");
+        FileWriter entryFileWriter = new FileWriter("entry.csv");
+        StringBuilder profileStringBuilder = new StringBuilder();
+        StringBuilder projectStringBuilder = new StringBuilder();
+        StringBuilder detailStringBuilder = new StringBuilder();
+        StringBuilder itemStringBuilder = new StringBuilder();
+        StringBuilder entryStringBuilder = new StringBuilder();
         for (Profile profile : profiles) {
-            String profileName = profile.getName();
+            String profileName = profile.getName().replaceAll(",", "%2C");
             if (profileName.equals(Profile.DEFAULT_NAME)) continue;
-            writeToProfileDB(profileName, profile.getEmail(), profile.getPrivilege());
-            StringBuilder projectSB = new StringBuilder();
+            writeProfileRow(profileStringBuilder, profileName, profile.getEmail(), profile.getPrivilege());
+            StringBuilder projectSB = new StringBuilder(profileName).append(",");
             for (Project project : profile.getProjects()) {
                 String projectName = project.getName();
-                projectSB.append(projectName);
-                writeToDetailDB(projectName, project.getDetail().getText());
+                projectSB.append(projectName).append(",");
+                writeDetailRow(detailStringBuilder, projectName, project.getDetail().getText());
                 LinkedList<Item> checklist = project.getChecklist();
                 for (int i = 0; i < checklist.size(); i++) {
                     Item item = checklist.get(i);
-                    writeToItemDB(projectName, i, item.getText());
+                    writeItemRow(itemStringBuilder, projectName, i, item.getText());
                 }
                 LinkedList<Entry> entries = project.getBudget().getEntries();
                 for (int i = 0; i < entries.size(); i++) {
                     Entry entry = entries.get(i);
-                    writeToEntryDB(projectName, i, entry.getCost(), entry.getName(), entry.getQuantity());
+                    writeEntryRow(entryStringBuilder, projectName, i, entry.getCost(), entry.getName(), entry.getQuantity());
                 }
             }
-            writeToProjectDB(profileName, projectSB.toString());
+            projectSB.deleteCharAt(projectSB.length() - 1);
+            projectStringBuilder.append(projectSB).append(System.lineSeparator());
         }
+        profileFileWriter.append(profileStringBuilder);
+        profileFileWriter.flush();
+        projectFileWriter.append(projectStringBuilder);
+        projectFileWriter.flush();
+        detailFileWriter.append(detailStringBuilder);
+        detailFileWriter.flush();
+        itemFileWriter.append(itemStringBuilder);
+        itemFileWriter.flush();
+        entryFileWriter.append(entryStringBuilder);
+        entryFileWriter.flush();
     }
 
     /**
-     * Writes <code>Profile</code> row to database
+     * Writes <code>Profile</code> row.
      * @author Zarif Mazumder
+     * @param sb out variable
      * @param name <code>Profile</code> name
      * @param email already validated input
      * @param privilege <code>Privilege</code>
-     * @throws IOException Writing file error
      */
-    public static void writeToProfileDB(String name, String email, Profile.Privilege privilege) throws IOException {
-        File profileDB = new File("profile.csv");
-        Scanner scanner = new Scanner(profileDB);
-        StringBuilder sb = new StringBuilder();
-        String formattedName = name.replaceAll(",", "%2C");
-        while (scanner.hasNextLine()) {
-            String row = scanner.nextLine();
-            if (Pattern.matches(formattedName, row)) { // Replace row
-                appendProfileRow(sb, formattedName, email, privilege);
-            } else {
-                sb.append(row);
-            }
-        }
-        if (sb.isEmpty()) { // Append row
-            appendProfileRow(sb, formattedName, email, privilege);
-        }
-        FileWriter fW = new FileWriter(profileDB);
-        fW.append(sb.toString());
-        scanner.close();
-        fW.flush();
-    }
-
-    private static void appendProfileRow(StringBuilder stringBuilder, String name, String email,
-                                         Profile.Privilege privilege) {
-        stringBuilder.append(name)
+    public static void writeProfileRow(StringBuilder sb, String name, String email, Profile.Privilege privilege) {
+        sb.append(name)
                 .append(",")
                 .append(email)
                 .append(",")
@@ -210,112 +212,29 @@ public final class ProfileFactory {
     }
 
     /**
-     * Writes <code>Project</code> row to database
+     * Writes <code>Detail</code> row.
      * @author Zarif Mazumder
-     * @param name <code>Profile</code> name
-     * @param projects as comma-separated String
-     * @throws IOException Writing file error
-     */
-    public static void writeToProjectDB(String name, String projects) throws IOException {
-        File projectDB = new File("project.csv");
-        Scanner scanner = new Scanner(projectDB);
-        StringBuilder sb = new StringBuilder();
-        String formattedName = name.replaceAll(",", "%2C");
-        while (scanner.hasNextLine()) {
-            String row = scanner.nextLine();
-            if (Pattern.matches(formattedName, row)) { // Replace row
-                appendProjectRow(sb, formattedName, projects);
-            } else {
-                sb.append(row);
-            }
-        }
-        FileWriter fW = new FileWriter(projectDB);
-        if (sb.isEmpty()) { // Append row
-            appendProjectRow(sb, formattedName, projects);
-        }
-        fW.append(sb.toString());
-        scanner.close();
-        fW.flush();
-    }
-
-    private static void appendProjectRow(StringBuilder stringBuilder, String name, String projects) {
-        stringBuilder.append(name)
-                .append(",")
-                .append(projects)
-                .append(System.lineSeparator());
-    }
-
-    /**
-     * Writes <code>Detail</code> row to database.
-     * @author Zarif Mazumder
+     * @param sb out variable
      * @param name <code>Project</code> name
      * @param text content of <code>Detail</code>
-     * @throws IOException Writing file error
      */
-    public static void writeToDetailDB(String name, String text) throws IOException {
-        File detailDB = new File("detail.csv");
-        Scanner scanner = new Scanner(detailDB);
-        StringBuilder sb = new StringBuilder();
-        String formattedName = name.replaceAll(",", "%2C");
-        while (scanner.hasNextLine()) {
-            String row = scanner.nextLine();
-            if (Pattern.matches(formattedName, row)) { // Replace row
-                appendDetailRow(sb, formattedName, text);
-            }
-        }
-        FileWriter fW = new FileWriter(detailDB);
-        if (sb.isEmpty()) { // Append row
-            appendDetailRow(sb, formattedName, text);
-        }
-        fW.append(sb.toString());
-        scanner.close();
-        fW.flush();
-    }
-
-    private static void appendDetailRow(StringBuilder stringBuilder, String name, String text) {
-        stringBuilder.append(name)
+    public static void writeDetailRow(StringBuilder sb, String name, String text) {
+        sb.append(name.replaceAll(",", "%2C"))
                 .append(",")
                 .append(text.replaceAll(",", "%2C"))
                 .append(System.lineSeparator());
     }
 
     /**
-     * Writes <code>Item</code> row to database.
+     * Writes <code>Item</code> row.
      * @author Zarif Mazumder
+     * @param sb out variable
      * @param name <code>Project</code> name
      * @param index index
      * @param text <code>Item</code> text
-     * @throws IOException Writing file error
      */
-    public static void writeToItemDB(String name, Integer index, String text) throws IOException {
-        File itemDB = new File("item.csv");
-        Scanner scanner = new Scanner(itemDB);
-        StringBuilder sb = new StringBuilder();
-        String formattedName = name.replaceAll(",", "%2C");
-        while (scanner.hasNextLine()) {
-            String row = scanner.nextLine();
-            if (Pattern.matches(formattedName, row) && Pattern.matches(index.toString(), row)) { // Replace row
-                appendItemRow(sb, formattedName, index, text);
-            }
-        }
-        FileWriter fW = new FileWriter(itemDB);
-        if (sb.isEmpty()) { // Append row
-            appendItemRow(sb, formattedName, index, text);
-        }
-        fW.append(sb.toString());
-        scanner.close();
-        fW.flush();
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * @param stringBuilder
-     * @param name
-     * @param index
-     * @param text
-     */
-    private static void appendItemRow(StringBuilder stringBuilder, String name, Integer index, String text) {
-        stringBuilder.append(name)
+    public static void writeItemRow(StringBuilder sb, String name, Integer index, String text) {
+        sb.append(name.replaceAll(",", "%2C"))
                 .append(",")
                 .append(index)
                 .append(",")
@@ -324,39 +243,18 @@ public final class ProfileFactory {
     }
 
     /**
-     * Writes <code>Entry</code> row to database.
+     * Writes <code>Entry</code> row.
      * @author Zarif Mazumder
+     * @param sb out variable
      * @param name <code>Project</code> name
      * @param index index
      * @param cost cost
      * @param entryName <code>Entry</code> name
      * @param quantity quantity
-     * @throws IOException Writing file error
      */
-    public static void writeToEntryDB(String name, Integer index, BigDecimal cost, String entryName, Integer quantity)
-            throws IOException {
-        File entryDB = new File("entry.csv");
-        Scanner scanner = new Scanner(entryDB);
-        StringBuilder sb = new StringBuilder();
-        String formattedName = name.replaceAll(",", "%2C");
-        while (scanner.hasNextLine()) {
-            String row = scanner.nextLine();
-            if (Pattern.matches(formattedName, row) && Pattern.matches(index.toString(), row)) { // Replace row
-                appendEntryRow(sb, index, cost, entryName, quantity, name);
-            }
-        }
-        FileWriter fW = new FileWriter(entryDB);
-        if (sb.isEmpty()) { // Append row
-            appendEntryRow(sb, index, cost, entryName, quantity, name);
-        }
-        fW.append(sb.toString());
-        scanner.close();
-        fW.flush();
-    }
-
-    private static void appendEntryRow(StringBuilder stringBuilder, Integer index, BigDecimal cost, String entryName,
-                                       Integer quantity, String name) {
-        stringBuilder.append(name)
+    public static void writeEntryRow(StringBuilder sb, String name, Integer index, BigDecimal cost, String entryName,
+                                     Integer quantity) {
+        sb.append(name.replaceAll(",", "%2C"))
                 .append(",")
                 .append(index)
                 .append(",")

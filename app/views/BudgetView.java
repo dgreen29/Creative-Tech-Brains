@@ -20,12 +20,12 @@ public class BudgetView extends JFrame {
     private final ProfileController profileController;
     private final ProjectController projectController;
 
-    private JTextField nameField;
-    private JTextField costField;
-    private JTextField quantityField;
-    private JButton uploadButton;
-    private DefaultListModel<String> listModel;
-    private JList<String> itemList;
+    private final JTextField nameField;
+    private final JTextField costField;
+    private final JTextField quantityField;
+    private final JButton uploadButton;
+    private final DefaultListModel<String> listModel;
+    private final JList<String> itemList;
 
     public BudgetView(ProfileController profileController) {
         this.profileController = profileController;

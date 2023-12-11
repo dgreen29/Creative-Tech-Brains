@@ -7,6 +7,7 @@ import app.models.Project;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import java.awt.*;
 
 /**
  * Displays all projects that can be switched to.
@@ -29,31 +30,55 @@ public final class ProjectSelectBar extends JPanel {
      */
     private void displayProjects(Profile profile) {
         // Create "+" button before adding project buttons
+        JButton addButton = displayAddButton();
+
+        // Add project buttons
+        for (Project project : profile.getProjects()) {
+            JButton projectBtn = displayProjectButton(project);
+            this.add(projectBtn);
+        }
+
+        // Add "+" button after all project buttons have been added
+        this.add(addButton);
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param project <code>Project</code>
+     * @return project as button
+     */
+    private JButton displayProjectButton(Project project) {
+        String projectName = project.getName();
+        JButton projectBtn = new JButton(projectName);
+        if (projectName.equals(profileController.getProjectController().getProject().getName())) {
+            projectBtn.setFont(projectBtn.getFont().deriveFont(Font.BOLD));
+        }
+        projectBtn.addActionListener(e -> {
+            profileController.getProjectController().setCurrentProject(project);
+            Main.setCurrentView(new ProjectsView(profileController));
+        });
+        return projectBtn;
+    }
+
+    /**
+     * @author Darrell Green, Jr., Zarif Mazumder
+     * @return add button
+     */
+    private JButton displayAddButton() {
         JButton addButton = new JButton("+");
         addButton.addActionListener(e -> {
             // Open dialog to enter the new project name
             String newProjectName = JOptionPane.showInputDialog("Enter the name of the new Project").trim();
 
             // Create new Project and add it to the profile
-            if (newProjectName.isEmpty()) {
+            if (!newProjectName.isEmpty()) {
                 profileController.createProject(newProjectName);
-
-                // redraw the select bar to show the newly added project
-                displayProjects(profile);
-                this.revalidate();
-                this.repaint();
+                Main.setCurrentView(new ProjectsView(profileController));
             } else {
                 JOptionPane.showMessageDialog(null, "Project name cannot be empty. Please try again.");
             }
         });
-
-        // Add project buttons
-        for (Project project : profile.getProjects()) {
-            this.add(new JButton(project.getName()));
-        }
-
-        // Add "+" button after all project buttons have been added
-        this.add(addButton);
+        return addButton;
     }
 }
 

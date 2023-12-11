@@ -32,7 +32,7 @@ public final class Profile {
     /**
      * List of projects belonging to the profile.
      */
-    private final List<Project> projects;
+    private List<Project> projects;
 
     /**
      * Creates a GUEST account if empty <code>String</code> parameters given.
@@ -53,13 +53,6 @@ public final class Profile {
         this.privilege = privilege;
         projects = new ArrayList<>();
         projects.add(new Project(DEFAULT_PROJECT_NAME));
-    }
-
-    public Profile(String name, String email, Privilege privilege, ArrayList<Project> projects) {
-        this.name = name.isEmpty() ? DEFAULT_NAME : name;
-        this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
-        this.privilege = privilege;
-        this.projects = projects;
     }
 
     /**
@@ -84,6 +77,14 @@ public final class Profile {
      */
     public List<Project> getProjects() {
         return projects;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param projects list of projects
+     */
+    public void setProjects(ArrayList<Project> projects) {
+        this.projects = projects;
     }
 
     /**

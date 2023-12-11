@@ -33,14 +33,4 @@ public class ProfileControllerTest {
     public void importInvalidProfile() {
         assertFalse(testController.importProfile(null));
     }
-
-    @Test
-    public void setValidProfile() {
-        assertTrue(testController.setCurrentProfile(new Profile("", "")));
-    }
-
-    @Test
-    public void setInvalidProfile() {
-        assertFalse(testController.setCurrentProfile(new Profile("x", "y")));
-    }
 }

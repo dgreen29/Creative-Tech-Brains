@@ -30,6 +30,6 @@ public class DetailController {
      */
     public void setText(String text) {
         Project project = projectController.getProject();
-        project.getDetail().setText(project.getName(), text);
+        project.getDetail().setText(text);
     }
 }

@@ -22,7 +22,7 @@ public final class NavigationBar extends JMenuBar {
         JMenuItem aboutBtn = new JMenuItem("About");
         budgetBtn.addActionListener(e -> Main.setCurrentView(new BudgetView(profileController)));
         detailBtn.addActionListener(e -> Main.setCurrentView(new DetailView(profileController)));
-        projectsBtn.addActionListener(e -> Main.setCurrentView(new ApplicationView(profileController)));
+        projectsBtn.addActionListener(e -> Main.setCurrentView(new ProjectsView(profileController)));
         profileBtn.addActionListener(e -> Main.setCurrentView(new ProfileScreen(profileController)));
         aboutBtn.addActionListener(e -> {
             AboutScreen dialog = new AboutScreen(profileController);

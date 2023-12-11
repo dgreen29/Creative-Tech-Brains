@@ -1,19 +1,18 @@
 package app.models;
 
-import java.io.IOException;
-
 /**
  * A <code>Project</code>'s description.
  * @author Zarif Mazumder
  */
 public class Detail {
+    public static final String DEFAULT_TEXT = "Write a description of your current project";
     /**
      * String containing the details of the project.
      */
     private String text;
 
     public Detail() {
-        text = "";
+        text = DEFAULT_TEXT;
     }
 
     public Detail(String text) {
@@ -30,10 +29,9 @@ public class Detail {
 
     /**
      * @author Zarif Mazumder
-     * @param name <code>Project</code> name
      * @param text text
      */
-    public void setText(String name, String text) {
+    public void setText(String text) {
         this.text = text;
     }
 }

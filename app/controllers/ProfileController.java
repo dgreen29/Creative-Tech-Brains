@@ -1,14 +1,15 @@
 package app.controllers;
 
+import app.Main;
 import app.models.Profile;
 import app.models.ProfileFactory;
 import app.models.Project;
+import app.views.ProjectsView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -50,13 +51,20 @@ public final class ProfileController {
      */
     public Profile createProfile(String name, String email) {
         Profile profile = new Profile(name, email);
+        if (projectController != null) {
+            ArrayList<Project> projects = new ArrayList<>();
+            projects.add(currentProfile.getProjects().get(0));
+            profile.setProjects(projects); // Save data generated as GUEST
+        }
         currentProfile = profile;
         profiles.add(profile);
         return profile;
     }
 
     public void createProject(String name) {
-        currentProfile.addProject(new Project(name));
+        Project project = new Project(name);
+        currentProfile.addProject(project);
+        projectController.setCurrentProject(project);
     }
 
     /**
@@ -79,6 +87,11 @@ public final class ProfileController {
      */
     public void loadProfiles(File db) throws FileNotFoundException {
         profiles = ProfileFactory.readFromDB(db);
+        if (!profiles.isEmpty()) {
+            currentProfile = profiles.get(0);
+            projectController.setCurrentProject(0);
+        }
+        Main.setCurrentView(new ProjectsView(this));
     }
 
     /**
@@ -136,11 +149,9 @@ public final class ProfileController {
      * Sets current <code>Profile</code>.
      * @author Zarif Mazumder
      * @param profile given <code>Profile</code>
-     * @return did set
      */
-    public boolean setCurrentProfile(Profile profile) {
+    public void setCurrentProfile(Profile profile) {
         currentProfile = profile;
-        return true;
     }
 
     public enum invalidCredentials {
