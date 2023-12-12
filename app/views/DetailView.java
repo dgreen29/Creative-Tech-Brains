@@ -3,6 +3,7 @@ package app.views;
 import app.Main;
 import app.controllers.DetailController;
 import app.controllers.ProfileController;
+import app.models.Profile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,8 +15,10 @@ import java.awt.*;
 public class DetailView extends JFrame {
     private static final String TITLE_NAME = "Detail";
     private final DetailController detailController;
+    private final ProfileController profileController;
 
     public DetailView(ProfileController profileController) {
+        this.profileController = profileController;
         detailController = new DetailController(profileController.getProjectController());
         this.setTitle(TITLE_NAME);
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
@@ -34,8 +37,24 @@ public class DetailView extends JFrame {
         JPanel content = new JPanel();
         content.setLayout(new BorderLayout());
         JTextArea doc = new JTextArea(detailController.getText());
+        doc.setEditable(false);
         doc.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         content.add(doc, BorderLayout.CENTER);
+        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+            doc.setEditable(true);
+            JButton saveBtn = displaySaveButton(doc);
+            content.add(saveBtn, BorderLayout.SOUTH);
+        }
+
+        return content;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param doc document
+     * @return save button
+     */
+    private JButton displaySaveButton(JTextArea doc) {
         JButton saveBtn = new JButton("Save");
         saveBtn.addActionListener(e -> {
             detailController.setText(doc.getText().trim());
@@ -48,7 +67,6 @@ public class DetailView extends JFrame {
             timer.setRepeats(false);
             timer.start();
         });
-        content.add(saveBtn, BorderLayout.SOUTH);
-        return content;
+        return saveBtn;
     }
 }
