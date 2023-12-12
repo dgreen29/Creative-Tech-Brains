@@ -7,6 +7,8 @@ import app.controllers.ProjectController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -45,6 +47,11 @@ class TooltipJListCellRenderer extends DefaultListCellRenderer {
     }
 }
 
+/**
+ * Represents the graphical interface for the budget management system.
+ *
+ * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
+ */
 public class BudgetView extends JFrame {
     private static final String TITLE_NAME = "Budget";
     private final BudgetController budgetController;
@@ -59,6 +66,7 @@ public class BudgetView extends JFrame {
     private JList<JLabel> itemList;
 
     public BudgetView(ProfileController profileController) {
+
         this.profileController = profileController;
         projectController = profileController.getProjectController();
         budgetController = new BudgetController(projectController);
@@ -99,7 +107,20 @@ public class BudgetView extends JFrame {
 
         listModel = new DefaultListModel<>();
         itemList = new JList<>(listModel);
+        itemList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    JLabel selectedItem = itemList.getSelectedValue();
+                    if (selectedItem != null) {
+                        String itemDescription = selectedItem.getToolTipText();
+                        JOptionPane.showMessageDialog(null, itemDescription, "Item Description", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            }
+        });
         JScrollPane scrollPane = new JScrollPane(itemList);
+
 
         this.add(newItemPanel, BorderLayout.NORTH);
         this.add(scrollPane, BorderLayout.CENTER);

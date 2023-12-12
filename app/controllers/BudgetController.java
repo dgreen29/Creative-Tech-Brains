@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 /**
  * Handles functionality and communication between
- * <code>BudgetView</code> and
+ * <code>BudgetView.java</code> and
  * the <code>Budget</code> model.
  * @author Zarif Mazumder
  */
@@ -19,7 +19,7 @@ public class BudgetController {
 
     /**
      * Handles functionality and communication between
-     * BudgetView and the Budget model.
+     * BudgetView.java and the Budget model.
      */
     public BudgetController(ProjectController projectController) {
         this.projectController = projectController;
