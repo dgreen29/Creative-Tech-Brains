@@ -141,8 +141,16 @@ public final class ProfileController {
      * @author Zarif Mazumder
      * @return privilege
      */
-    public String getPrivilege() {
-        return currentProfile.getPrivilege().toString();
+    public Profile.Privilege getPrivilege() {
+        return currentProfile.getPrivilege();
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param privilege USER, ADMIN
+     */
+    public void setPrivilege(Profile.Privilege privilege) {
+        currentProfile.setPrivilege(privilege);
     }
 
     /**

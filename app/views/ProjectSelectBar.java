@@ -29,9 +29,6 @@ public final class ProjectSelectBar extends JPanel {
      * @param profile current profile
      */
     private void displayProjects(Profile profile) {
-        // Create "+" button before adding project buttons
-        JButton addButton = displayAddButton();
-
         // Add project buttons
         for (Project project : profile.getProjects()) {
             JButton projectBtn = displayProjectButton(project);
@@ -39,7 +36,10 @@ public final class ProjectSelectBar extends JPanel {
         }
 
         // Add "+" button after all project buttons have been added
-        this.add(addButton);
+        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+            JButton addButton = displayAddButton();
+            this.add(addButton);
+        }
     }
 
     /**

@@ -4,6 +4,7 @@ import app.Main;
 import app.controllers.ProfileController;
 import app.controllers.ProjectController;
 import app.models.Item;
+import app.models.Profile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,8 +45,10 @@ public class ProjectsView extends JFrame {
             JPanel checkBoxItem = displayCheckBoxItem(i, checklist);
             content.add(checkBoxItem);
         }
-        JPanel addItemButton = displayAddItemButton();
-        content.add(addItemButton);
+        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+            JPanel addItemButton = displayAddItemButton();
+            content.add(addItemButton);
+        }
         return new JScrollPane(content);
     }
 
@@ -76,7 +79,6 @@ public class ProjectsView extends JFrame {
         Item item = checklist.get(i);
         JPanel checkBoxPanel = new JPanel();
         JButton isDoneBtn = new JButton();
-        JButton deleteBtn = new JButton("-");
         if (item.isDone()) {
             isDoneBtn.setText("✓");
         } else {
@@ -90,20 +92,25 @@ public class ProjectsView extends JFrame {
                 Main.setCurrentView(new ProjectsView(profileController));
             }
         });
-        isDoneBtn.addActionListener(e -> {
-            String itemText = text.getText();
-            if (!itemText.isEmpty()) {
-                projectController.setItem(i, itemText, !item.isDone());
-                Main.setCurrentView(new ProjectsView(profileController));
-            }
-        });
-        deleteBtn.addActionListener(e -> {
-            projectController.removeItem(i);
-            Main.setCurrentView(new ProjectsView(profileController));
-        });
+        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+            isDoneBtn.addActionListener(e -> {
+                String itemText = text.getText();
+                if (!itemText.isEmpty()) {
+                    projectController.setItem(i, itemText, !item.isDone());
+                    Main.setCurrentView(new ProjectsView(profileController));
+                }
+            });
+        }
         checkBoxPanel.add(isDoneBtn);
         checkBoxPanel.add(text);
-        checkBoxPanel.add(deleteBtn);
+        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+            JButton deleteBtn = new JButton("-");
+            deleteBtn.addActionListener(e -> {
+                projectController.removeItem(i);
+                Main.setCurrentView(new ProjectsView(profileController));
+            });
+            checkBoxPanel.add(deleteBtn);
+        }
         return checkBoxPanel;
     }
 

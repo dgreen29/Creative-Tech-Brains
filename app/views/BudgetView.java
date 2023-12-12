@@ -4,6 +4,7 @@ import app.Main;
 import app.controllers.BudgetController;
 import app.controllers.ProfileController;
 import app.models.Entry;
+import app.models.Profile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,9 +44,11 @@ public class BudgetView extends JFrame {
         table.setPreferredScrollableViewportSize(new Dimension(
                 table.getPreferredSize().width, table.getRowHeight() * table.getRowCount()));
         JScrollPane tablePane = new JScrollPane(table);
-        JPanel addEntryBtn = displayAddEntryButton();
         content.add(tablePane);
-        content.add(addEntryBtn);
+        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+            JPanel addEntryBtn = displayAddEntryButton();
+            content.add(addEntryBtn);
+        }
         return new JScrollPane(content);
     }
 
