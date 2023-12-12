@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP database">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Detail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Budget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/ProfileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/BudgetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github-action-maven-tutorial.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/DetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ProjectsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/AppDesign.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,13 +40,6 @@
     &quot;assignee&quot;: &quot;zarifzm&quot;
   }
 }</component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
-  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -74,6 +59,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2Xwl1qKAZ45Lggitf6L3zjqG6Rd" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -81,7 +69,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.Run app.executor": "Debug",
+    "Application.Run app.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -492,22 +480,6 @@
     <MESSAGE value="WIP" />
     <MESSAGE value="WIP database" />
     <option name="LAST_COMMIT_MESSAGE" value="WIP database" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/models/ProfileFactory.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/models/ProfileFactory.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

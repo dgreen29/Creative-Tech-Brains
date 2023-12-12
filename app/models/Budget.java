@@ -11,7 +11,7 @@ public class Budget {
     /**
      * The linked list that stores all the budget entries in a project.
      */
-    private final LinkedList<Entry> entries;
+    private LinkedList<Entry> entries;
 
     public Budget() {
         entries = new LinkedList<>();
@@ -23,6 +23,14 @@ public class Budget {
      */
     public LinkedList<Entry> getEntries() {
         return entries;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @param entries LinkedList&lt;Entry&gt; of entries
+     */
+    public void setEntries(LinkedList<Entry> entries) {
+        this.entries = entries;
     }
 
     /**

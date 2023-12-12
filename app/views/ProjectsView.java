@@ -44,8 +44,8 @@ public class ProjectsView extends JFrame {
             JPanel checkBoxItem = displayCheckBoxItem(i, checklist);
             content.add(checkBoxItem);
         }
-        JPanel checkBoxItem = displayAddItemButton();
-        content.add(checkBoxItem);
+        JPanel addItemButton = displayAddItemButton();
+        content.add(addItemButton);
         return new JScrollPane(content);
     }
 
@@ -68,40 +68,13 @@ public class ProjectsView extends JFrame {
 
     /**
      * @author Zarif Mazumder
-     * @return add item button
-     */
-    private JPanel displayAddItemButton() {
-        JPanel checkBoxItem = new JPanel();
-        JButton addItemBtn = new JButton("+");
-        JTextField text = new JTextField(32);
-        text.addActionListener(e -> {
-            String itemText = text.getText();
-            if (!itemText.isEmpty()) {
-                projectController.addItem(itemText);
-                Main.setCurrentView(new ProjectsView(profileController));
-            }
-        });
-        addItemBtn.addActionListener(e -> {
-            String itemText = text.getText();
-            if (!itemText.isEmpty()) {
-                projectController.addItem(itemText);
-                Main.setCurrentView(new ProjectsView(profileController));
-            }
-        });
-        checkBoxItem.add(addItemBtn);
-        checkBoxItem.add(text);
-        return checkBoxItem;
-    }
-
-    /**
-     * @author Zarif Mazumder
      * @param i index of <code>Item</code>
      * @param checklist list of <code>Item</code>s
      * @return <code>Item</code> as list item
      */
     private JPanel displayCheckBoxItem(int i, LinkedList<Item> checklist) {
         Item item = checklist.get(i);
-        JPanel checkBoxItem = new JPanel();
+        JPanel checkBoxPanel = new JPanel();
         JButton isDoneBtn = new JButton();
         JButton deleteBtn = new JButton("-");
         if (item.isDone()) {
@@ -113,7 +86,7 @@ public class ProjectsView extends JFrame {
         text.addActionListener(e -> {
             String itemText = text.getText();
             if (!itemText.isEmpty()) {
-                projectController.addItem(itemText);
+                projectController.setItem(i, itemText, item.isDone());
                 Main.setCurrentView(new ProjectsView(profileController));
             }
         });
@@ -128,9 +101,36 @@ public class ProjectsView extends JFrame {
             projectController.removeItem(i);
             Main.setCurrentView(new ProjectsView(profileController));
         });
-        checkBoxItem.add(isDoneBtn);
-        checkBoxItem.add(text);
-        checkBoxItem.add(deleteBtn);
-        return checkBoxItem;
+        checkBoxPanel.add(isDoneBtn);
+        checkBoxPanel.add(text);
+        checkBoxPanel.add(deleteBtn);
+        return checkBoxPanel;
+    }
+
+    /**
+     * @author Zarif Mazumder
+     * @return add item button
+     */
+    private JPanel displayAddItemButton() {
+        JPanel addItemPanel = new JPanel();
+        JButton addItemBtn = new JButton("+");
+        JTextField text = new JTextField(20);
+        text.addActionListener(e -> {
+            String itemText = text.getText().trim();
+            if (!itemText.isEmpty()) {
+                projectController.addItem(itemText);
+                Main.setCurrentView(new ProjectsView(profileController));
+            }
+        });
+        addItemBtn.addActionListener(e -> {
+            String itemText = text.getText().trim();
+            if (!itemText.isEmpty()) {
+                projectController.addItem(itemText);
+                Main.setCurrentView(new ProjectsView(profileController));
+            }
+        });
+        addItemPanel.add(addItemBtn);
+        addItemPanel.add(text);
+        return addItemPanel;
     }
 }

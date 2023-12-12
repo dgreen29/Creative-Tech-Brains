@@ -132,13 +132,15 @@ public final class ProfileFactory {
             throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("entry.csv"));
         Budget budget = new Budget();
+        LinkedList<Entry> entries = new LinkedList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             if (values[0].equals(name)) {
-                budget.addEntry(new Entry(new BigDecimal(values[1]),
-                        values[2].replaceAll("\\b%2C\\b", ","), Integer.parseInt(values[3])));
+                entries.add(Integer.parseInt(values[1]), new Entry(BigDecimal.valueOf(Double.parseDouble(values[2])),
+                        values[3].replaceAll("\\b%2C\\b", ","), Integer.parseInt(values[4])));
             }
         }
+        budget.setEntries(entries);
         projectBuilder.setBudget(budget);
     }
 
