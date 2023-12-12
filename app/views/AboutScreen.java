@@ -35,7 +35,7 @@ public final class AboutScreen extends JDialog {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 if (privilegeChanged) {
-                    Main.setCurrentView(new ProfileScreen(profileController));
+                    Main.setCurrentView(new ProfileView(profileController));
                 }
             }
         });

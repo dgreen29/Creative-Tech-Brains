@@ -2,6 +2,7 @@ package app.views;
 
 import app.Main;
 import app.controllers.ProfileController;
+import app.models.Profile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * Displays user information with <code>Profile</code> manipulation functionality.
  * @author Darrell Green, Jr., Harman Singh, Zarif Mazumder
  */
-public class ProfileScreen extends JFrame {
+public class ProfileView extends JFrame {
     private static final String TITLE_NAME = "Profile";
     private static final String CREATE_BUTTON_NAME = "Create Profile";
     private static final String IMPORT_BUTTON_NAME = "Import Profile";
@@ -24,9 +25,9 @@ public class ProfileScreen extends JFrame {
     private static final String INVALID_NAME_ERROR_MESSAGE = "Name is invalid.";
     private static final String INVALID_EMAIL_ERROR_MESSAGE = "Email is invalid.";
     private final ProfileController profileController;
-    private JPanel content;
+    private JScrollPane content;
 
-    public ProfileScreen(ProfileController profileController) {
+    public ProfileView(ProfileController profileController) {
         this.profileController = profileController;
         this.setTitle(TITLE_NAME);
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
@@ -41,13 +42,15 @@ public class ProfileScreen extends JFrame {
      * @author Zarif Mazumder
      * @return content
      */
-    private JPanel displayContent() {
+    private JScrollPane displayContent() {
         JPanel content = new JPanel();
-        content.setLayout(new BorderLayout());
-        content.add(displayUserInfo(), BorderLayout.CENTER); // Place info panel on the screen
-        content.add(displayButtonPanel(), BorderLayout.PAGE_END); // Add I/O buttons to frame
-        this.content = content;
-        return content;
+        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+        for (Profile profile : profileController.getProfiles()) {
+            content.add(displayUserInfo(profile));
+        }
+        content.add(displayButtonPanel()); // Add I/O buttons to frame
+        this.content = new JScrollPane(content);
+        return this.content;
     }
 
     /**
@@ -55,10 +58,16 @@ public class ProfileScreen extends JFrame {
      * @author Harman Singh
      * @return user info <code>JPanel</code>
      */
-    private JPanel displayUserInfo() {
-        JPanel userInfoPanel = new JPanel(new GridLayout(1, 2));
-        userInfoPanel.add(new JLabel("User: " + this.profileController.getName()));
-        userInfoPanel.add(new JLabel("Email: " + this.profileController.getEmail()));
+    private JPanel displayUserInfo(Profile profile) {
+        JPanel userInfoPanel = new JPanel();
+        JButton nameBtn = new JButton("Name: " + profile.getName());
+        JButton emailBtn = new JButton("Email: " + profile.getEmail());
+        nameBtn.addActionListener(e -> {
+            profileController.setCurrentProfile(profile);
+            Main.setCurrentView(new ProfileView(profileController));
+        });
+        userInfoPanel.add(nameBtn);
+        userInfoPanel.add(emailBtn);
         return userInfoPanel;
     }
 
@@ -106,6 +115,14 @@ public class ProfileScreen extends JFrame {
         return createBtn;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @param nameField to grab text
+     * @param emailField to grab text
+     * @param dialog to update screen
+     * @param errorMsg out variable
+     * @return submit button
+     */
     private JButton generateSubmitBtn(JTextField nameField, JTextField emailField, JDialog dialog, JLabel errorMsg) {
         JButton submitBtn = new JButton("Submit");
         submitBtn.addActionListener(f -> {
@@ -114,7 +131,7 @@ public class ProfileScreen extends JFrame {
             if (validationMessages.get(0) == ProfileController.invalidCredentials.IS_VALID) {
                 profileController.createProfile(nameField.getText(), emailField.getText());
                 dialog.dispose();
-                updateContentDisplay();
+                Main.setCurrentView(new ProfileView(profileController));
             } else {
                 displayValidationError(validationMessages, errorMsg, dialog);
             }
@@ -122,6 +139,12 @@ public class ProfileScreen extends JFrame {
         return submitBtn;
     }
 
+    /**
+     * @author Zarif Mazumder
+     * @param validationMessages list of validation messages
+     * @param errorMsg out variable
+     * @param dialog update screen
+     */
     private void displayValidationError(ArrayList<ProfileController.invalidCredentials> validationMessages,
                                         JLabel errorMsg, JDialog dialog) {
         StringBuilder sb = new StringBuilder();

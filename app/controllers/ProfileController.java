@@ -28,7 +28,7 @@ public final class ProfileController {
     /**
      * Reference to the app's project controller.
      */
-    private final ProjectController projectController;
+    private ProjectController projectController;
 
     public ProfileController() {
         currentProfile = createProfile("", "");
@@ -51,12 +51,13 @@ public final class ProfileController {
      */
     public Profile createProfile(String name, String email) {
         Profile profile = new Profile(name, email);
-        if (projectController != null) {
+        if (currentProfile != null && currentProfile.getName().equals("GUEST")) {
             ArrayList<Project> projects = new ArrayList<>();
             projects.add(currentProfile.getProjects().get(0));
             profile.setProjects(projects); // Save data generated as GUEST
         }
         currentProfile = profile;
+        projectController = new ProjectController(this);
         profiles.add(profile);
         return profile;
     }
@@ -160,6 +161,7 @@ public final class ProfileController {
      */
     public void setCurrentProfile(Profile profile) {
         currentProfile = profile;
+        projectController = new ProjectController(this);
     }
 
     public enum invalidCredentials {
@@ -201,9 +203,9 @@ public final class ProfileController {
      * Database Design:
      * Profile[] = {Name, Email, Privilege}
      * Project[] = {Profile:Name, 1:Name, n:Name}
-     * Detail[] = {Project:Name, Text}
-     * Item[] = {Project:Name, Text, Done}
-     * Entry[] = {Project:Name, Cost, Name, Quantity}
+     * Detail[] = {Profile:Name, Project:Name, Text}
+     * Item[] = {Profile:Name, Project:Name, Text, Done}
+     * Entry[] = {Profile:Name, Project:Name, Cost, Name, Quantity}
      */
     public void generateDB() throws IOException {
         ProfileFactory.generateDB();

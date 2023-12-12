@@ -44,9 +44,10 @@ public final class ProfileFactory {
         Scanner scanner = new Scanner(db);
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
+            String profileName = values[0];
             String formattedName = values[0].replaceAll("\\b%2C\\b", ",");
             Profile profile = new Profile(formattedName, values[1], Profile.Privilege.valueOf(values[2]));
-            profile.setProjects(readFromProjectDB(values[0]));
+            profile.setProjects(readFromProjectDB(profileName));
             profiles.add(profile);
         }
         scanner.close();
@@ -57,21 +58,21 @@ public final class ProfileFactory {
      * Read <code>Project</code> row from database.
      * This is a short-circuiting terminal operation.
      * @author Zarif Mazumder
-     * @param name key = <code>Profile</code>'s name
+     * @param profileName key = <code>Profile</code>'s name
      * @return <code>Profile</code>
      */
-    public static ArrayList<Project> readFromProjectDB(String name) throws FileNotFoundException {
+    public static ArrayList<Project> readFromProjectDB(String profileName) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("project.csv"));
         ArrayList<Project> projects = new ArrayList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
-            if (values[0].equals(name)) {
+            if (values[0].equals(profileName)) {
                 for (int i = 1; i < values.length; i++) {
                     String projectName = values[i];
                     Project.ProjectBuilder projectBuilder = new Project.ProjectBuilder(projectName);
-                    readFromDetailDB(projectBuilder, projectName);
-                    readFromItemDB(projectBuilder, projectName);
-                    readFromEntryDB(projectBuilder, projectName);
+                    readFromDetailDB(projectBuilder, projectName, profileName);
+                    readFromItemDB(projectBuilder, projectName, profileName);
+                    readFromEntryDB(projectBuilder, projectName, profileName);
                     projects.add(projectBuilder.build());
                 }
                 return projects;
@@ -86,15 +87,16 @@ public final class ProfileFactory {
      * This is a short-circuiting terminal operation.
      * @author Zarif Mazumder
      * @param projectBuilder out variable
-     * @param name <code>Project</code> name
+     * @param projectName foreign key
+     * @param profileName primary key
      */
-    public static void readFromDetailDB(Project.ProjectBuilder projectBuilder, String name)
+    public static void readFromDetailDB(Project.ProjectBuilder projectBuilder, String projectName, String profileName)
             throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("detail.csv"));
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
-            if (values[0].equals(name)) {
-                projectBuilder.setDetail(new Detail(values[1].replaceAll("\\b%2C\\b", ",")));
+            if (values[0].equals(profileName) && values[1].equals(projectName)) {
+                projectBuilder.setDetail(new Detail(values[2].replaceAll("\\b%2C\\b", ",")));
                 return;
             }
         }
@@ -106,16 +108,18 @@ public final class ProfileFactory {
      * Item[] = {Profile:Name, Index, Text, isDone}
      * @author Zarif Mazumder
      * @param projectBuilder out variable
-     * @param name <code>Project</code> name
+     * @param projectName foreign key
+     * @param profileName primary key
      */
-    public static void readFromItemDB(Project.ProjectBuilder projectBuilder, String name) throws FileNotFoundException {
+    public static void readFromItemDB(Project.ProjectBuilder projectBuilder, String projectName, String profileName)
+            throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("item.csv"));
         LinkedList<Item> checklist = new LinkedList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
-            if (values[0].equals(name)) {
-                checklist.add(Integer.parseInt(values[1]), new Item(
-                        values[2].replaceAll("\\b%2C\\b", ","), Boolean.parseBoolean(values[3])));
+            if (values[0].equals(profileName) && values[1].equals(projectName)) {
+                checklist.add(Integer.parseInt(values[2]), new Item(
+                        values[3].replaceAll("\\b%2C\\b", ","), Boolean.parseBoolean(values[4])));
             }
         }
         projectBuilder.setChecklist(checklist);
@@ -126,18 +130,19 @@ public final class ProfileFactory {
      * Entry[] = {Project:Name, Cost, Name, Quantity}
      * @author Zarif Mazumder
      * @param projectBuilder out variable
-     * @param name <code>Project</code> name
+     * @param projectName foreign key
+     * @param profileName primary key
      */
-    public static void readFromEntryDB(Project.ProjectBuilder projectBuilder, String name)
+    public static void readFromEntryDB(Project.ProjectBuilder projectBuilder, String projectName, String profileName)
             throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("entry.csv"));
         Budget budget = new Budget();
         LinkedList<Entry> entries = new LinkedList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
-            if (values[0].equals(name)) {
-                entries.add(Integer.parseInt(values[1]), new Entry(BigDecimal.valueOf(Double.parseDouble(values[2])),
-                        values[3].replaceAll("\\b%2C\\b", ","), Integer.parseInt(values[4])));
+            if (values[0].equals(profileName) && values[1].equals(projectName)) {
+                entries.add(Integer.parseInt(values[2]), new Entry(BigDecimal.valueOf(Double.parseDouble(values[3])),
+                        values[4].replaceAll("\\b%2C\\b", ","), Integer.parseInt(values[5])));
             }
         }
         budget.setEntries(entries);
@@ -170,16 +175,17 @@ public final class ProfileFactory {
             for (Project project : profile.getProjects()) {
                 String projectName = project.getName();
                 projectSB.append(projectName).append(",");
-                writeDetailRow(detailStringBuilder, projectName, project.getDetail().getText());
+                writeDetailRow(detailStringBuilder, profileName, projectName, project.getDetail().getText());
                 LinkedList<Item> checklist = project.getChecklist();
                 for (int i = 0; i < checklist.size(); i++) {
                     Item item = checklist.get(i);
-                    writeItemRow(itemStringBuilder, projectName, i, item.getText(), item.isDone());
+                    writeItemRow(itemStringBuilder, profileName, projectName, i, item.getText(), item.isDone());
                 }
                 LinkedList<Entry> entries = project.getBudget().getEntries();
                 for (int i = 0; i < entries.size(); i++) {
                     Entry entry = entries.get(i);
-                    writeEntryRow(entryStringBuilder, projectName, i, entry.getCost(), entry.getName(), entry.getQuantity());
+                    writeEntryRow(entryStringBuilder, profileName, projectName, i, entry.getCost(), entry.getName(),
+                            entry.getQuantity());
                 }
             }
             projectSB.deleteCharAt(projectSB.length() - 1);
@@ -199,6 +205,7 @@ public final class ProfileFactory {
 
     /**
      * Writes <code>Profile</code> row.
+     * "Name, Email, Privilege"
      * @author Zarif Mazumder
      * @param sb out variable
      * @param name <code>Profile</code> name
@@ -216,13 +223,17 @@ public final class ProfileFactory {
 
     /**
      * Writes <code>Detail</code> row.
+     * "Name, Project, Text"
      * @author Zarif Mazumder
      * @param sb out variable
-     * @param name <code>Project</code> name
+     * @param profileName primary key
+     * @param projectName foreign key
      * @param text content of <code>Detail</code>
      */
-    public static void writeDetailRow(StringBuilder sb, String name, String text) {
-        sb.append(name.replaceAll(",", "%2C"))
+    public static void writeDetailRow(StringBuilder sb, String profileName, String projectName, String text) {
+        sb.append(profileName.replaceAll(",", "%2C"))
+                .append(",")
+                .append(projectName.replaceAll(",", "%2C"))
                 .append(",")
                 .append(text.replaceAll(",", "%2C"))
                 .append(System.lineSeparator());
@@ -230,14 +241,18 @@ public final class ProfileFactory {
 
     /**
      * Writes <code>Item</code> row.
+     * "Profile, Project, Index, Text, isDone"
      * @author Zarif Mazumder
      * @param sb out variable
-     * @param name <code>Project</code> name
+     * @param projectName <code>Project</code> name
      * @param index index
      * @param text <code>Item</code> text
      */
-    public static void writeItemRow(StringBuilder sb, String name, Integer index, String text, Boolean isDone) {
-        sb.append(name.replaceAll(",", "%2C"))
+    public static void writeItemRow(StringBuilder sb, String profileName, String projectName, Integer index,
+                                    String text, Boolean isDone) {
+        sb.append(profileName.replaceAll(",", "%2C"))
+                .append(",")
+                .append(projectName.replaceAll(",", "%2C"))
                 .append(",")
                 .append(index)
                 .append(",")
@@ -249,17 +264,20 @@ public final class ProfileFactory {
 
     /**
      * Writes <code>Entry</code> row.
+     * "Profile, Project, Index, Cost, Name, Quantity"
      * @author Zarif Mazumder
      * @param sb out variable
-     * @param name <code>Project</code> name
+     * @param projectName <code>Project</code> name
      * @param index index
      * @param cost cost
      * @param entryName <code>Entry</code> name
      * @param quantity quantity
      */
-    public static void writeEntryRow(StringBuilder sb, String name, Integer index, BigDecimal cost, String entryName,
-                                     Integer quantity) {
-        sb.append(name.replaceAll(",", "%2C"))
+    public static void writeEntryRow(StringBuilder sb, String profileName, String projectName, Integer index,
+                                     BigDecimal cost, String entryName, Integer quantity) {
+        sb.append(profileName.replaceAll(",", "%2C"))
+                .append(",")
+                .append(projectName.replaceAll(",", "%2C"))
                 .append(",")
                 .append(index)
                 .append(",")

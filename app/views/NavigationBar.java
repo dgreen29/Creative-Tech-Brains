@@ -23,7 +23,7 @@ public final class NavigationBar extends JMenuBar {
         budgetBtn.addActionListener(e -> Main.setCurrentView(new BudgetView(profileController)));
         detailBtn.addActionListener(e -> Main.setCurrentView(new DetailView(profileController)));
         projectsBtn.addActionListener(e -> Main.setCurrentView(new ProjectsView(profileController)));
-        profileBtn.addActionListener(e -> Main.setCurrentView(new ProfileScreen(profileController)));
+        profileBtn.addActionListener(e -> Main.setCurrentView(new ProfileView(profileController)));
         aboutBtn.addActionListener(e -> {
             AboutScreen dialog = new AboutScreen(profileController);
             dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
