@@ -8,6 +8,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
+/**
+ * The DetailView class represents the GUI for displaying log details.
+ * @author darrellgreenjr.
+ */
 public class DetailView extends JFrame {
     private static final String TITLE_NAME = "Detail";
     private final DetailController detailController;
@@ -16,6 +20,11 @@ public class DetailView extends JFrame {
     private JList<String> logsList;
     private DefaultListModel<String> listModel;
 
+    /**
+     * Constructs a DetailView object with the given ProfileController.
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
+     * @param profileController the ProfileController object to be used
+     */
     public DetailView(ProfileController profileController) {
         detailController = new DetailController(profileController.getProjectController());
         this.setTitle(TITLE_NAME);
@@ -50,11 +59,24 @@ public class DetailView extends JFrame {
         this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
     }
 
+    /**
+     * Refreshes the details panel with the current log information.
+     * The title of the log currently being edited and the text of the detail
+     * will be updated in the UI components of the details panel.
+     *
+     * @author Darrell Green, Jr. (DJ Green)
+     */
     private void refreshDetailsPanel() {
         logTitleField.setText(detailController.getCurrentLogTitle()); // assuming getCurrentLogTitle() returns the title of the log currently being edited
         doc.setText(detailController.getText());
     }
 
+    /**
+     * Displays the content panel for the DetailView.
+     *
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
+     * @return the JPanel containing the content
+     */
     private JPanel displayContent() {
         JPanel content = new JPanel();
         content.setLayout(new BorderLayout(10, 10));

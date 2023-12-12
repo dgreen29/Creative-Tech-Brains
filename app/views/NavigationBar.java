@@ -7,11 +7,14 @@ import javax.swing.*;
 
 /**
  * A menu bar that is used to navigate to different sections of the app.
- * @author Zarif Mazumder
+ * @author Zarif Mazumder, Darrell Green, Jr. (DJ Green)
  */
 public final class NavigationBar extends JMenuBar {
+
     /**
      * Default constructor that creates a bar with the default buttons.
+     *
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
      */
     public NavigationBar() {
         ProfileController pc = Main.getProfileController();

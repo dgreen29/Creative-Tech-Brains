@@ -21,14 +21,29 @@ public class DetailController {
         this.projectController = projectController;
     }
 
+    /**
+     * Returns a list of log titles.
+     * @author Darrell Green, Jr. (DJ Green)
+     * @return a list of log titles
+     */
     public static List<String> getLogsTitles() {
         return Arrays.asList(new String[0]);
     }
 
+    /**
+     * Selects a log with the given title.
+     * @author Darrell Green, Jr. (DJ Green)
+     * @param selectedLogTitle the title of the log to be selected
+     */
     public static void selectLog(String selectedLogTitle) {
 
     }
 
+    /**
+     * Returns the title of the currently selected log.
+     * @author Darrell Green, Jr. (DJ Green)
+     * @return the title of the currently selected log
+     */
     public static String getCurrentLogTitle() {
         return null;
     }
@@ -51,11 +66,21 @@ public class DetailController {
         projectController.getProject().getDetail().setText(text);
     }
 
+    /**
+     * Returns an array of log titles.
+     * @author Darrell Green, Jr. (DJ Green)
+     * @return an array of log titles
+     */
     public String[] getLogTitles() {
 
         return new String[0];
     }
 
+    /**
+     * Sets the title of the log.
+     * @author Darrell Green, Jr. (DJ Green)
+     * @param text the text of the title
+     */
     public void setLogTitle(String text) {
 
     }

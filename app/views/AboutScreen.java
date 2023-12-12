@@ -34,6 +34,7 @@ public final class AboutScreen extends JDialog {
     }
 
     /**
+     * Displays the team info.
      * @author Zarif Mazumder
      * @return team <code>JLabel</code>
      */
@@ -45,6 +46,9 @@ public final class AboutScreen extends JDialog {
     }
 
     /**
+     * Displays the version info of the app.
+     * This is the version of the app that is currently running on the
+     * user's machine.
      * @author Zarif Mazumder
      * @return version <code>JLabel</code>
      */

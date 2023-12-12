@@ -6,7 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Add tooltip for budget items and enhance detail view&#10;&#10;Updated the app to provide a tooltip for each budget item, displaying the item's name, quantity, and formatted cost. Enhanced the detail view to not only display a list of logs but also allow the user to select a log from the list and view or amend details for that log. Minor GUI improvements were also made in both views..">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/DetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ApplicationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/BudgetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/BudgetView" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/DetailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/DetailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/github-action-maven-tutorial.iml" beforeDir="false" afterPath="$PROJECT_DIR$/github-action-maven-tutorial.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +74,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2Xwl1qKAZ45Lggitf6L3zjqG6Rd" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -91,7 +106,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -230,6 +245,8 @@
       <workItem from="1699561960285" duration="96000" />
       <workItem from="1699562105394" duration="714000" />
       <workItem from="1702157982502" duration="2154000" />
+      <workItem from="1702413529862" duration="836000" />
+      <workItem from="1702415353137" duration="5080000" />
     </task>
     <task id="LOCAL-00001" summary="Reset java.awt import">
       <option name="closed" value="true" />

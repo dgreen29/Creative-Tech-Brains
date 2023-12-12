@@ -7,19 +7,36 @@ import app.controllers.ProjectController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/**
+ * A custom cell renderer for a JList that displays tooltips for each cell.
+ *
+ * @author Darrell Green, Jr. (DJ Green)
+ */
 class TooltipJListCellRenderer extends DefaultListCellRenderer {
     private final ArrayList<String> tooltips;
 
+    /**
+     * Constructs a new TooltipJListCellRenderer object.
+     *
+     * @author Darrell Green, Jr. (DJ Green)
+     * @param tooltips
+     */
     public TooltipJListCellRenderer(ArrayList<String> tooltips){
         this.tooltips = tooltips;
     }
 
     @Override
+    /**
+     * Returns the component used for drawing the cell.
+     * This method is used to configure the renderer appropriately
+     * before drawing.
+     *
+     * @author Darrell Green, Jr. (DJ Green)
+     */
     public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         JComponent component = (JComponent) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
         String tooltip = tooltips.size() > index ? tooltips.get(index) : null;

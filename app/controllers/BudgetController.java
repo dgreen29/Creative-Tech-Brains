@@ -64,6 +64,13 @@ public class BudgetController {
         return projectController.getProject().getBudget().getEntries();
     }
 
+    /**
+     * Add an item to the budget.
+     *
+     * @param itemName     the name of the item
+     * @param itemCost     the cost of the item
+     * @param itemQuantity the quantity of the item
+     */
     public void addItem(String itemName, double itemCost, int itemQuantity) {
     }
 }

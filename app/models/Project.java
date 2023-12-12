@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  *
  * Represents a project.
- * @author Zarif Mazumder
+ * @author Zarif Mazumder, Darrell Green, Jr. (DJ Green)
  */
 public class Project implements Serializable {
 

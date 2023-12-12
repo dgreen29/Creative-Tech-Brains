@@ -19,9 +19,6 @@ public final class ProfileController {
     private final List<Profile> profiles = new ArrayList<>();
 
     private Profile currentProfile;
-    /**
-     * Reference to the app's project controller.
-     */
     private final ProjectController projectController;
 
     /**
@@ -90,6 +87,7 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the name of the current profile.
      * @author Darrell Green, Jr., Zarif Mazumder
      * @return name
      */
@@ -98,6 +96,7 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the email of the current profile.
      * @author Darrell Green, Jr., Zarif Mazumder
      * @return email
      */
@@ -106,6 +105,7 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the privilege of the current profile.
      * @author Zarif Mazumder
      * @return privilege
      */

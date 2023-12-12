@@ -126,6 +126,7 @@ public final class Profile implements Serializable {
 
     /**
      * Adds a project to the list of projects of the profile.
+     * @author Darrell Green, Jr. (DJ Green)
      * @param newProject The project to add.
      */
     public void addProject(Project newProject) {

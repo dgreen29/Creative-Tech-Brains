@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 /**
  * Represents a spreadsheet entry.
- * @author Zarif Mazumder
+ * @author Zarif Mazumder, Darrell Green, Jr.
  */
 public class Entry implements Serializable {
 

@@ -9,12 +9,24 @@ import javax.swing.border.BevelBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Represents a panel that displays a select bar for projects.
+ *
+ * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
+ */
 public final class ProjectSelectBar extends JPanel {
     public ProjectSelectBar() {
         this.setBorder(new BevelBorder(BevelBorder.LOWERED));
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         displayProjects(Main.getProfileController().getProfile());
     }
+
+    /**
+     * Displays the projects of a profile.
+     *
+     * @author Darrell Green, Jr. (DJ), Zarif Mazumder
+     * @param profile The profile whose projects will be displayed.
+     */
     private void displayProjects(Profile profile) {
         // Create "+" button before adding project buttons
         JButton addButton = new JButton("+");

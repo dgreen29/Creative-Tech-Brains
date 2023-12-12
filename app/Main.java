@@ -11,6 +11,8 @@ import javax.swing.*;
 
 /**
  * Driver class of the entire program.
+ *
+ * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
  */
 public class Main {
     public final static int APP_HEIGHT = 500;
@@ -20,6 +22,8 @@ public class Main {
 
     /**
      * Driver method.
+     *
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
      * @param args A generic String array that gets passed into the
      *             method by default.
      */
@@ -28,11 +32,16 @@ public class Main {
         setCurrentView(new ApplicationView(profileController));
     }
 
+    /**
+     * Returns the current view.
+     * @return
+     */
     public static ProfileController getProfileController() {
         return profileController;
     }
 
     /**
+     * Sets the current view.
      * @author Zarif Mazumder
      * @param view view
      */
