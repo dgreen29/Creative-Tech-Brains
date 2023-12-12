@@ -7,10 +7,10 @@
     <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ProfileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectSelectBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ProjectsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProjectsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/AppDesign.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/AppDesign.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
