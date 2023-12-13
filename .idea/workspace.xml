@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Add code documentation and adjust code structure&#10;&#10;Added comprehensive JavaDoc comments throughout various components of the application to improve code readability and maintainability. Slightly adjusted some code structure and author declarations where necessary for consistency and clarity.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/BudgetView" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/BudgetView.java" afterDir="false" />
-    </list>
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Rename BudgetView and add item description tooltip&#10;&#10;The BudgetView file has been renamed to BudgetView.java. This commit also implements a new feature to the BudgetView where a tooltip pops up showing the description of an item when said item is double-clicked. Code documentation has been added to the BudgetView and minor changes have been made to its structure." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,7 +239,7 @@
       <workItem from="1699562105394" duration="714000" />
       <workItem from="1702157982502" duration="2154000" />
       <workItem from="1702413529862" duration="836000" />
-      <workItem from="1702415353137" duration="6836000" />
+      <workItem from="1702415353137" duration="7025000" />
     </task>
     <task id="LOCAL-00001" summary="Reset java.awt import">
       <option name="closed" value="true" />
@@ -421,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702420941052</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Rename BudgetView and add item description tooltip&#10;&#10;The BudgetView file has been renamed to BudgetView.java. This commit also implements a new feature to the BudgetView where a tooltip pops up showing the description of an item when said item is double-clicked. Code documentation has been added to the BudgetView and minor changes have been made to its structure.">
+      <option name="closed" value="true" />
+      <created>1702422840269</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1702422840269</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +465,8 @@
     <MESSAGE value="Add functionality to create and display new projects&#10;&#10;A method `addProject()` was added to the `Profile` class for creating new projects. The `ProjectSelectBar` class was updated to include a button for adding new projects to a profile. When a user clicks the &quot;+&quot; button, a dialog is opened for the user to input the name of the new project. Upon confirmation, the new project is created, added to the profile, and displayed on the bar." />
     <MESSAGE value="Add tooltip for budget items and enhance detail view&#10;&#10;Updated the app to provide a tooltip for each budget item, displaying the item's name, quantity, and formatted cost. Enhanced the detail view to not only display a list of logs but also allow the user to select a log from the list and view or amend details for that log. Minor GUI improvements were also made in both views.." />
     <MESSAGE value="Add code documentation and adjust code structure&#10;&#10;Added comprehensive JavaDoc comments throughout various components of the application to improve code readability and maintainability. Slightly adjusted some code structure and author declarations where necessary for consistency and clarity." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add code documentation and adjust code structure&#10;&#10;Added comprehensive JavaDoc comments throughout various components of the application to improve code readability and maintainability. Slightly adjusted some code structure and author declarations where necessary for consistency and clarity." />
+    <MESSAGE value="Rename BudgetView and add item description tooltip&#10;&#10;The BudgetView file has been renamed to BudgetView.java. This commit also implements a new feature to the BudgetView where a tooltip pops up showing the description of an item when said item is double-clicked. Code documentation has been added to the BudgetView and minor changes have been made to its structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename BudgetView and add item description tooltip&#10;&#10;The BudgetView file has been renamed to BudgetView.java. This commit also implements a new feature to the BudgetView where a tooltip pops up showing the description of an item when said item is double-clicked. Code documentation has been added to the BudgetView and minor changes have been made to its structure." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
