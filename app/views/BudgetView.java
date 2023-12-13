@@ -10,49 +10,21 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- * A custom cell renderer for a JList that displays tooltips for each cell.
+ * The BudgetView class represents the graphical user interface
+ * for managing the project's budget.
+ * It extends the JFrame class to create a window.
  *
  * @author Darrell Green, Jr. (DJ Green)
  */
-class TooltipJListCellRenderer extends DefaultListCellRenderer {
-    private final ArrayList<String> tooltips;
-
-    /**
-     * Constructs a new TooltipJListCellRenderer object.
-     *
-     * @author Darrell Green, Jr. (DJ Green)
-     * @param tooltips
-     */
-    public TooltipJListCellRenderer(ArrayList<String> tooltips){
-        this.tooltips = tooltips;
-    }
-
-    @Override
-    /**
-     * Returns the component used for drawing the cell.
-     * This method is used to configure the renderer appropriately
-     * before drawing.
-     *
-     * @author Darrell Green, Jr. (DJ Green)
-     */
-    public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-        JComponent component = (JComponent) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-        String tooltip = tooltips.size() > index ? tooltips.get(index) : null;
-        component.setToolTipText(tooltip);
-        return component;
-    }
-}
-
-/**
- * Represents the graphical interface for the budget management system.
- *
- * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
- */
 public class BudgetView extends JFrame {
+
     private static final String TITLE_NAME = "Budget";
     private final BudgetController budgetController;
     private final ProfileController profileController;
@@ -64,9 +36,15 @@ public class BudgetView extends JFrame {
     private JButton uploadButton;
     private DefaultListModel<JLabel> listModel;
     private JList<JLabel> itemList;
+    private JLabel totalCostLabel;
+    private double totalCost = 0.0;
 
+    /**
+     * Creates an instance of BudgetView.
+     *
+     * @param profileController the ProfileController object used by the BudgetView
+     */
     public BudgetView(ProfileController profileController) {
-
         this.profileController = profileController;
         projectController = profileController.getProjectController();
         budgetController = new BudgetController(projectController);
@@ -92,21 +70,26 @@ public class BudgetView extends JFrame {
 
         newItemPanel.add(new JLabel("Upload image: "));
         uploadButton = new JButton("Upload");
+
+        totalCostLabel = new JLabel("Total Cost: $0");
+        newItemPanel.add(totalCostLabel);
+
         uploadButton.addActionListener(e -> {
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                    "JPG & GIF Images", "jpg", "gif");
+                    "JPG, GIF, PNG Images", "jpg","jpeg", "gif", "png");
             chooser.setFileFilter(filter);
             int returnVal = chooser.showOpenDialog(null);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = chooser.getSelectedFile();
-                // handle the selected image file...
             }
         });
         newItemPanel.add(uploadButton);
 
         listModel = new DefaultListModel<>();
         itemList = new JList<>(listModel);
+        JScrollPane scrollPane = new JScrollPane(itemList);
+
         itemList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -119,16 +102,12 @@ public class BudgetView extends JFrame {
                 }
             }
         });
-        JScrollPane scrollPane = new JScrollPane(itemList);
-
-
         this.add(newItemPanel, BorderLayout.NORTH);
         this.add(scrollPane, BorderLayout.CENTER);
 
         JButton addItemButton = new JButton("Add Item");
         addItemButton.addActionListener(e -> {
             String itemName = nameField.getText();
-
             try {
                 double itemCost = Double.parseDouble(costField.getText());
                 int itemQuantity = Integer.parseInt(quantityField.getText());
@@ -136,16 +115,24 @@ public class BudgetView extends JFrame {
                 if (itemName != null && !itemName.trim().isEmpty()) {
                     budgetController.addItem(itemName, itemCost, itemQuantity);
 
-                    String tooltip = "Name: " + itemName + ", Cost: " + String.format("%.2f", itemCost) + ", QTY: " + itemQuantity;
+                    String tooltip = "Name: " + itemName +
+                            "\nCost: $" + String.format("%.2f", itemCost) +
+                            "\nQuantity: " + itemQuantity +
+                            "\nTotal Cost: $" + String.format("%.2f", itemCost * itemQuantity);
 
                     JLabel itemLabel = new JLabel(itemName);
                     itemLabel.setToolTipText(tooltip);
 
                     listModel.addElement(itemLabel);
 
+                    totalCost += itemCost * itemQuantity;
+                    totalCostLabel.setText("Total Cost: $" + String.format("%.2f", totalCost));
+
                     SwingUtilities.invokeLater(() -> {
                         itemList.revalidate();
                         itemList.repaint();
+
+
                     });
                 } else {
                     JOptionPane.showMessageDialog(null, "Item name cannot be empty. Please try again.");
@@ -154,8 +141,22 @@ public class BudgetView extends JFrame {
                 JOptionPane.showMessageDialog(null, "Cost and Quantity should be valid numbers. Please enter again.");
             }
         });
-        this.add(addItemButton, BorderLayout.SOUTH);
-        this.add(new ProjectSelectBar(), BorderLayout.PAGE_END);
         newItemPanel.add(addItemButton);
+    }
+
+    /**
+     * Updates the total cost label in the BudgetView with the
+     * current total cost value.
+     * The method formats the total cost value using a
+     * DecimalFormat object and updates the label's text.
+     *
+     * Note: This method does not return any value
+     *
+     * @author Darrell Green, Jr. (DJ Green)
+     */
+    void updateTotalCost(){
+      DecimalFormat df = new DecimalFormat("#,###.00");
+      String totalCostStr = df.format(totalCost);
+        totalCostLabel.setText("Total Cost: $" + totalCostStr);
     }
 }

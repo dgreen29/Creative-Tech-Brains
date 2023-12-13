@@ -73,4 +73,13 @@ public class BudgetController {
      */
     public void addItem(String itemName, double itemCost, int itemQuantity) {
     }
+
+    /**
+     * Removes an item from the budget.
+     *
+     * @param itemName the name of the item to be removed
+     */
+    public void removeItem(String itemName) {
+
+    }
 }
