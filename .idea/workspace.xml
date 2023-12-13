@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProfileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BudgetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BudgetController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,12 +99,43 @@
       <recent name="app.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run app">
+  <component name="RunManager" selected="JUnit.BudgetControllerTest">
     <configuration name="Run app" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="Creative-Tech-Brains" />
+      <module name="github-action-maven-tutorial" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BudgetControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="github-action-maven-tutorial" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.BudgetControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BudgetControllerTest.testSet2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="github-action-maven-tutorial" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.BudgetControllerTest" />
+      <option name="METHOD_NAME" value="testSet2" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,37 +171,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProfileControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Creative-Tech-Brains" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProfileControllerTest.setInvalidProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Creative-Tech-Brains" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
-      <option name="METHOD_NAME" value="setInvalidProfile" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="app.tests in Creative-Tech-Brains" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Creative-Tech-Brains" />
       <extension name="coverage">
@@ -191,19 +187,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Run app" />
-      <item itemvalue="JUnit.ProfileControllerTest" />
-      <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
+      <item itemvalue="JUnit.BudgetControllerTest" />
+      <item itemvalue="JUnit.BudgetControllerTest.testSet2" />
       <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
       <item itemvalue="JUnit.FrameTest" />
       <item itemvalue="JUnit.FrameTest.run" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BudgetControllerTest" />
+        <item itemvalue="JUnit.BudgetControllerTest.testSet2" />
         <item itemvalue="JUnit.FrameTest.run" />
         <item itemvalue="JUnit.FrameTest" />
         <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
-        <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
-        <item itemvalue="JUnit.ProfileControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -500,9 +496,9 @@
       <FILTER>app.models.*</FILTER>
       <FILTER>app.views.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1699584306826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_Creative_Tech_Brains.ic" NAME="app.tests in Creative-Tech-Brains Coverage Results" MODIFIED="1701154437918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.tests.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1701154666826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
