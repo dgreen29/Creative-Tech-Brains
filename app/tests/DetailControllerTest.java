@@ -3,7 +3,7 @@ package app.tests;
 import app.controllers.DetailController;
 import app.controllers.ProfileController;
 import app.controllers.ProjectController;
-import app.models.Detail;
+import app.models.DetailModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +33,7 @@ public class DetailControllerTest {
      */
     @Test
     public void defaultDetailsTest() {
-        assertEquals(testController.getText(), Detail.DEFAULT_TEXT);
+        assertEquals(testController.getText(), DetailModel.DEFAULT_TEXT);
     }
 
     /**
