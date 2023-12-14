@@ -10,28 +10,28 @@ public class Project {
     /**
      * Stores the budget object corresponding to this project.
      */
-    private final Budget budget;
+    private final BudgetModel budgetModel;
     /**
      * Stores the checklist corresponding to this project.
      */
-    private final LinkedList<Item> checklist;
+    private final LinkedList<ItemModel> checklist;
     /**
      * Stores the details object for this project.
      */
-    private final Detail detail;
+    private final DetailModel detailModel;
     private String name;
 
     public Project(String name) {
-        detail = new Detail();
+        detailModel = new DetailModel();
         checklist = new LinkedList<>();
-        budget = new Budget();
+        budgetModel = new BudgetModel();
         this.name = name;
     }
 
     public Project(ProjectBuilder projectBuilder) {
-        this.detail = projectBuilder.detail;
+        this.detailModel = projectBuilder.detailModel;
         this.checklist = projectBuilder.checklist;
-        this.budget = projectBuilder.budget;
+        this.budgetModel = projectBuilder.budgetModel;
         this.name = projectBuilder.name;
     }
 
@@ -39,15 +39,15 @@ public class Project {
      * @author Zarif Mazumder
      * @return <code>Budget</code>
      */
-    public Budget getBudget() {
-        return budget;
+    public BudgetModel getBudget() {
+        return budgetModel;
     }
 
     /**
      * @author Zarif Mazumder
      * @return checklist
      */
-    public LinkedList<Item> getChecklist() {
+    public LinkedList<ItemModel> getChecklist() {
         return checklist;
     }
 
@@ -55,8 +55,8 @@ public class Project {
      * @author Zarif Mazumder
      * @return <code>Detail</code>
      */
-    public Detail getDetail() {
-        return detail;
+    public DetailModel getDetail() {
+        return detailModel;
     }
 
     /**
@@ -64,7 +64,7 @@ public class Project {
      * @param text content of <code>Item</code>
      */
     public void addItem(String text) {
-        checklist.add(new Item(text));
+        checklist.add(new ItemModel(text));
     }
 
     /**
@@ -73,7 +73,7 @@ public class Project {
      * @param text text
      */
     public void setItem(int index, String text, boolean isDone) {
-        Item item = checklist.get(index);
+        ItemModel item = checklist.get(index);
         item.setText(text);
         item.setDone(isDone);
     }
@@ -105,24 +105,24 @@ public class Project {
 
     public static class ProjectBuilder {
         private final String name;
-        private Detail detail = new Detail();
-        private LinkedList<Item> checklist = new LinkedList<>();
-        private Budget budget = new Budget();
+        private DetailModel detailModel = new DetailModel();
+        private LinkedList<ItemModel> checklist = new LinkedList<>();
+        private BudgetModel budgetModel = new BudgetModel();
 
         public ProjectBuilder(String name) {
             this.name = name;
         }
 
-        public void setDetail(Detail detail) {
-            this.detail = detail;
+        public void setDetail(DetailModel detailModel) {
+            this.detailModel = detailModel;
         }
 
-        public void setChecklist(LinkedList<Item> checklist) {
+        public void setChecklist(LinkedList<ItemModel> checklist) {
             this.checklist = checklist;
         }
 
-        public void setBudget(Budget budget) {
-            this.budget = budget;
+        public void setBudget(BudgetModel budgetModel) {
+            this.budgetModel = budgetModel;
         }
 
         public Project build() {

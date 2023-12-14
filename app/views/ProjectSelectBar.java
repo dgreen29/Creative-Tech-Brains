@@ -2,7 +2,7 @@ package app.views;
 
 import app.Main;
 import app.controllers.ProfileController;
-import app.models.Profile;
+import app.models.ProfileModel;
 import app.models.Project;
 
 import javax.swing.*;
@@ -26,17 +26,17 @@ public final class ProjectSelectBar extends JPanel {
 
     /**
      * @author Darrell Green, Jr., Zarif Mazumder
-     * @param profile current profile
+     * @param profileModel current profile
      */
-    private void displayProjects(Profile profile) {
+    private void displayProjects(ProfileModel profileModel) {
         // Add project buttons
-        for (Project project : profile.getProjects()) {
+        for (Project project : profileModel.getProjects()) {
             JButton projectBtn = displayProjectButton(project);
             this.add(projectBtn);
         }
 
         // Add "+" button after all project buttons have been added
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             JButton addButton = displayAddButton();
             this.add(addButton);
         }

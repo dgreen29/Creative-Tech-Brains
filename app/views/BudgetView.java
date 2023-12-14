@@ -3,8 +3,8 @@ package app.views;
 import app.Main;
 import app.controllers.BudgetController;
 import app.controllers.ProfileController;
-import app.models.Entry;
-import app.models.Profile;
+import app.models.EntryModel;
+import app.models.ProfileModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,13 +39,13 @@ public class BudgetView extends JFrame {
     private JScrollPane displayContent() {
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        LinkedList<Entry> entries = budgetController.getEntries();
+        LinkedList<EntryModel> entries = budgetController.getEntries();
         JTable table = displayEntries(entries);
         table.setPreferredScrollableViewportSize(new Dimension(
                 table.getPreferredSize().width, table.getRowHeight() * table.getRowCount()));
         JScrollPane tablePane = new JScrollPane(table);
         content.add(tablePane);
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             JPanel addEntryBtn = displayAddEntryButton();
             content.add(addEntryBtn);
         }
@@ -57,15 +57,15 @@ public class BudgetView extends JFrame {
      * @param entries data
      * @return <code>JTable</code> of entries
      */
-    private JTable displayEntries(LinkedList<Entry> entries) {
+    private JTable displayEntries(LinkedList<EntryModel> entries) {
         if (entries.isEmpty()) return new JTable();
         String[] columnNames = {"cost", "item", "quantity"};
         String[][] rowData = new String[entries.size()][3];
         for (int i = 0; i < entries.size(); i++) {
-            Entry entry = entries.get(i);
-            rowData[i][0] = entry.getCost().toString();
-            rowData[i][1] = entry.getName();
-            rowData[i][2] = String.valueOf(entry.getQuantity());
+            EntryModel entryModel = entries.get(i);
+            rowData[i][0] = entryModel.getCost().toString();
+            rowData[i][1] = entryModel.getName();
+            rowData[i][2] = String.valueOf(entryModel.getQuantity());
         }
         return new JTable(rowData, columnNames);
     }

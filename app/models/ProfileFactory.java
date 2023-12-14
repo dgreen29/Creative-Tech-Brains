@@ -39,16 +39,16 @@ public final class ProfileFactory {
      * @return <code>ArrayList&lt;Profile&gt;</code>
      * @throws FileNotFoundException file not found or unreadable
      */
-    public static ArrayList<Profile> readFromDB(File db) throws FileNotFoundException {
-        ArrayList<Profile> profiles = new ArrayList<>();
+    public static ArrayList<ProfileModel> readFromDB(File db) throws FileNotFoundException {
+        ArrayList<ProfileModel> profiles = new ArrayList<>();
         Scanner scanner = new Scanner(db);
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             String profileName = values[0];
             String formattedName = values[0].replaceAll("\\b%2C\\b", ",");
-            Profile profile = new Profile(formattedName, values[1], Profile.Privilege.valueOf(values[2]));
-            profile.setProjects(readFromProjectDB(profileName));
-            profiles.add(profile);
+            ProfileModel profileModel = new ProfileModel(formattedName, values[1], ProfileModel.Privilege.valueOf(values[2]));
+            profileModel.setProjects(readFromProjectDB(profileName));
+            profiles.add(profileModel);
         }
         scanner.close();
         return profiles;
@@ -78,7 +78,7 @@ public final class ProfileFactory {
                 return projects;
             }
         }
-        projects.add(new Project(Profile.DEFAULT_PROJECT_NAME));
+        projects.add(new Project(ProfileModel.DEFAULT_PROJECT_NAME));
         return projects;
     }
 
@@ -96,11 +96,11 @@ public final class ProfileFactory {
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             if (values[0].equals(profileName) && values[1].equals(projectName)) {
-                projectBuilder.setDetail(new Detail(values[2].replaceAll("\\b%2C\\b", ",")));
+                projectBuilder.setDetail(new DetailModel(values[2].replaceAll("\\b%2C\\b", ",")));
                 return;
             }
         }
-        projectBuilder.setDetail(new Detail());
+        projectBuilder.setDetail(new DetailModel());
     }
 
     /**
@@ -114,11 +114,11 @@ public final class ProfileFactory {
     public static void readFromItemDB(Project.ProjectBuilder projectBuilder, String projectName, String profileName)
             throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("item.csv"));
-        LinkedList<Item> checklist = new LinkedList<>();
+        LinkedList<ItemModel> checklist = new LinkedList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             if (values[0].equals(profileName) && values[1].equals(projectName)) {
-                checklist.add(Integer.parseInt(values[2]), new Item(
+                checklist.add(Integer.parseInt(values[2]), new ItemModel(
                         values[3].replaceAll("\\b%2C\\b", ","), Boolean.parseBoolean(values[4])));
             }
         }
@@ -136,17 +136,17 @@ public final class ProfileFactory {
     public static void readFromEntryDB(Project.ProjectBuilder projectBuilder, String projectName, String profileName)
             throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("entry.csv"));
-        Budget budget = new Budget();
-        LinkedList<Entry> entries = new LinkedList<>();
+        BudgetModel budgetModel = new BudgetModel();
+        LinkedList<EntryModel> entries = new LinkedList<>();
         while (scanner.hasNextLine()) {
             String[] values = scanner.nextLine().split(",");
             if (values[0].equals(profileName) && values[1].equals(projectName)) {
-                entries.add(Integer.parseInt(values[2]), new Entry(BigDecimal.valueOf(Double.parseDouble(values[3])),
+                entries.add(Integer.parseInt(values[2]), new EntryModel(BigDecimal.valueOf(Double.parseDouble(values[3])),
                         values[4].replaceAll("\\b%2C\\b", ","), Integer.parseInt(values[5])));
             }
         }
-        budget.setEntries(entries);
-        projectBuilder.setBudget(budget);
+        budgetModel.setEntries(entries);
+        projectBuilder.setBudget(budgetModel);
     }
 
     /**
@@ -156,7 +156,7 @@ public final class ProfileFactory {
      * @throws IOException Writing file error
      */
     public static void writeToDB(ProfileController profileController) throws IOException {
-        ArrayList<Profile> profiles = profileController.getProfiles();
+        ArrayList<ProfileModel> profiles = profileController.getProfiles();
         FileWriter profileFileWriter = new FileWriter("profile.csv");
         FileWriter projectFileWriter = new FileWriter("project.csv");
         FileWriter detailFileWriter = new FileWriter("detail.csv");
@@ -167,25 +167,25 @@ public final class ProfileFactory {
         StringBuilder detailStringBuilder = new StringBuilder();
         StringBuilder itemStringBuilder = new StringBuilder();
         StringBuilder entryStringBuilder = new StringBuilder();
-        for (Profile profile : profiles) {
-            String profileName = profile.getName().replaceAll(",", "%2C");
-            if (profileName.equals(Profile.DEFAULT_NAME)) continue;
-            writeProfileRow(profileStringBuilder, profileName, profile.getEmail(), profile.getPrivilege());
+        for (ProfileModel profileModel : profiles) {
+            String profileName = profileModel.getName().replaceAll(",", "%2C");
+            if (profileName.equals(ProfileModel.DEFAULT_NAME)) continue;
+            writeProfileRow(profileStringBuilder, profileName, profileModel.getEmail(), profileModel.getPrivilege());
             StringBuilder projectSB = new StringBuilder(profileName).append(",");
-            for (Project project : profile.getProjects()) {
+            for (Project project : profileModel.getProjects()) {
                 String projectName = project.getName();
                 projectSB.append(projectName).append(",");
                 writeDetailRow(detailStringBuilder, profileName, projectName, project.getDetail().getText());
-                LinkedList<Item> checklist = project.getChecklist();
+                LinkedList<ItemModel> checklist = project.getChecklist();
                 for (int i = 0; i < checklist.size(); i++) {
-                    Item item = checklist.get(i);
-                    writeItemRow(itemStringBuilder, profileName, projectName, i, item.getText(), item.isDone());
+                    ItemModel itemModel = checklist.get(i);
+                    writeItemRow(itemStringBuilder, profileName, projectName, i, itemModel.getText(), itemModel.isDone());
                 }
-                LinkedList<Entry> entries = project.getBudget().getEntries();
+                LinkedList<EntryModel> entries = project.getBudget().getEntries();
                 for (int i = 0; i < entries.size(); i++) {
-                    Entry entry = entries.get(i);
-                    writeEntryRow(entryStringBuilder, profileName, projectName, i, entry.getCost(), entry.getName(),
-                            entry.getQuantity());
+                    EntryModel entryModel = entries.get(i);
+                    writeEntryRow(entryStringBuilder, profileName, projectName, i, entryModel.getCost(), entryModel.getName(),
+                            entryModel.getQuantity());
                 }
             }
             projectSB.deleteCharAt(projectSB.length() - 1);
@@ -212,7 +212,7 @@ public final class ProfileFactory {
      * @param email already validated input
      * @param privilege <code>Privilege</code>
      */
-    public static void writeProfileRow(StringBuilder sb, String name, String email, Profile.Privilege privilege) {
+    public static void writeProfileRow(StringBuilder sb, String name, String email, ProfileModel.Privilege privilege) {
         sb.append(name)
                 .append(",")
                 .append(email)
@@ -292,12 +292,12 @@ public final class ProfileFactory {
     /**
      * Writes <code>Profile</code> to a <code>File</code> of the <code>Profile</code>'s name.
      * @author Zarif Mazumder
-     * @param profile given <code>Profile</code>
+     * @param profileModel given <code>Profile</code>
      * @throws IOException Writing file error
      */
-    public static void exportProfile(Profile profile) throws IOException {
-        try (FileOutputStream fOut = new FileOutputStream(profile.getName() + FILE_EXTENSION, true)) {
-            String singleLineProfile = profile.getName() + "," + profile.getEmail() + "," + profile.getPrivilege();
+    public static void exportProfile(ProfileModel profileModel) throws IOException {
+        try (FileOutputStream fOut = new FileOutputStream(profileModel.getName() + FILE_EXTENSION, true)) {
+            String singleLineProfile = profileModel.getName() + "," + profileModel.getEmail() + "," + profileModel.getPrivilege();
             fOut.write(singleLineProfile.getBytes());
         }
     }
@@ -309,10 +309,10 @@ public final class ProfileFactory {
      * @return resulting created <code>Profile</code>
      * @throws IOException Reading file error
      */
-    public static Profile importProfile(File data) throws IOException {
+    public static ProfileModel importProfile(File data) throws IOException {
         Scanner scanner = new Scanner(data);
         String[] values = scanner.nextLine().split(",");
         scanner.close();
-        return new Profile(values[0], values[1], Profile.Privilege.valueOf(values[2]));
+        return new ProfileModel(values[0], values[1], ProfileModel.Privilege.valueOf(values[2]));
     }
 }

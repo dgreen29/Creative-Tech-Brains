@@ -1,6 +1,6 @@
 package app.controllers;
 
-import app.models.Entry;
+import app.models.EntryModel;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;
@@ -26,7 +26,7 @@ public class BudgetController {
      * @param name name
      */
     public void addEntry(BigDecimal cost, String name, int quantity) {
-        projectController.getProject().getBudget().addEntry(new Entry(cost, name, quantity));
+        projectController.getProject().getBudget().addEntry(new EntryModel(cost, name, quantity));
     }
 
     /**
@@ -53,7 +53,7 @@ public class BudgetController {
      * @author Zarif Mazumder
      * @return LinkedList&lt;Entry&gt; of entries
      */
-    public LinkedList<Entry> getEntries() {
+    public LinkedList<EntryModel> getEntries() {
         return projectController.getProject().getBudget().getEntries();
     }
 }

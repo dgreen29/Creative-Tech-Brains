@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Generate jar">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,11 +194,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FrameTest.run" />
-        <item itemvalue="JUnit.FrameTest" />
         <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
         <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
         <item itemvalue="JUnit.ProfileControllerTest" />
+        <item itemvalue="JUnit.FrameTest.run" />
+        <item itemvalue="JUnit.FrameTest" />
       </list>
     </recent_temporary>
   </component>

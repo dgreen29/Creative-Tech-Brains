@@ -7,7 +7,7 @@ import java.util.List;
  * Stores a user's app data.
  * @author Zarif Mazumder
  */
-public final class Profile {
+public final class ProfileModel {
     /**
      * Constant String storing the name of the default profile.
      */
@@ -39,7 +39,7 @@ public final class Profile {
      * @param name Name
      * @param email Email Address
      */
-    public Profile(String name, String email) {
+    public ProfileModel(String name, String email) {
         this.name = name.isEmpty() ? DEFAULT_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
         privilege = Privilege.USER;
@@ -47,7 +47,7 @@ public final class Profile {
         projects.add(new Project(DEFAULT_PROJECT_NAME));
     }
 
-    public Profile(String name, String email, Privilege privilege) {
+    public ProfileModel(String name, String email, Privilege privilege) {
         this.name = name.isEmpty() ? DEFAULT_NAME : name;
         this.email = email.isEmpty() ? DEFAULT_EMAIL : email;
         this.privilege = privilege;
@@ -103,10 +103,10 @@ public final class Profile {
      */
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Profile profile)) {
+        if (!(o instanceof ProfileModel profileModel)) {
             return false;
         }
-        return (this.name.equals(profile.getName()) && this.email.equals(profile.getEmail()));
+        return (this.name.equals(profileModel.getName()) && this.email.equals(profileModel.getEmail()));
     }
 
     public void addProject(Project project) {

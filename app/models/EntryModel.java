@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * Represents a spreadsheet entry.
  * @author Zarif Mazumder
  */
-public class Entry {
+public class EntryModel {
     /**
      * Stores the cost of the budget entry.
      */
@@ -17,7 +17,7 @@ public class Entry {
      */
     private String name;
 
-    public Entry(BigDecimal cost, String name, int quantity) {
+    public EntryModel(BigDecimal cost, String name, int quantity) {
         this.cost = cost;
         this.name = name;
         this.quantity = quantity;
@@ -85,9 +85,9 @@ public class Entry {
      */
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Entry entry)) {
+        if (!(o instanceof EntryModel entryModel)) {
             return false;
         }
-        return (this.cost.compareTo(entry.getCost()) == 0 && this.name.equals(this.getName()));
+        return (this.cost.compareTo(entryModel.getCost()) == 0 && this.name.equals(this.getName()));
     }
 }
