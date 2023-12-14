@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Finished test class BudgetController with all tests passing.">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/ProjectControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProjectControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +46,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -53,7 +61,7 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2Xwl1qKAZ45Lggitf6L3zjqG6Rd" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
   </component>
   <component name="ProjectViewState">
@@ -86,7 +94,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -98,7 +106,7 @@
       <recent name="app.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BudgetControllerTest">
+  <component name="RunManager" selected="JUnit.DetailControllerTest.defaultDetailsTest">
     <configuration name="Run app" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -108,7 +116,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BudgetControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DetailControllerTest.defaultDetailsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
@@ -117,13 +125,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.BudgetControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.DetailControllerTest" />
+      <option name="METHOD_NAME" value="defaultDetailsTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BudgetControllerTest.testSet2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DetailControllerTest.setDetailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
@@ -132,15 +141,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.BudgetControllerTest" />
-      <option name="METHOD_NAME" value="testSet2" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.DetailControllerTest" />
+      <option name="METHOD_NAME" value="setDetailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FrameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="360 Assignment 1" />
+    <configuration name="ProjectControllerTest.checkListRemoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.tests.*" />
@@ -148,30 +157,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.FrameTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FrameTest.run" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="360 Assignment 1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.FrameTest" />
-      <option name="METHOD_NAME" value="run" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProjectControllerTest" />
+      <option name="METHOD_NAME" value="checkListRemoveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app.tests in Creative-Tech-Brains" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Creative-Tech-Brains" />
+    <configuration name="ProjectControllerTest.checkListSetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.tests.*" />
@@ -179,26 +173,44 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProjectControllerTest" />
+      <option name="METHOD_NAME" value="checkListSetTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectControllerTest.checkListSetTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="github-action-maven-tutorial" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProjectControllerTest" />
+      <option name="METHOD_NAME" value="checkListSetTest1" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Run app" />
-      <item itemvalue="JUnit.BudgetControllerTest" />
-      <item itemvalue="JUnit.BudgetControllerTest.testSet2" />
-      <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
-      <item itemvalue="JUnit.FrameTest" />
-      <item itemvalue="JUnit.FrameTest.run" />
+      <item itemvalue="JUnit.DetailControllerTest.defaultDetailsTest" />
+      <item itemvalue="JUnit.DetailControllerTest.setDetailTest" />
+      <item itemvalue="JUnit.ProjectControllerTest.checkListRemoveTest" />
+      <item itemvalue="JUnit.ProjectControllerTest.checkListSetTest" />
+      <item itemvalue="JUnit.ProjectControllerTest.checkListSetTest1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BudgetControllerTest" />
-        <item itemvalue="JUnit.BudgetControllerTest.testSet2" />
-        <item itemvalue="JUnit.FrameTest.run" />
-        <item itemvalue="JUnit.FrameTest" />
-        <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
+        <item itemvalue="JUnit.DetailControllerTest.defaultDetailsTest" />
+        <item itemvalue="JUnit.DetailControllerTest.setDetailTest" />
+        <item itemvalue="JUnit.ProjectControllerTest.checkListRemoveTest" />
+        <item itemvalue="JUnit.ProjectControllerTest.checkListSetTest1" />
+        <item itemvalue="JUnit.ProjectControllerTest.checkListSetTest" />
       </list>
     </recent_temporary>
   </component>
@@ -503,8 +515,11 @@
       <FILTER>app.models.*</FILTER>
       <FILTER>app.views.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1699584306826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$Run_app.ic" NAME="Run app Coverage Results" MODIFIED="1701154666826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_Creative_Tech_Brains.ic" NAME="app.tests in Creative-Tech-Brains Coverage Results" MODIFIED="1701154437918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$ProjectControllerTest.ic" NAME="ProjectControllerTest Coverage Results" MODIFIED="1702581485727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.tests.*</FILTER>
     </SUITE>
   </component>
