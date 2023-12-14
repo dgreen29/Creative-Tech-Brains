@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="WIP database">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Generate jar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProfileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProfileFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/AboutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/AboutScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/NavigationBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/ProfileScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/ProfileView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,11 +82,11 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;promo.kubernetes&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -191,11 +186,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.Run app" />
+      <item itemvalue="JUnit.FrameTest" />
+      <item itemvalue="JUnit.FrameTest.run" />
       <item itemvalue="JUnit.ProfileControllerTest" />
       <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
       <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
-      <item itemvalue="JUnit.FrameTest" />
-      <item itemvalue="JUnit.FrameTest.run" />
     </list>
     <recent_temporary>
       <list>
@@ -210,9 +205,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-7a0a4d15" />
         <option value="jdk-20.0.2-corretto-20.0.2.1-8336523bb0d9-dc1606b7" />
-        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-abbd5a8d" />
       </set>
     </attachedChunks>
   </component>
@@ -448,7 +441,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702343119256</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Generate jar">
+      <option name="closed" value="true" />
+      <created>1702443701459</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1702443701459</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,7 +488,8 @@
     <MESSAGE value="WIP" />
     <MESSAGE value="WIP database" />
     <MESSAGE value="Project budget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project budget" />
+    <MESSAGE value="Generate jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generate jar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

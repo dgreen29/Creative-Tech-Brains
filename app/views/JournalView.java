@@ -14,12 +14,12 @@ import java.util.LinkedList;
  * Displays projects with progress and checklist.
  * @author Darrell Green Jr., Harman Singh, Zarif Mazumder
  */
-public class ProjectsView extends JFrame {
-    private static final String TITLE_NAME = "Projects";
+public class JournalView extends JFrame {
+    private static final String TITLE_NAME = "Journal";
     private final ProfileController profileController;
     private final ProjectController projectController;
 
-    public ProjectsView(ProfileController profileController) {
+    public JournalView(ProfileController profileController) {
         this.profileController = profileController;
         projectController = profileController.getProjectController();
         this.setTitle(TITLE_NAME);
@@ -89,7 +89,7 @@ public class ProjectsView extends JFrame {
             String itemText = text.getText();
             if (!itemText.isEmpty()) {
                 projectController.setItem(i, itemText, item.isDone());
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             }
         });
         if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
@@ -97,7 +97,7 @@ public class ProjectsView extends JFrame {
                 String itemText = text.getText();
                 if (!itemText.isEmpty()) {
                     projectController.setItem(i, itemText, !item.isDone());
-                    Main.setCurrentView(new ProjectsView(profileController));
+                    Main.setCurrentView(new JournalView(profileController));
                 }
             });
         }
@@ -107,7 +107,7 @@ public class ProjectsView extends JFrame {
             JButton deleteBtn = new JButton("-");
             deleteBtn.addActionListener(e -> {
                 projectController.removeItem(i);
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             });
             checkBoxPanel.add(deleteBtn);
         }
@@ -126,14 +126,14 @@ public class ProjectsView extends JFrame {
             String itemText = text.getText().trim();
             if (!itemText.isEmpty()) {
                 projectController.addItem(itemText);
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             }
         });
         addItemBtn.addActionListener(e -> {
             String itemText = text.getText().trim();
             if (!itemText.isEmpty()) {
                 projectController.addItem(itemText);
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             }
         });
         addItemPanel.add(addItemBtn);

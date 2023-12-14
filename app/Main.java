@@ -2,7 +2,7 @@ package app;
 
 import app.controllers.ProfileController;
 import app.models.ProfileFactory;
-import app.views.ProjectsView;
+import app.views.JournalView;
 
 import javax.swing.*;
 import java.io.File;
@@ -31,7 +31,7 @@ public class Main {
      */
     public static void main(String[] args) {
         profileController = new ProfileController();
-        setCurrentView(new ProjectsView(profileController));
+        setCurrentView(new JournalView(profileController));
         loadDatabase();
     }
 
