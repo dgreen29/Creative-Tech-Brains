@@ -55,7 +55,7 @@ public final class ProjectSelectBar extends JPanel {
         }
         projectBtn.addActionListener(e -> {
             profileController.getProjectController().setCurrentProject(project);
-            Main.setCurrentView(new ProjectsView(profileController));
+            Main.setCurrentView(new JournalView(profileController));
         });
         return projectBtn;
     }
@@ -73,7 +73,7 @@ public final class ProjectSelectBar extends JPanel {
             // Create new Project and add it to the profile
             if (!newProjectName.isEmpty()) {
                 profileController.createProject(newProjectName);
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             } else {
                 JOptionPane.showMessageDialog(null, "Project name cannot be empty. Please try again.");
             }

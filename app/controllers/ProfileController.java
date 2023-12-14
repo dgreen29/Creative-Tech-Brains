@@ -4,7 +4,7 @@ import app.Main;
 import app.models.Profile;
 import app.models.ProfileFactory;
 import app.models.Project;
-import app.views.ProjectsView;
+import app.views.JournalView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -92,7 +92,7 @@ public final class ProfileController {
             currentProfile = profiles.get(0);
             projectController.setCurrentProject(0);
         }
-        Main.setCurrentView(new ProjectsView(this));
+        Main.setCurrentView(new JournalView(this));
     }
 
     /**
