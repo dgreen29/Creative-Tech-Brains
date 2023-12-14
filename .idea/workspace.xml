@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Refactoring">
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Refactored Test Classes with new class names.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tests/ProjectControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProjectControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,11 +93,11 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;promo.kubernetes&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -105,7 +109,7 @@
       <recent name="app.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProjectControllerTest.testSetCurrentProject2">
+  <component name="RunManager" selected="JUnit.app.tests in github-action-maven-tutorial">
     <configuration name="Run app" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -115,23 +119,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DetailControllerTest.defaultDetailsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AboutControllerTest.versionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.DetailControllerTest" />
-      <option name="METHOD_NAME" value="defaultDetailsTest" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.AboutControllerTest" />
+      <option name="METHOD_NAME" value="versionTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DetailControllerTest.setDetailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileControllerTest.getAllProfiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
@@ -140,14 +138,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.DetailControllerTest" />
-      <option name="METHOD_NAME" value="setDetailTest" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
+      <option name="METHOD_NAME" value="getAllProfiles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectControllerTest.checkListRemoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileControllerTest.testExportProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
@@ -156,8 +154,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.ProjectControllerTest" />
-      <option name="METHOD_NAME" value="checkListRemoveTest" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
+      <option name="METHOD_NAME" value="testExportProfile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,11 +181,17 @@
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.tests.*" />
+          <option name="PATTERN" value="app.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="app.models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -195,26 +199,28 @@
     </configuration>
     <list>
       <item itemvalue="Application.Run app" />
-      <item itemvalue="JUnit.FrameTest" />
-      <item itemvalue="JUnit.FrameTest.run" />
-      <item itemvalue="JUnit.ProfileControllerTest" />
-      <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
-      <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
+      <item itemvalue="JUnit.AboutControllerTest.versionTest" />
+      <item itemvalue="JUnit.ProfileControllerTest.getAllProfiles" />
+      <item itemvalue="JUnit.ProfileControllerTest.testExportProfile" />
+      <item itemvalue="JUnit.app.tests in github-action-maven-tutorial" />
+      <item itemvalue="JUnit.ProjectControllerTest.testSetCurrentProject2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
-        <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
-        <item itemvalue="JUnit.ProfileControllerTest" />
-        <item itemvalue="JUnit.FrameTest.run" />
-        <item itemvalue="JUnit.FrameTest" />
+        <item itemvalue="JUnit.app.tests in github-action-maven-tutorial" />
+        <item itemvalue="JUnit.ProfileControllerTest.testExportProfile" />
+        <item itemvalue="JUnit.ProfileControllerTest.getAllProfiles" />
+        <item itemvalue="JUnit.AboutControllerTest.versionTest" />
+        <item itemvalue="JUnit.ProjectControllerTest.testSetCurrentProject2" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-7a0a4d15" />
         <option value="jdk-20.0.2-corretto-20.0.2.1-8336523bb0d9-dc1606b7" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-abbd5a8d" />
       </set>
     </attachedChunks>
   </component>
@@ -450,15 +456,42 @@
       <option name="project" value="LOCAL" />
       <updated>1702343119256</updated>
     </task>
-    <task id="LOCAL-00028" summary="Generate jar">
-      <option name="closed" value="true" />
-      <created>1702443701459</created>
+    <task id="LOCAL-00028" summary="Finished test class BudgetController with all tests passing.">
+      <created>1702443474037</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1702443701459</updated>
+      <updated>1702443474037</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Finished Test Classes: ProjectControllerTest and DetailControllerTest.">
+      <created>1702584379701</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1702584379701</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Removed print statement in test method.">
+      <created>1702584448912</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1702584448912</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added Java Doc to test classes.">
+      <created>1702586268374</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1702586268374</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Refactored Test Classes with new class names.">
+      <created>1702587063179</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1702587063179</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,19 +502,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -496,6 +517,38 @@
                   <option value="origin/main" />
                 </option>
               </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/UnitTests" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Profile_IO" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Import_Export_Page" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HarmanSingh48" />
+                  <option value="Harman" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
             </list>
           </value>
         </entry>
@@ -503,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Revert &quot;Updated Javadoc comments and revised code inside the Version class to display current version number information.&quot;&#10;&#10;This reverts commit 05fb1aaf" />
     <MESSAGE value="Reset java.awt import" />
     <MESSAGE value="Remove old test.java" />
     <MESSAGE value="typos" />
@@ -524,8 +576,12 @@
     <MESSAGE value="WIP" />
     <MESSAGE value="WIP database" />
     <MESSAGE value="Project budget" />
-    <MESSAGE value="Generate jar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generate jar" />
+    <MESSAGE value="Finished test class BudgetController with all tests passing." />
+    <MESSAGE value="Finished Test Classes: ProjectControllerTest and DetailControllerTest." />
+    <MESSAGE value="Removed print statement in test method." />
+    <MESSAGE value="Added Java Doc to test classes." />
+    <MESSAGE value="Refactored Test Classes with new class names." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Test Classes with new class names." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -542,7 +598,14 @@
     <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_Creative_Tech_Brains.ic" NAME="app.tests in Creative-Tech-Brains Coverage Results" MODIFIED="1701154437918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.tests.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_github_action_maven_tutorial.ic" NAME="app.tests in github-action-maven-tutorial Coverage Results" MODIFIED="1702589833660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.controllers.*</FILTER>
+      <FILTER>app.models.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Creative_Tech_Brains$ProjectControllerTest.ic" NAME="ProjectControllerTest Coverage Results" MODIFIED="1702581485727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$AboutControllerTest_versionTest.ic" NAME="AboutControllerTest.versionTest Coverage Results" MODIFIED="1702588694596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.tests.*</FILTER>
     </SUITE>
   </component>

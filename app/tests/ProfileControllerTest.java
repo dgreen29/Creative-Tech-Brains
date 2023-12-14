@@ -27,6 +27,7 @@ public class ProfileControllerTest {
 
     /**
      * Tests the creation of a new profile.
+     * @author Zarif Mazumder
      */
     @Test
     public void createProfile() {
@@ -36,10 +37,64 @@ public class ProfileControllerTest {
 
     /**
      * Tests the getter for the profile.
+     * @author Zarif Mazumder
      */
     @Test
     public void getProfile() {
         assertEquals(testController.getProfile(), new ProfileModel("GUEST", "(no email address)"));
+    }
+
+    /**
+     * Tests the getter for the list of profiles.
+     * @author Harman Singh
+     */
+    @Test
+    public void getAllProfiles() {
+        testController.createProfile("test", "test@test.com");
+        testController.createProfile("test 2", "test2@test.com");
+        assertEquals(3, testController.getProfiles().size());
+    }
+
+    /**
+     * Tests exporting the current profile.
+     * @author Harman Singh
+     */
+    @Test
+    public void exportProfileTest(){
+        assertTrue(testController.exportProfile());
+    }
+
+    /**
+     * Tests the getter for the current profile's name.
+     */
+    @Test
+    public void getNameTest() {
+        assertEquals("GUEST", testController.getName());
+    }
+
+    /**
+     * Tests the getter for the current profile's email.
+     */
+    @Test
+    public void getEmailTest() {
+        assertEquals("(no email address)", testController.getEmail());
+    }
+
+    /**
+     * Tests the getter for the current profile's privilege.
+     */
+    @Test
+    public void getPrivilegeTest() {
+        assertEquals(ProfileModel.Privilege.USER, testController.getPrivilege());
+    }
+
+    /**
+     * Tests the setter for the current profile's privilege.
+     */
+    @Test
+    public void setPrivilegeTest() {
+        testController.setPrivilege(ProfileModel.Privilege.ADMIN);
+        assertEquals(ProfileModel.Privilege.ADMIN, testController.getPrivilege());
     }
 
     /**
