@@ -39,9 +39,7 @@ public class ProjectControllerTest {
         testPFController.getProfile().getProjects().add(tests.get(0));
         testPFController.getProfile().getProjects().add(tests.get(1));
 
-
         testController.setCurrentProject(2);
-        System.out.println(testController.getProject().getName());
         assertEquals(tests.get(1), testController.getProject());
     }
 
