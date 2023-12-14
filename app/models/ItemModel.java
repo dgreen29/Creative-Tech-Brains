@@ -4,7 +4,7 @@ package app.models;
  * Represents a checklist item.
  * @author Zarif Mazumder
  */
-public class Item {
+public class ItemModel {
     /**
      * String storing the checklist item's text.
      */
@@ -14,12 +14,12 @@ public class Item {
      */
     private boolean isDone;
 
-    public Item(String text) {
+    public ItemModel(String text) {
         this.text = text;
         this.isDone = false;
     }
 
-    public Item(String text, boolean isDone) {
+    public ItemModel(String text, boolean isDone) {
         this.text = text;
         this.isDone = isDone;
     }

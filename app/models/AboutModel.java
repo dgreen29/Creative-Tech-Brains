@@ -4,7 +4,7 @@ package app.models;
  * Stores project team names.
  * @author Darrell Green, Jr., Harman Singh, Vindhriko Chandran Cain, Zarif Mazumder
  */
-public final class About {
+public final class AboutModel {
     /**
      * Array of Strings containing team member's name at each index.
      */

@@ -1,6 +1,6 @@
 package app.controllers;
 
-import app.models.Item;
+import app.models.ItemModel;
 import app.models.Project;
 
 import java.util.LinkedList;
@@ -55,7 +55,7 @@ public class ProjectController {
      * @author Zarif Mazumder
      * @return checklist
      */
-    public LinkedList<Item> getChecklist() {
+    public LinkedList<ItemModel> getChecklist() {
         return currentProject.getChecklist();
     }
 

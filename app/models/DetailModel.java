@@ -4,18 +4,18 @@ package app.models;
  * A <code>Project</code>'s description.
  * @author Zarif Mazumder
  */
-public class Detail {
+public class DetailModel {
     public static final String DEFAULT_TEXT = "Write a description of your current project";
     /**
      * String containing the details of the project.
      */
     private String text;
 
-    public Detail() {
+    public DetailModel() {
         text = DEFAULT_TEXT;
     }
 
-    public Detail(String text) {
+    public DetailModel(String text) {
         this.text = text;
     }
 

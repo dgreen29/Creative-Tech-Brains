@@ -7,13 +7,13 @@ import java.util.LinkedList;
  * Represents a list of items and their costs.
  * @author Zarif Mazumder
  */
-public class Budget {
+public class BudgetModel {
     /**
      * The linked list that stores all the budget entries in a project.
      */
-    private LinkedList<Entry> entries;
+    private LinkedList<EntryModel> entries;
 
-    public Budget() {
+    public BudgetModel() {
         entries = new LinkedList<>();
     }
 
@@ -21,7 +21,7 @@ public class Budget {
      * @author Zarif Mazumder
      * @return LinkedList&lt;Entry&gt; of entries
      */
-    public LinkedList<Entry> getEntries() {
+    public LinkedList<EntryModel> getEntries() {
         return entries;
     }
 
@@ -29,17 +29,17 @@ public class Budget {
      * @author Zarif Mazumder
      * @param entries LinkedList&lt;Entry&gt; of entries
      */
-    public void setEntries(LinkedList<Entry> entries) {
+    public void setEntries(LinkedList<EntryModel> entries) {
         this.entries = entries;
     }
 
     /**
      * Adds <code>Entry</code> to the list.
      * @author Zarif Mazumder
-     * @param entry entry(cost, name)
+     * @param entryModel entry(cost, name)
      */
-    public void addEntry(Entry entry) {
-        entries.add(entry);
+    public void addEntry(EntryModel entryModel) {
+        entries.add(entryModel);
     }
 
 
@@ -51,10 +51,10 @@ public class Budget {
      * @param name name
      */
     public void setEntry(int index, BigDecimal cost, String name, int quantity) {
-        Entry entry = entries.get(index);
-        entry.setCost(cost);
-        entry.setName(name);
-        entry.setQuantity(quantity);
+        EntryModel entryModel = entries.get(index);
+        entryModel.setCost(cost);
+        entryModel.setName(name);
+        entryModel.setQuantity(quantity);
     }
 
     /**

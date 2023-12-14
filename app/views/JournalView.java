@@ -3,8 +3,8 @@ package app.views;
 import app.Main;
 import app.controllers.ProfileController;
 import app.controllers.ProjectController;
-import app.models.Item;
-import app.models.Profile;
+import app.models.ItemModel;
+import app.models.ProfileModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +14,12 @@ import java.util.LinkedList;
  * Displays projects with progress and checklist.
  * @author Darrell Green Jr., Harman Singh, Zarif Mazumder
  */
-public class ProjectsView extends JFrame {
-    private static final String TITLE_NAME = "Projects";
+public class JournalView extends JFrame {
+    private static final String TITLE_NAME = "Journal";
     private final ProfileController profileController;
     private final ProjectController projectController;
 
-    public ProjectsView(ProfileController profileController) {
+    public JournalView(ProfileController profileController) {
         this.profileController = profileController;
         projectController = profileController.getProjectController();
         this.setTitle(TITLE_NAME);
@@ -39,13 +39,13 @@ public class ProjectsView extends JFrame {
     private JScrollPane displayContent() {
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        LinkedList<Item> checklist = projectController.getChecklist();
+        LinkedList<ItemModel> checklist = projectController.getChecklist();
         content.add(displayProgressBar(checklist));
         for (int i = 0; i < checklist.size(); i++) {
             JPanel checkBoxItem = displayCheckBoxItem(i, checklist);
             content.add(checkBoxItem);
         }
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             JPanel addItemButton = displayAddItemButton();
             content.add(addItemButton);
         }
@@ -57,9 +57,9 @@ public class ProjectsView extends JFrame {
      * @param checklist list of <code>Item</code>s
      * @return progress bar
      */
-    private JPanel displayProgressBar(LinkedList<Item> checklist) {
+    private JPanel displayProgressBar(LinkedList<ItemModel> checklist) {
         int progress = 0;
-        for (Item i : checklist) {
+        for (ItemModel i : checklist) {
             if (i.isDone()) progress++;
         }
         JPanel progressBar = new JPanel();
@@ -75,8 +75,8 @@ public class ProjectsView extends JFrame {
      * @param checklist list of <code>Item</code>s
      * @return <code>Item</code> as list item
      */
-    private JPanel displayCheckBoxItem(int i, LinkedList<Item> checklist) {
-        Item item = checklist.get(i);
+    private JPanel displayCheckBoxItem(int i, LinkedList<ItemModel> checklist) {
+        ItemModel item = checklist.get(i);
         JPanel checkBoxPanel = new JPanel();
         JButton isDoneBtn = new JButton();
         if (item.isDone()) {
@@ -89,25 +89,25 @@ public class ProjectsView extends JFrame {
             String itemText = text.getText();
             if (!itemText.isEmpty()) {
                 projectController.setItem(i, itemText, item.isDone());
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             }
         });
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             isDoneBtn.addActionListener(e -> {
                 String itemText = text.getText();
                 if (!itemText.isEmpty()) {
                     projectController.setItem(i, itemText, !item.isDone());
-                    Main.setCurrentView(new ProjectsView(profileController));
+                    Main.setCurrentView(new JournalView(profileController));
                 }
             });
         }
         checkBoxPanel.add(isDoneBtn);
         checkBoxPanel.add(text);
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             JButton deleteBtn = new JButton("-");
             deleteBtn.addActionListener(e -> {
                 projectController.removeItem(i);
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             });
             checkBoxPanel.add(deleteBtn);
         }
@@ -126,14 +126,14 @@ public class ProjectsView extends JFrame {
             String itemText = text.getText().trim();
             if (!itemText.isEmpty()) {
                 projectController.addItem(itemText);
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             }
         });
         addItemBtn.addActionListener(e -> {
             String itemText = text.getText().trim();
             if (!itemText.isEmpty()) {
                 projectController.addItem(itemText);
-                Main.setCurrentView(new ProjectsView(profileController));
+                Main.setCurrentView(new JournalView(profileController));
             }
         });
         addItemPanel.add(addItemBtn);

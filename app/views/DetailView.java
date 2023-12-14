@@ -3,7 +3,7 @@ package app.views;
 import app.Main;
 import app.controllers.DetailController;
 import app.controllers.ProfileController;
-import app.models.Profile;
+import app.models.ProfileModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +40,7 @@ public class DetailView extends JFrame {
         doc.setEditable(false);
         doc.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         content.add(doc, BorderLayout.CENTER);
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             doc.setEditable(true);
             JButton saveBtn = displaySaveButton(doc);
             content.add(saveBtn, BorderLayout.SOUTH);

@@ -1,6 +1,6 @@
 package app.controllers;
 
-import app.models.About;
+import app.models.AboutModel;
 
 /**
  * Passes information from <code>About</code> model to the view.
@@ -13,7 +13,7 @@ public final class AboutController {
      * @return String[] of team members
      */
     public String[] getTeam() {
-        return About.getTeam();
+        return AboutModel.getTeam();
     }
 
     /**
@@ -21,6 +21,6 @@ public final class AboutController {
      * @return program version
      */
     public String getVersion() {
-        return About.getVersion();
+        return AboutModel.getVersion();
     }
 }
