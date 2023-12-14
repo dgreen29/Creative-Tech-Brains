@@ -7,8 +7,6 @@ import app.models.Project;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -55,11 +53,11 @@ public class ProjectControllerTest {
     @Test
     public void testSetCurrentProject2() {
         Project[] testProjects = {new Project("Test Project 1"), new Project("Test Project 2")};
-        testPFController.getProfile().getProjects().add(testProjects[0]);
-        testPFController.getProfile().getProjects().add(testProjects[1]);
+        testPFController.createProject(testProjects[0].getName());
+        testPFController.createProject(testProjects[1].getName());
 
         testController.setCurrentProject(2);
-        assertEquals(testProjects[1], testController.getProject());
+        assertEquals(testProjects[1].getName(), testController.getProject().getName());
     }
 
     /**
@@ -78,7 +76,7 @@ public class ProjectControllerTest {
     @Test
     public void checkListAddTest() {
         ItemModel testItem = new ItemModel("Test Item");
-        testController.getProject().addItem(testItem.getText());
+        testController.addItem(testItem.getText());
         assertEquals(testItem.getText(), testController.getProject().getChecklist().get(0).getText());
     }
 
@@ -89,8 +87,8 @@ public class ProjectControllerTest {
     @Test
     public void checkListSetTest1() {
         ItemModel[] testItems = {new ItemModel("Test 1"), new ItemModel("Test 2")};
-        testController.getProject().addItem(testItems[0].getText());
-        testController.getProject().setItem(0, testItems[1].getText(), false);
+        testController.addItem(testItems[0].getText());
+        testController.setItem(0, testItems[1].getText(), false);
 
         assertEquals(testItems[1].getText(), testController.getChecklist().get(0).getText(), "Checklist Item was not set properly");
     }
@@ -102,10 +100,10 @@ public class ProjectControllerTest {
     @Test
     public void checkListRemoveTest() {
         ItemModel[] testItems = {new ItemModel("Test 1"), new ItemModel("Test 2")};
-        testController.getProject().addItem(testItems[0].getText());
-        testController.getProject().addItem(testItems[1].getText());
+        testController.addItem(testItems[0].getText());
+        testController.addItem(testItems[1].getText());
 
-        testController.getProject().removeItem(0);
+        testController.removeItem(0);
 
         assertEquals(testItems[1].getText(), testController.getProject().getChecklist().get(0).getText());
 

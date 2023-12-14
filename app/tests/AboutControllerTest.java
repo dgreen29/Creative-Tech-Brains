@@ -1,6 +1,7 @@
 package app.tests;
 
 import app.controllers.AboutController;
+import app.models.AboutModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,5 +34,13 @@ class AboutControllerTest {
     public void teamTest() {
         assertArrayEquals(new String[]{"Darrell Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
                 "Zarif Mazumder"}, testController.getTeam());
+    }
+    /**
+     * Tests the getter for the version number.
+     * @author Harman Singh
+     */
+    @Test
+    public void versionTest() {
+        assertEquals("1.2.0", testController.getVersion());
     }
 }
