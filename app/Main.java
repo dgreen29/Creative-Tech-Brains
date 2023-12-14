@@ -1,13 +1,8 @@
 package app;
 
 import app.controllers.ProfileController;
-import app.models.ProfileFactory;
-import app.views.ProjectsView;
-
+import app.views.ApplicationView;
 import javax.swing.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /*
  * TCSS 360 B w/ Mr. Jeffrey Weiss
@@ -16,6 +11,8 @@ import java.io.IOException;
 
 /**
  * Driver class of the entire program.
+ *
+ * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
  */
 public class Main {
     public final static int APP_HEIGHT = 500;
@@ -25,37 +22,26 @@ public class Main {
 
     /**
      * Driver method.
-     * @author Zarif Mazumder
+     *
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
      * @param args A generic String array that gets passed into the
      *             method by default.
      */
     public static void main(String[] args) {
         profileController = new ProfileController();
-        setCurrentView(new ProjectsView(profileController));
-        loadDatabase();
-    }
-
-    private static void loadDatabase() {
-        File profileDB = new File("profile.csv");
-        try {
-            profileController.loadProfiles(profileDB);
-        } catch (FileNotFoundException e) {
-            createDatabase();
-        }
+        setCurrentView(new ApplicationView(profileController));
     }
 
     /**
-     * @author Zarif Mazumder
+     * Returns the current view.
+     * @return
      */
-    private static void createDatabase() {
-        try {
-            profileController.generateDB();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public static ProfileController getProfileController() {
+        return profileController;
     }
 
     /**
+     * Sets the current view.
      * @author Zarif Mazumder
      * @param view view
      */
@@ -64,17 +50,7 @@ public class Main {
             currentView.dispose();
         }
         currentView = view;
-        currentView.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                try {
-                    ProfileFactory.writeToDB(profileController);
-                    System.exit(0);
-                } catch (IOException e) {
-                    throw new RuntimeException("Error writing to database.");
-                }
-            }
-        });
+        currentView.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         currentView.setVisible(true);
     }
 }

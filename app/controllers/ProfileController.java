@@ -1,46 +1,36 @@
 package app.controllers;
 
-import app.Main;
 import app.models.Profile;
-import app.models.ProfileFactory;
-import app.models.Project;
-import app.views.ProjectsView;
+import app.models.ProfileIO;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * Handles functionality and communication between Views and the <code>Profile</code> model.
+ * Handles functionality and communication between Views
+ * and the <code>Profile</code> model.
  * @author Zarif Mazumder
  */
 public final class ProfileController {
-    /**
-     * Stores the list of profiles.
-     */
-    private ArrayList<Profile> profiles = new ArrayList<>();
-    /**
-     * The current active profile.
-     */
-    private Profile currentProfile;
-    /**
-     * Reference to the app's project controller.
-     */
-    private ProjectController projectController;
+    // TODO: Add functionality to create new profiles.
+    private final List<Profile> profiles = new ArrayList<>();
 
+    private Profile currentProfile;
+    private final ProjectController projectController;
+
+    /**
+     * Controller class that handles the functionality related to
+     * profile management.
+     * This class contains methods to create a profile, manage the
+     * current profile, and interact with the project controller.
+     * @param projectController
+     */
     public ProfileController() {
         currentProfile = createProfile("", "");
         projectController = new ProjectController(this);
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * @return profiles
-     */
-    public ArrayList<Profile> getProfiles() {
-        return profiles;
     }
 
     /**
@@ -51,21 +41,8 @@ public final class ProfileController {
      */
     public Profile createProfile(String name, String email) {
         Profile profile = new Profile(name, email);
-        if (currentProfile != null && currentProfile.getName().equals("GUEST")) {
-            ArrayList<Project> projects = new ArrayList<>();
-            projects.add(currentProfile.getProjects().get(0));
-            profile.setProjects(projects); // Save data generated as GUEST
-        }
         currentProfile = profile;
-        projectController = new ProjectController(this);
-        profiles.add(profile);
         return profile;
-    }
-
-    public void createProject(String name) {
-        Project project = new Project(name);
-        currentProfile.addProject(project);
-        projectController.setCurrentProject(project);
     }
 
     /**
@@ -75,7 +52,7 @@ public final class ProfileController {
      */
     public boolean exportProfile() {
         try {
-            ProfileFactory.exportProfile(currentProfile);
+            ProfileIO.exportProfile(currentProfile);
             return true;
         } catch (IOException e) {
             return false;
@@ -83,33 +60,20 @@ public final class ProfileController {
     }
 
     /**
-     * Load profiles from database.
-     * @param db csv
-     */
-    public void loadProfiles(File db) throws FileNotFoundException {
-        profiles = ProfileFactory.readFromDB(db);
-        if (!profiles.isEmpty()) {
-            currentProfile = profiles.get(0);
-            projectController.setCurrentProject(0);
-        }
-        Main.setCurrentView(new ProjectsView(this));
-    }
-
-    /**
-     * Takes <code>Profile</code> from given <code>File</code>.
+     * Takes <code>Proile</code> from given <code>File</code>.
      * @author Zarif Mazumder
      * @param data input <code>File</code>
-     * @return true if <code>File</code> contains <code>Profile</code> object data.
+     * @return true if <code>File</code> contains
+     * <code>Profile</code> object data.
      */
     public boolean importProfile(File data) {
         if (data == null) {
             return false;
         }
         try {
-            currentProfile = ProfileFactory.importProfile(data);
-            profiles.add(currentProfile);
+            currentProfile = ProfileIO.importProfile(data);
             return true;
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             return false;
         }
     }
@@ -123,6 +87,7 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the name of the current profile.
      * @author Darrell Green, Jr., Zarif Mazumder
      * @return name
      */
@@ -131,6 +96,7 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the email of the current profile.
      * @author Darrell Green, Jr., Zarif Mazumder
      * @return email
      */
@@ -139,31 +105,29 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the privilege of the current profile.
      * @author Zarif Mazumder
      * @return privilege
      */
-    public Profile.Privilege getPrivilege() {
-        return currentProfile.getPrivilege();
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * @param privilege USER, ADMIN
-     */
-    public void setPrivilege(Profile.Privilege privilege) {
-        currentProfile.setPrivilege(privilege);
+    public String getPrivilege() {
+        return currentProfile.getPrivilege().toString();
     }
 
     /**
      * Sets current <code>Profile</code>.
      * @author Zarif Mazumder
      * @param profile given <code>Profile</code>
+     * @return did set
      */
-    public void setCurrentProfile(Profile profile) {
+    public boolean setCurrentProfile(Profile profile) {
         currentProfile = profile;
-        projectController = new ProjectController(this);
+        return true;
     }
 
+    /**
+     * Represents the possible invalid credentials when validating
+     * a profile.
+     */
     public enum invalidCredentials {
         NAME,
         EMAIL,
@@ -171,7 +135,8 @@ public final class ProfileController {
     }
 
     /**
-     * Checks if <code>Profile</code> can be created using given data
+     * Checks if <code>Profile</code> can be created using given
+     * data.
      * @author Darrell Green, Jr., Zarif Mazumder
      */
     public ArrayList<invalidCredentials> validateProfile(String name, String email) {
@@ -191,23 +156,11 @@ public final class ProfileController {
     }
 
     /**
+     * Returns the list of profiles.
      * @author Zarif Mazumder
      * @return <code>ProjectController</code>
      */
     public ProjectController getProjectController() {
         return projectController;
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * Database Design:
-     * Profile[] = {Name, Email, Privilege}
-     * Project[] = {Profile:Name, 1:Name, n:Name}
-     * Detail[] = {Profile:Name, Project:Name, Text}
-     * Item[] = {Profile:Name, Project:Name, Text, Done}
-     * Entry[] = {Profile:Name, Project:Name, Cost, Name, Quantity}
-     */
-    public void generateDB() throws IOException {
-        ProfileFactory.generateDB();
     }
 }

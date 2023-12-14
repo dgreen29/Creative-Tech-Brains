@@ -1,30 +1,36 @@
 package app.models;
 
+import java.io.Serializable;
+
 /**
  * Represents a checklist item.
  * @author Zarif Mazumder
  */
-public class Item {
-    /**
-     * String storing the checklist item's text.
-     */
-    private String text;
-    /**
-     * Boolean storing whether the checklist item is completed.
-     */
-    private boolean isDone;
+public class Item implements Serializable {
 
+    private String text; // Description of the checklist item.
+
+    private boolean done; // Whether the item is done or not.
+
+    /**
+     * Creates an empty <code>Item</code>.
+     */
+    public Item() {
+        this.text = "";
+        this.done = false;
+    }
+
+    /**
+     * Creates an <code>Item</code> with the given text.
+     * @param text
+     */
     public Item(String text) {
         this.text = text;
-        this.isDone = false;
-    }
-
-    public Item(String text, boolean isDone) {
-        this.text = text;
-        this.isDone = isDone;
+        this.done = false;
     }
 
     /**
+     * Creates an <code>Item</code> with the given text and state.
      * @author Zarif Mazumder
      * @return text
      */
@@ -33,6 +39,7 @@ public class Item {
     }
 
     /**
+     * Sets the text of the detail.
      * @author Zarif Mazumder
      * @param text text
      */
@@ -41,18 +48,20 @@ public class Item {
     }
 
     /**
+     * Returns whether the item is done or not.
      * @author Zarif Mazumder
      * @return boolean
      */
     public boolean isDone() {
-        return isDone;
+        return done;
     }
 
     /**
+     * Sets the state of the item to done or not done.
      * @author Zarif Mazumder
      * @param state boolean
      */
     public void setDone(boolean state) {
-        isDone = state;
+        done = state;
     }
 }

@@ -1,5 +1,6 @@
 package app.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 
@@ -7,30 +8,25 @@ import java.util.LinkedList;
  * Represents a list of items and their costs.
  * @author Zarif Mazumder
  */
-public class Budget {
-    /**
-     * The linked list that stores all the budget entries in a project.
-     */
-    private LinkedList<Entry> entries;
+public class Budget implements Serializable {
 
+    // List of entries in the budget.
+    private final LinkedList<Entry> entries;
+
+    /**
+     * Creates an empty budget.
+     */
     public Budget() {
         entries = new LinkedList<>();
     }
 
     /**
+     * Returns the list of entries in the budget.
      * @author Zarif Mazumder
      * @return LinkedList&lt;Entry&gt; of entries
      */
     public LinkedList<Entry> getEntries() {
-        return entries;
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * @param entries LinkedList&lt;Entry&gt; of entries
-     */
-    public void setEntries(LinkedList<Entry> entries) {
-        this.entries = entries;
+        return new LinkedList<>(entries);
     }
 
     /**
@@ -39,6 +35,7 @@ public class Budget {
      * @param entry entry(cost, name)
      */
     public void addEntry(Entry entry) {
+
         entries.add(entry);
     }
 
@@ -50,11 +47,10 @@ public class Budget {
      * @param cost in USD
      * @param name name
      */
-    public void setEntry(int index, BigDecimal cost, String name, int quantity) {
+    public void setEntry(int index, BigDecimal cost, String name) {
         Entry entry = entries.get(index);
         entry.setCost(cost);
         entry.setName(name);
-        entry.setQuantity(quantity);
     }
 
     /**

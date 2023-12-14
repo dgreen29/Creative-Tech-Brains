@@ -6,7 +6,9 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 
 /**
- * Handles functionality and communication between <code>BudgetView</code> and the <code>Budget</code> model.
+ * Handles functionality and communication between
+ * <code>BudgetView.java</code> and
+ * the <code>Budget</code> model.
  * @author Zarif Mazumder
  */
 public class BudgetController {
@@ -15,6 +17,10 @@ public class BudgetController {
      */
     private final ProjectController projectController;
 
+    /**
+     * Handles functionality and communication between
+     * BudgetView.java and the Budget model.
+     */
     public BudgetController(ProjectController projectController) {
         this.projectController = projectController;
     }
@@ -50,10 +56,30 @@ public class BudgetController {
     }
 
     /**
+     * Returns the list of entries in the budget.
      * @author Zarif Mazumder
      * @return LinkedList&lt;Entry&gt; of entries
      */
     public LinkedList<Entry> getEntries() {
         return projectController.getProject().getBudget().getEntries();
+    }
+
+    /**
+     * Add an item to the budget.
+     *
+     * @param itemName     the name of the item
+     * @param itemCost     the cost of the item
+     * @param itemQuantity the quantity of the item
+     */
+    public void addItem(String itemName, double itemCost, int itemQuantity) {
+    }
+
+    /**
+     * Removes an item from the budget.
+     *
+     * @param itemName the name of the item to be removed
+     */
+    public void removeItem(String itemName) {
+
     }
 }

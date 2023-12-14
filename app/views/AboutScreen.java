@@ -3,8 +3,6 @@ package app.views;
 import app.Main;
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
-import app.models.Profile;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,11 +11,14 @@ import java.awt.*;
  * @author Zarif Mazumder
  */
 public final class AboutScreen extends JDialog {
-    private static final String TITLE_NAME = "About";
-    private boolean privilegeChanged = false;
-    private final AboutController aboutController;
-    private final ProfileController profileController;
+    private static final String TITLE_NAME = "About"; // Name of the title.
+    private final AboutController aboutController; // Reference to the AboutController.
+    private final ProfileController profileController; // Reference to the ProfileController.
 
+    /**
+     * Creates an AboutScreen object.
+     * @param profileController the ProfileController object.
+     */
     public AboutScreen(ProfileController profileController) {
         aboutController = new AboutController();
         this.profileController = profileController;
@@ -30,18 +31,10 @@ public final class AboutScreen extends JDialog {
         northPanel.add(displayVersion(), BorderLayout.EAST);
         this.add(northPanel, BorderLayout.NORTH);
         this.add(displayTeam(), BorderLayout.CENTER);
-        this.add(displayPrivilegeButtons(), BorderLayout.SOUTH);
-        this.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                if (privilegeChanged) {
-                    Main.setCurrentView(new ProfileView(profileController));
-                }
-            }
-        });
     }
 
     /**
+     * Displays the team info.
      * @author Zarif Mazumder
      * @return team <code>JLabel</code>
      */
@@ -53,6 +46,9 @@ public final class AboutScreen extends JDialog {
     }
 
     /**
+     * Displays the version info of the app.
+     * This is the version of the app that is currently running on the
+     * user's machine.
      * @author Zarif Mazumder
      * @return version <code>JLabel</code>
      */
@@ -60,26 +56,5 @@ public final class AboutScreen extends JDialog {
         JLabel text = new JLabel();
         text.setText("Version: " + aboutController.getVersion());
         return text;
-    }
-
-    /**
-     * @author Zarif Mazumder
-     * @return change privilege buttons
-     */
-    private JPanel displayPrivilegeButtons() {
-        JPanel panel = new JPanel();
-        JButton userBtn = new JButton("Become User");
-        userBtn.addActionListener(e -> {
-            profileController.setPrivilege(Profile.Privilege.USER);
-            privilegeChanged = true;
-        });
-        JButton adminBtn = new JButton("Become Admin");
-        adminBtn.addActionListener(e -> {
-            profileController.setPrivilege(Profile.Privilege.ADMIN);
-            privilegeChanged = true;
-        });
-        panel.add(userBtn);
-        panel.add(adminBtn);
-        return panel;
     }
 }

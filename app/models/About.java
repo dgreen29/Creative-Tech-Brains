@@ -6,16 +6,17 @@ package app.models;
  */
 public final class About {
     /**
-     * Array of Strings containing team member's name at each index.
+     * Array of Strings containing team member's name at each
+     * index.
      */
     private static final String[] TEAM = {"Darrell Green, Jr.", "Harman Singh", "Vindhriko Chandran Cain",
             "Zarif Mazumder"};
-    /**
-     * String storing the current version number of the app.
-     */
+
+
     private final static String VERSION = "1.2.0";
 
     /**
+     * Returns the team names of the project.
      * @author Vindhriko Chandran Cain, Zarif Mazumder
      * @return String[] of team names
      */
@@ -24,6 +25,7 @@ public final class About {
     }
 
     /**
+     * Returns the program version of the project.
      * @author Zarif Mazumder
      * @return program version
      */

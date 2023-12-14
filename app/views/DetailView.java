@@ -3,70 +3,119 @@ package app.views;
 import app.Main;
 import app.controllers.DetailController;
 import app.controllers.ProfileController;
-import app.models.Profile;
-
+import app.controllers.*;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 /**
- * Displays the screen showing the details of a project.
- * @author Zarif Mazumder
+ * The DetailView class represents the GUI for displaying log details.
+ * @author darrellgreenjr.
  */
 public class DetailView extends JFrame {
     private static final String TITLE_NAME = "Detail";
     private final DetailController detailController;
-    private final ProfileController profileController;
+    private JTextField logTitleField;
+    private JTextArea doc;
+    private JList<String> logsList;
+    private DefaultListModel<String> listModel;
 
+    /**
+     * Constructs a DetailView object with the given ProfileController.
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
+     * @param profileController the ProfileController object to be used
+     */
     public DetailView(ProfileController profileController) {
-        this.profileController = profileController;
         detailController = new DetailController(profileController.getProjectController());
         this.setTitle(TITLE_NAME);
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setJMenuBar(new NavigationBar(profileController));
+        this.setJMenuBar(new NavigationBar());
+
+        listModel = new DefaultListModel<>();
+        // Start of debug print statements
+        System.out.println("Log Titles: " + Arrays.toString(Arrays.stream(detailController.getLogTitles()).toArray()));
+        // End of debug print statements
+        for (String title : detailController.getLogTitles()){
+            listModel.addElement(title);
+        }
+        System.out.println("Test List Model: " + Arrays.toString(listModel.toArray()));
+
+        logsList = new JList<>(listModel);
+        logsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        logsList.addListSelectionListener(e -> {
+            if(!e.getValueIsAdjusting()){
+                String selectedLogTitle = logsList.getSelectedValue();
+                if (selectedLogTitle != null) {
+                    detailController.selectLog(selectedLogTitle); // assuming selectLog sets current log in DetailController
+                    refreshDetailsPanel();
+                }
+            }
+        });
+
+        this.add(new JScrollPane(logsList), BorderLayout.WEST);
         this.add(displayContent(), BorderLayout.CENTER);
-        this.add(new ProjectSelectBar(profileController), BorderLayout.SOUTH);
+        this.add(new ProjectSelectBar(), BorderLayout.SOUTH);
     }
 
     /**
-     * @author Zarif Mazumder
-     * @return content
+     * Refreshes the details panel with the current log information.
+     * The title of the log currently being edited and the text of the detail
+     * will be updated in the UI components of the details panel.
+     *
+     * @author Darrell Green, Jr. (DJ Green)
+     */
+    private void refreshDetailsPanel() {
+        logTitleField.setText(detailController.getCurrentLogTitle()); // assuming getCurrentLogTitle() returns the title of the log currently being edited
+        doc.setText(detailController.getText());
+    }
+
+    /**
+     * Displays the content panel for the DetailView.
+     *
+     * @author Darrell Green, Jr. (DJ Green), Zarif Mazumder
+     * @return the JPanel containing the content
      */
     private JPanel displayContent() {
         JPanel content = new JPanel();
-        content.setLayout(new BorderLayout());
-        JTextArea doc = new JTextArea(detailController.getText());
-        doc.setEditable(false);
+        content.setLayout(new BorderLayout(10, 10));
+
+        logTitleField = new JTextField(detailController.getCurrentLogTitle());
+        content.add(logTitleField, BorderLayout.NORTH);
+
+        doc = new JTextArea(detailController.getText());
         doc.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        content.add(doc, BorderLayout.CENTER);
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
-            doc.setEditable(true);
-            JButton saveBtn = displaySaveButton(doc);
-            content.add(saveBtn, BorderLayout.SOUTH);
-        }
+        doc.setLineWrap(true);
+        doc.setFont(new Font("Serif", Font.PLAIN, 18));
+        content.add(new JScrollPane(doc), BorderLayout.CENTER);
 
-        return content;
-    }
+            JButton saveBtn = new JButton("Save");
+            saveBtn.addActionListener(e -> {
+                int selectedIndex = logsList.getSelectedIndex();
+                if (selectedIndex != -1) { // Check that we do return an index before we remove an object
+                    listModel.remove(selectedIndex);
+                    listModel.add(selectedIndex, logTitleField.getText());
+                    logsList.setSelectedIndex(selectedIndex);
+                }
 
-    /**
-     * @author Zarif Mazumder
-     * @param doc document
-     * @return save button
-     */
-    private JButton displaySaveButton(JTextArea doc) {
-        JButton saveBtn = new JButton("Save");
-        saveBtn.addActionListener(e -> {
-            detailController.setText(doc.getText().trim());
-            saveBtn.setText("Saved!");
-            saveBtn.setForeground(Color.GREEN);
-            Timer timer = new Timer(500, f -> {
-                saveBtn.setForeground(Color.BLACK);
-                saveBtn.setText("Save");
+            saveBtn.setText("Saving...");
+            Timer timer = new Timer(1000, f -> {
+                saveBtn.setText("Saved!");
+                Timer revertTimer = new Timer(1000, g -> {
+                    saveBtn.setText("Save");
+                });
+                revertTimer.setRepeats(false);
+                revertTimer.start();
             });
             timer.setRepeats(false);
             timer.start();
+
+                detailController.setText(doc.getText());
+                String oldTitle = detailController.getCurrentLogTitle();
+                detailController.setLogTitle(logTitleField.getText());
         });
-        return saveBtn;
+        content.add(saveBtn, BorderLayout.SOUTH);
+        return content;
     }
 }

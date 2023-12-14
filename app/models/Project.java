@@ -1,41 +1,34 @@
 package app.models;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
+ *
  * Represents a project.
- * @author Zarif Mazumder
+ * @author Zarif Mazumder, Darrell Green, Jr. (DJ Green)
  */
-public class Project {
-    /**
-     * Stores the budget object corresponding to this project.
-     */
-    private final Budget budget;
-    /**
-     * Stores the checklist corresponding to this project.
-     */
-    private final LinkedList<Item> checklist;
-    /**
-     * Stores the details object for this project.
-     */
-    private final Detail detail;
-    private String name;
+public class Project implements Serializable {
 
-    public Project(String name) {
+    private final Budget budget; // Budget of the project.
+
+    private final LinkedList<Item> checklist; // Checklist of the project.
+
+    private final Detail detail; // Description of the project.
+    private String name; // Name of the project.
+
+    /**
+     * Represents a project.
+     */
+    public Project() {
         detail = new Detail();
         checklist = new LinkedList<>();
         budget = new Budget();
-        this.name = name;
-    }
-
-    public Project(ProjectBuilder projectBuilder) {
-        this.detail = projectBuilder.detail;
-        this.checklist = projectBuilder.checklist;
-        this.budget = projectBuilder.budget;
-        this.name = projectBuilder.name;
+        name = "Project 1";
     }
 
     /**
+     * Returns the budget of the project.
      * @author Zarif Mazumder
      * @return <code>Budget</code>
      */
@@ -44,14 +37,16 @@ public class Project {
     }
 
     /**
+     * Returns the checklist of the project.
      * @author Zarif Mazumder
      * @return checklist
      */
     public LinkedList<Item> getChecklist() {
-        return checklist;
+        return new LinkedList<>(checklist);
     }
 
     /**
+     * Returns the description of the project.
      * @author Zarif Mazumder
      * @return <code>Detail</code>
      */
@@ -68,14 +63,14 @@ public class Project {
     }
 
     /**
+     * Sets the text of the <code>Item</code> at the given index.
      * @author Zarif Mazumder
      * @param index location of item
      * @param text text
      */
-    public void setItem(int index, String text, boolean isDone) {
+    public void setItem(int index, String text) {
         Item item = checklist.get(index);
         item.setText(text);
-        item.setDone(isDone);
     }
 
     /**
@@ -88,6 +83,7 @@ public class Project {
     }
 
     /**
+     * Returns the name of the project.
      * @author Zarif Mazumder
      * @return name
      */
@@ -96,37 +92,11 @@ public class Project {
     }
 
     /**
+     * Sets the name of the project.
      * @author Zarif Mazumder
      * @param name name
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    public static class ProjectBuilder {
-        private final String name;
-        private Detail detail = new Detail();
-        private LinkedList<Item> checklist = new LinkedList<>();
-        private Budget budget = new Budget();
-
-        public ProjectBuilder(String name) {
-            this.name = name;
-        }
-
-        public void setDetail(Detail detail) {
-            this.detail = detail;
-        }
-
-        public void setChecklist(LinkedList<Item> checklist) {
-            this.checklist = checklist;
-        }
-
-        public void setBudget(Budget budget) {
-            this.budget = budget;
-        }
-
-        public Project build() {
-            return new Project(this);
-        }
     }
 }

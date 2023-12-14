@@ -3,114 +3,160 @@ package app.views;
 import app.Main;
 import app.controllers.BudgetController;
 import app.controllers.ProfileController;
-import app.models.Entry;
-import app.models.Profile;
+import app.controllers.ProjectController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.math.BigDecimal;
-import java.util.LinkedList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Locale;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- * Displays the screen showing the <code>Budget</code> of a project.
- * @author Darrell Green, Jr., Zarif Mazumder
+ * The BudgetView class represents the graphical user interface
+ * for managing the project's budget.
+ * It extends the JFrame class to create a window.
+ *
+ * @author Darrell Green, Jr. (DJ Green)
  */
 public class BudgetView extends JFrame {
+
     private static final String TITLE_NAME = "Budget";
     private final BudgetController budgetController;
     private final ProfileController profileController;
+    private final ProjectController projectController;
 
+    private JTextField nameField;
+    private JTextField costField;
+    private JTextField quantityField;
+    private JButton uploadButton;
+    private DefaultListModel<JLabel> listModel;
+    private JList<JLabel> itemList;
+    private JLabel totalCostLabel;
+    private double totalCost = 0.0;
+
+    /**
+     * Creates an instance of BudgetView.
+     *
+     * @param profileController the ProfileController object used by the BudgetView
+     */
     public BudgetView(ProfileController profileController) {
         this.profileController = profileController;
-        budgetController = new BudgetController(profileController.getProjectController());
+        projectController = profileController.getProjectController();
+        budgetController = new BudgetController(projectController);
         this.setTitle(TITLE_NAME);
         this.setSize(Main.APP_WIDTH, Main.APP_HEIGHT);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setJMenuBar(new NavigationBar(profileController));
-        this.add(displayContent(), BorderLayout.CENTER);
-        this.add(new ProjectSelectBar(profileController), BorderLayout.PAGE_END);
-    }
+        this.setJMenuBar(new NavigationBar());
 
-    /**
-     * @author Zarif Mazumder
-     * @return content
-     */
-    private JScrollPane displayContent() {
-        JPanel content = new JPanel();
-        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        LinkedList<Entry> entries = budgetController.getEntries();
-        JTable table = displayEntries(entries);
-        table.setPreferredScrollableViewportSize(new Dimension(
-                table.getPreferredSize().width, table.getRowHeight() * table.getRowCount()));
-        JScrollPane tablePane = new JScrollPane(table);
-        content.add(tablePane);
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
-            JPanel addEntryBtn = displayAddEntryButton();
-            content.add(addEntryBtn);
-        }
-        return new JScrollPane(content);
-    }
+        JPanel newItemPanel = new JPanel(new GridLayout(0, 2));
 
-    /**
-     * @author Zarif Mazumder
-     * @param entries data
-     * @return <code>JTable</code> of entries
-     */
-    private JTable displayEntries(LinkedList<Entry> entries) {
-        if (entries.isEmpty()) return new JTable();
-        String[] columnNames = {"cost", "item", "quantity"};
-        String[][] rowData = new String[entries.size()][3];
-        for (int i = 0; i < entries.size(); i++) {
-            Entry entry = entries.get(i);
-            rowData[i][0] = entry.getCost().toString();
-            rowData[i][1] = entry.getName();
-            rowData[i][2] = String.valueOf(entry.getQuantity());
-        }
-        return new JTable(rowData, columnNames);
-    }
+        newItemPanel.add(new JLabel("Name: "));
+        nameField = new JTextField();
+        newItemPanel.add(nameField);
 
-    /**
-     * @author Zarif Mazumder
-     * @return add item button
-     */
-    private JPanel displayAddEntryButton() {
-        JPanel checkBoxItem = new JPanel();
-        JButton addItemBtn = new JButton("+");
-        JLabel costLabel = new JLabel("Cost");
-        JTextField cost = new JTextField(4);
-        JLabel itemLabel = new JLabel("Item");
-        JTextField item = new JTextField(4);
-        JLabel quantityLabel = new JLabel("Quantity");
-        JTextField quantity = new JTextField(4);
-        addItemBtn.addActionListener(e -> {
-            String costText = cost.getText().trim();
-            String nameText = item.getText().trim();
-            String quantityText = quantity.getText().trim();
-            if (isValidEntry(costText, nameText, quantityText)) {
-                budgetController.addEntry(BigDecimal.valueOf(Double.parseDouble(costText)), nameText,
-                        Integer.parseInt(quantityText));
+        newItemPanel.add(new JLabel("Cost: "));
+        costField = new JTextField();
+        newItemPanel.add(costField);
+
+        newItemPanel.add(new JLabel("Quantity: "));
+        quantityField = new JTextField();
+        newItemPanel.add(quantityField);
+
+        newItemPanel.add(new JLabel("Upload image: "));
+        uploadButton = new JButton("Upload");
+
+        totalCostLabel = new JLabel("Total Cost: $0");
+        newItemPanel.add(totalCostLabel);
+
+        uploadButton.addActionListener(e -> {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "JPG, GIF, PNG Images", "jpg","jpeg", "gif", "png");
+            chooser.setFileFilter(filter);
+            int returnVal = chooser.showOpenDialog(null);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = chooser.getSelectedFile();
             }
-            Main.setCurrentView(new BudgetView(profileController));
         });
-        checkBoxItem.add(addItemBtn);
-        checkBoxItem.add(costLabel);
-        checkBoxItem.add(cost);
-        checkBoxItem.add(itemLabel);
-        checkBoxItem.add(item);
-        checkBoxItem.add(quantityLabel);
-        checkBoxItem.add(quantity);
-        return checkBoxItem;
+        newItemPanel.add(uploadButton);
+
+        listModel = new DefaultListModel<>();
+        itemList = new JList<>(listModel);
+        JScrollPane scrollPane = new JScrollPane(itemList);
+
+        itemList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    JLabel selectedItem = itemList.getSelectedValue();
+                    if (selectedItem != null) {
+                        String itemDescription = selectedItem.getToolTipText();
+                        JOptionPane.showMessageDialog(null, itemDescription, "Item Description", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            }
+        });
+        this.add(newItemPanel, BorderLayout.NORTH);
+        this.add(scrollPane, BorderLayout.CENTER);
+
+        JButton addItemButton = new JButton("Add Item");
+        addItemButton.addActionListener(e -> {
+            String itemName = nameField.getText();
+            try {
+                double itemCost = Double.parseDouble(costField.getText());
+                int itemQuantity = Integer.parseInt(quantityField.getText());
+
+                if (itemName != null && !itemName.trim().isEmpty()) {
+                    budgetController.addItem(itemName, itemCost, itemQuantity);
+
+                    String tooltip = "Name: " + itemName +
+                            "\nCost: $" + String.format("%.2f", itemCost) +
+                            "\nQuantity: " + itemQuantity +
+                            "\nTotal Cost: $" + String.format("%.2f", itemCost * itemQuantity);
+
+                    JLabel itemLabel = new JLabel(itemName);
+                    itemLabel.setToolTipText(tooltip);
+
+                    listModel.addElement(itemLabel);
+
+                    totalCost += itemCost * itemQuantity;
+                    totalCostLabel.setText("Total Cost: $" + String.format("%.2f", totalCost));
+
+                    SwingUtilities.invokeLater(() -> {
+                        itemList.revalidate();
+                        itemList.repaint();
+
+
+                    });
+                } else {
+                    JOptionPane.showMessageDialog(null, "Item name cannot be empty. Please try again.");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Cost and Quantity should be valid numbers. Please enter again.");
+            }
+        });
+        newItemPanel.add(addItemButton);
     }
 
-    private boolean isValidEntry(String costText, String nameText, String quantityText) {
-        if (costText.isEmpty() || nameText.isEmpty() || quantityText.isEmpty()) return false;
-        try {
-            Double.parseDouble(costText);
-            Integer.parseInt(quantityText);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+    /**
+     * Updates the total cost label in the BudgetView with the
+     * current total cost value.
+     * The method formats the total cost value using a
+     * DecimalFormat object and updates the label's text.
+     *
+     * Note: This method does not return any value
+     *
+     * @author Darrell Green, Jr. (DJ Green)
+     */
+    void updateTotalCost(){
+      DecimalFormat df = new DecimalFormat("#,###.00");
+      String totalCostStr = df.format(totalCost);
+        totalCostLabel.setText("Total Cost: $" + totalCostStr);
     }
 }

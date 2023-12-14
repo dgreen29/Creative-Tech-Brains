@@ -9,6 +9,7 @@ import app.models.About;
 public final class AboutController {
 
     /**
+     * Returns the team members of the project.
      * @author Vindhriko Chandran Cain, Zarif Mazumder
      * @return String[] of team members
      */
@@ -17,6 +18,7 @@ public final class AboutController {
     }
 
     /**
+     * Returns the program version of the project.
      * @author Vindhriko Chandran Cain, Zarif Mazumder
      * @return program version
      */
