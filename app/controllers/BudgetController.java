@@ -29,6 +29,10 @@ public class BudgetController {
         projectController.getProject().getBudget().addEntry(new EntryModel(cost, name, quantity));
     }
 
+    public void addEntry(Entry entry) {
+        projectController.getProject().getBudget().addEntry(entry);
+    }
+
     /**
      * Modifies given <code>Entry</code>.
      * @author Zarif Mazumder
@@ -38,6 +42,10 @@ public class BudgetController {
      */
     public void setEntry(int index, BigDecimal cost, String name, int quantity) {
         projectController.getProject().getBudget().setEntry(index, cost, name, quantity);
+    }
+
+    public void setEntry(int index, Entry entry) {
+        projectController.getProject().getBudget().setEntry(index, entry.getCost(), entry.getName(), entry.getQuantity());
     }
 
     /**
