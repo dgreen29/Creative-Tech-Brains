@@ -1,7 +1,7 @@
 package app.tests;
 
 import app.controllers.ProfileController;
-import app.models.Profile;
+import app.models.ProfileModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,13 +20,13 @@ public class ProfileControllerTest {
 
     @Test
     public void createProfile() {
-        Profile profile = new Profile("Test", "test@example.com");
-        assertEquals(testController.createProfile("Test", "test@example.com"), profile);
+        ProfileModel profileModel = new ProfileModel("Test", "test@example.com");
+        assertEquals(testController.createProfile("Test", "test@example.com"), profileModel);
     }
 
     @Test
     public void getProfile() {
-        assertEquals(testController.getProfile(), new Profile("GUEST", "(no email address)"));
+        assertEquals(testController.getProfile(), new ProfileModel("GUEST", "(no email address)"));
     }
 
     @Test

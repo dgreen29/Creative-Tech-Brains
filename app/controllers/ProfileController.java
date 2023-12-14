@@ -1,7 +1,7 @@
 package app.controllers;
 
 import app.Main;
-import app.models.Profile;
+import app.models.ProfileModel;
 import app.models.ProfileFactory;
 import app.models.Project;
 import app.views.JournalView;
@@ -20,11 +20,11 @@ public final class ProfileController {
     /**
      * Stores the list of profiles.
      */
-    private ArrayList<Profile> profiles = new ArrayList<>();
+    private ArrayList<ProfileModel> profiles = new ArrayList<>();
     /**
      * The current active profile.
      */
-    private Profile currentProfile;
+    private ProfileModel currentProfile;
     /**
      * Reference to the app's project controller.
      */
@@ -39,7 +39,7 @@ public final class ProfileController {
      * @author Zarif Mazumder
      * @return profiles
      */
-    public ArrayList<Profile> getProfiles() {
+    public ArrayList<ProfileModel> getProfiles() {
         return profiles;
     }
 
@@ -49,17 +49,17 @@ public final class ProfileController {
      * @param email - Email Address
      * @return created <code>Profile</code>
      */
-    public Profile createProfile(String name, String email) {
-        Profile profile = new Profile(name, email);
+    public ProfileModel createProfile(String name, String email) {
+        ProfileModel profileModel = new ProfileModel(name, email);
         if (currentProfile != null && currentProfile.getName().equals("GUEST")) {
             ArrayList<Project> projects = new ArrayList<>();
             projects.add(currentProfile.getProjects().get(0));
-            profile.setProjects(projects); // Save data generated as GUEST
+            profileModel.setProjects(projects); // Save data generated as GUEST
         }
-        currentProfile = profile;
+        currentProfile = profileModel;
         projectController = new ProjectController(this);
-        profiles.add(profile);
-        return profile;
+        profiles.add(profileModel);
+        return profileModel;
     }
 
     public void createProject(String name) {
@@ -118,7 +118,7 @@ public final class ProfileController {
      * @author Zarif Mazumder
      * @return <code>Profile</code>
      */
-    public Profile getProfile() {
+    public ProfileModel getProfile() {
         return currentProfile;
     }
 
@@ -142,7 +142,7 @@ public final class ProfileController {
      * @author Zarif Mazumder
      * @return privilege
      */
-    public Profile.Privilege getPrivilege() {
+    public ProfileModel.Privilege getPrivilege() {
         return currentProfile.getPrivilege();
     }
 
@@ -150,17 +150,17 @@ public final class ProfileController {
      * @author Zarif Mazumder
      * @param privilege USER, ADMIN
      */
-    public void setPrivilege(Profile.Privilege privilege) {
+    public void setPrivilege(ProfileModel.Privilege privilege) {
         currentProfile.setPrivilege(privilege);
     }
 
     /**
      * Sets current <code>Profile</code>.
      * @author Zarif Mazumder
-     * @param profile given <code>Profile</code>
+     * @param profileModel given <code>Profile</code>
      */
-    public void setCurrentProfile(Profile profile) {
-        currentProfile = profile;
+    public void setCurrentProfile(ProfileModel profileModel) {
+        currentProfile = profileModel;
         projectController = new ProjectController(this);
     }
 

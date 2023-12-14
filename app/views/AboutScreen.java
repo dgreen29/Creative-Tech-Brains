@@ -3,7 +3,7 @@ package app.views;
 import app.Main;
 import app.controllers.AboutController;
 import app.controllers.ProfileController;
-import app.models.Profile;
+import app.models.ProfileModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -70,12 +70,12 @@ public final class AboutScreen extends JDialog {
         JPanel panel = new JPanel();
         JButton userBtn = new JButton("Become User");
         userBtn.addActionListener(e -> {
-            profileController.setPrivilege(Profile.Privilege.USER);
+            profileController.setPrivilege(ProfileModel.Privilege.USER);
             privilegeChanged = true;
         });
         JButton adminBtn = new JButton("Become Admin");
         adminBtn.addActionListener(e -> {
-            profileController.setPrivilege(Profile.Privilege.ADMIN);
+            profileController.setPrivilege(ProfileModel.Privilege.ADMIN);
             privilegeChanged = true;
         });
         panel.add(userBtn);

@@ -3,8 +3,8 @@ package app.views;
 import app.Main;
 import app.controllers.ProfileController;
 import app.controllers.ProjectController;
-import app.models.Item;
-import app.models.Profile;
+import app.models.ItemModel;
+import app.models.ProfileModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,13 +39,13 @@ public class JournalView extends JFrame {
     private JScrollPane displayContent() {
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        LinkedList<Item> checklist = projectController.getChecklist();
+        LinkedList<ItemModel> checklist = projectController.getChecklist();
         content.add(displayProgressBar(checklist));
         for (int i = 0; i < checklist.size(); i++) {
             JPanel checkBoxItem = displayCheckBoxItem(i, checklist);
             content.add(checkBoxItem);
         }
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             JPanel addItemButton = displayAddItemButton();
             content.add(addItemButton);
         }
@@ -57,9 +57,9 @@ public class JournalView extends JFrame {
      * @param checklist list of <code>Item</code>s
      * @return progress bar
      */
-    private JPanel displayProgressBar(LinkedList<Item> checklist) {
+    private JPanel displayProgressBar(LinkedList<ItemModel> checklist) {
         int progress = 0;
-        for (Item i : checklist) {
+        for (ItemModel i : checklist) {
             if (i.isDone()) progress++;
         }
         JPanel progressBar = new JPanel();
@@ -75,8 +75,8 @@ public class JournalView extends JFrame {
      * @param checklist list of <code>Item</code>s
      * @return <code>Item</code> as list item
      */
-    private JPanel displayCheckBoxItem(int i, LinkedList<Item> checklist) {
-        Item item = checklist.get(i);
+    private JPanel displayCheckBoxItem(int i, LinkedList<ItemModel> checklist) {
+        ItemModel item = checklist.get(i);
         JPanel checkBoxPanel = new JPanel();
         JButton isDoneBtn = new JButton();
         if (item.isDone()) {
@@ -92,7 +92,7 @@ public class JournalView extends JFrame {
                 Main.setCurrentView(new JournalView(profileController));
             }
         });
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             isDoneBtn.addActionListener(e -> {
                 String itemText = text.getText();
                 if (!itemText.isEmpty()) {
@@ -103,7 +103,7 @@ public class JournalView extends JFrame {
         }
         checkBoxPanel.add(isDoneBtn);
         checkBoxPanel.add(text);
-        if (profileController.getPrivilege() == Profile.Privilege.ADMIN) {
+        if (profileController.getPrivilege() == ProfileModel.Privilege.ADMIN) {
             JButton deleteBtn = new JButton("-");
             deleteBtn.addActionListener(e -> {
                 projectController.removeItem(i);

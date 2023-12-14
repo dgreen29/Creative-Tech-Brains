@@ -2,7 +2,7 @@ package app.views;
 
 import app.Main;
 import app.controllers.ProfileController;
-import app.models.Profile;
+import app.models.ProfileModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +45,7 @@ public class ProfileView extends JFrame {
     private JScrollPane displayContent() {
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        for (Profile profile : profileController.getProfiles()) {
+        for (ProfileModel profile : profileController.getProfiles()) {
             content.add(displayUserInfo(profile));
         }
         content.add(displayButtonPanel()); // Add I/O buttons to frame
@@ -58,12 +58,12 @@ public class ProfileView extends JFrame {
      * @author Harman Singh
      * @return user info <code>JPanel</code>
      */
-    private JPanel displayUserInfo(Profile profile) {
+    private JPanel displayUserInfo(ProfileModel profileModel) {
         JPanel userInfoPanel = new JPanel();
-        JButton nameBtn = new JButton("Name: " + profile.getName());
-        JButton emailBtn = new JButton("Email: " + profile.getEmail());
+        JButton nameBtn = new JButton("Name: " + profileModel.getName());
+        JButton emailBtn = new JButton("Email: " + profileModel.getEmail());
         nameBtn.addActionListener(e -> {
-            profileController.setCurrentProfile(profile);
+            profileController.setCurrentProfile(profileModel);
             Main.setCurrentView(new ProfileView(profileController));
         });
         userInfoPanel.add(nameBtn);
