@@ -1,31 +1,46 @@
 package app.tests;
 
-import app.controllers.BudgetController;
 import app.controllers.ProfileController;
 import app.controllers.ProjectController;
-import app.models.Entry;
 import app.models.Item;
-import app.models.Profile;
 import app.models.Project;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Test class for the Project Controller.
+ * @author Harman Singh
+ */
 public class ProjectControllerTest {
+    /**
+     * The Project Controller used in testing.
+     */
     private ProjectController testController;
+    /**
+     * The Profile Controller used in testing. It is needed to instantiate the test Project Controller.
+     * It is also need to manipulate the test projects for a test profile.
+     */
     private ProfileController testPFController;
 
+    /**
+     * Setup method that instantiates new controllers before each test.
+     * @author Harman Singh
+     */
     @BeforeEach
     public void setup() {
         testPFController = new ProfileController();
         testController = new ProjectController(testPFController);
     }
 
+    /**
+     * Tests the overloaded setter using a Project object for the current project.
+     * @author Harman Singh
+     */
     @Test
     public void testSetCurrentProject1() {
         Project testProj = new Project("Test Project");
@@ -33,21 +48,33 @@ public class ProjectControllerTest {
         assertEquals(testProj, testController.getProject());
     }
 
+    /**
+     * Tests the overloaded setter using an index for the current project.
+     * @author Harman Singh
+     */
     @Test
     public void testSetCurrentProject2() {
-        ArrayList<Project> tests = testProjectGenerator(2);
-        testPFController.getProfile().getProjects().add(tests.get(0));
-        testPFController.getProfile().getProjects().add(tests.get(1));
+        Project[] testProjects = {new Project("Test Project 1"), new Project("Test Project 2")};
+        testPFController.getProfile().getProjects().add(testProjects[0]);
+        testPFController.getProfile().getProjects().add(testProjects[1]);
 
         testController.setCurrentProject(2);
-        assertEquals(tests.get(1), testController.getProject());
+        assertEquals(testProjects[1], testController.getProject());
     }
 
+    /**
+     * Tests the default state of the checklist upon instantiation.
+     * @author Harman Singh
+     */
     @Test
     public void checkListTestEmpty() {
         assertEquals("[]", testController.getProject().getChecklist().toString(), "Checklist is not empty.");
     }
 
+    /**
+     * Tests adding an item to the checklist.
+     * @author Harman Singh
+     */
     @Test
     public void checkListAddTest() {
         Item testItem = new Item("Test Item");
@@ -55,6 +82,10 @@ public class ProjectControllerTest {
         assertEquals(testItem.getText(), testController.getProject().getChecklist().get(0).getText());
     }
 
+    /**
+     * Tests the setter for the checklist item.
+     * @author Harman Singh
+     */
     @Test
     public void checkListSetTest1() {
         Item[] testItems = {new Item("Test 1"), new Item("Test 2")};
@@ -64,6 +95,10 @@ public class ProjectControllerTest {
         assertEquals(testItems[1].getText(), testController.getChecklist().get(0).getText(), "Checklist Item was not set properly");
     }
 
+    /**
+     * Tests the remove method for a checklist item.
+     * @author Harman Singh
+     */
     @Test
     public void checkListRemoveTest() {
         Item[] testItems = {new Item("Test 1"), new Item("Test 2")};
@@ -75,15 +110,5 @@ public class ProjectControllerTest {
         assertEquals(testItems[1].getText(), testController.getProject().getChecklist().get(0).getText());
 
     }
-
-
-    private ArrayList<Project> testProjectGenerator(int size) {
-        ArrayList<Project> testList = new ArrayList<>();
-        for(int i = 0; i < size; i++) {
-            testList.add(new Project("Test Project " + (i + 1)));
-        }
-        return testList;
-    }
-
 
 }

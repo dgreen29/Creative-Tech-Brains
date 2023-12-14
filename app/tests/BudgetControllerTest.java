@@ -12,17 +12,29 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ * Test class for the Budget Controller.
  * @author Harman Singh
  */
 public class BudgetControllerTest {
+    /**
+     * The controller used in testing.
+     */
     private BudgetController testController;
 
 
+    /**
+     * Instantiates new controllers before each test.
+     * @author Harman Singh
+     */
     @BeforeEach
     public void setup() {
         testController = new BudgetController(new ProjectController(new ProfileController()));
     }
 
+    /**
+     * Tests adding an Entry to the budget.
+     * @author Harman Singh
+     */
     @Test
     public void testAdd() {
         Entry testEntry = new Entry(new BigDecimal(269), "Test", 1);
@@ -31,6 +43,10 @@ public class BudgetControllerTest {
         assertEquals(testEntry, testController.getEntries().getFirst());
     }
 
+    /**
+     * Tests setting an Entry into the budget.
+     * @author Harman Singh
+     */
     @Test
     public void testSet1() {
         Entry testEntry1 = new Entry(new BigDecimal(75), "Test Entry 1", 4);
@@ -44,6 +60,10 @@ public class BudgetControllerTest {
         assertEquals(testEntry3, testController.getEntries().get(1));
     }
 
+    /**
+     * Tests setting an Entry into the budget.
+     * @author Harman Singh
+     */
     @Test
     public void testSet2() {
         Entry testEntry = new Entry(new BigDecimal(22), "Test",1);
@@ -54,6 +74,10 @@ public class BudgetControllerTest {
         assertEquals(repEntry, testController.getEntries().getFirst());
     }
 
+    /**
+     * Tests removing an Entry from the budget.
+     * @author Harman Singh
+     */
     @Test
     public void testRemove() {
         Entry testEntry = new Entry(new BigDecimal(2), "Test", 1);
