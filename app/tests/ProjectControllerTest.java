@@ -2,7 +2,7 @@ package app.tests;
 
 import app.controllers.ProfileController;
 import app.controllers.ProjectController;
-import app.models.Item;
+import app.models.ItemModel;
 import app.models.Project;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -77,7 +77,7 @@ public class ProjectControllerTest {
      */
     @Test
     public void checkListAddTest() {
-        Item testItem = new Item("Test Item");
+        ItemModel testItem = new ItemModel("Test Item");
         testController.getProject().addItem(testItem.getText());
         assertEquals(testItem.getText(), testController.getProject().getChecklist().get(0).getText());
     }
@@ -88,7 +88,7 @@ public class ProjectControllerTest {
      */
     @Test
     public void checkListSetTest1() {
-        Item[] testItems = {new Item("Test 1"), new Item("Test 2")};
+        ItemModel[] testItems = {new ItemModel("Test 1"), new ItemModel("Test 2")};
         testController.getProject().addItem(testItems[0].getText());
         testController.getProject().setItem(0, testItems[1].getText(), false);
 
@@ -101,7 +101,7 @@ public class ProjectControllerTest {
      */
     @Test
     public void checkListRemoveTest() {
-        Item[] testItems = {new Item("Test 1"), new Item("Test 2")};
+        ItemModel[] testItems = {new ItemModel("Test 1"), new ItemModel("Test 2")};
         testController.getProject().addItem(testItems[0].getText());
         testController.getProject().addItem(testItems[1].getText());
 

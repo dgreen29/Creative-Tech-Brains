@@ -29,7 +29,7 @@ public class BudgetController {
         projectController.getProject().getBudget().addEntry(new EntryModel(cost, name, quantity));
     }
 
-    public void addEntry(Entry entry) {
+    public void addEntry(EntryModel entry) {
         projectController.getProject().getBudget().addEntry(entry);
     }
 
@@ -44,7 +44,7 @@ public class BudgetController {
         projectController.getProject().getBudget().setEntry(index, cost, name, quantity);
     }
 
-    public void setEntry(int index, Entry entry) {
+    public void setEntry(int index, EntryModel entry) {
         projectController.getProject().getBudget().setEntry(index, entry.getCost(), entry.getName(), entry.getQuantity());
     }
 
