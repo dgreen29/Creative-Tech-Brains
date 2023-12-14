@@ -194,11 +194,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FrameTest.run" />
-        <item itemvalue="JUnit.FrameTest" />
         <item itemvalue="JUnit.app.tests in Creative-Tech-Brains" />
         <item itemvalue="JUnit.ProfileControllerTest.setInvalidProfile" />
         <item itemvalue="JUnit.ProfileControllerTest" />
+        <item itemvalue="JUnit.FrameTest.run" />
+        <item itemvalue="JUnit.FrameTest" />
       </list>
     </recent_temporary>
   </component>
