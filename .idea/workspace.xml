@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="Refactored Test Classes with new class names.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5b4dcb13-a300-46a2-ade6-294c1f11d0e6" name="Changes" comment="-Added version number test to AboutControllerTest.&#10;-Added additional tests to ProfileControllerTest.java to increase code coverage.&#10;-Refactored tests ProjectControllerTest.java.&#10;-Added appropriate JavaDoc.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/AboutControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProfileControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tests/ProjectControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/ProjectControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +105,7 @@
       <recent name="app.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.app.tests in github-action-maven-tutorial">
+  <component name="RunManager" selected="JUnit.ProfileFactoryTest.profileImportExportTest">
     <configuration name="Run app" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -119,17 +115,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AboutControllerTest.versionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="github-action-maven-tutorial" />
-      <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.AboutControllerTest" />
-      <option name="METHOD_NAME" value="versionTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProfileControllerTest.getAllProfiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileFactoryTest.DBContentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
@@ -138,14 +124,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
-      <option name="METHOD_NAME" value="getAllProfiles" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileFactoryTest" />
+      <option name="METHOD_NAME" value="DBContentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProfileControllerTest.testExportProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileFactoryTest.dBFileEmptyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
@@ -154,14 +140,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileControllerTest" />
-      <option name="METHOD_NAME" value="testExportProfile" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileFactoryTest" />
+      <option name="METHOD_NAME" value="dBFileEmptyTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectControllerTest.testSetCurrentProject2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileFactoryTest.dBFileExistenceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="github-action-maven-tutorial" />
       <extension name="coverage">
         <pattern>
@@ -170,8 +156,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.tests" />
-      <option name="MAIN_CLASS_NAME" value="app.tests.ProjectControllerTest" />
-      <option name="METHOD_NAME" value="testSetCurrentProject2" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileFactoryTest" />
+      <option name="METHOD_NAME" value="dBFileExistenceTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileFactoryTest.profileImportExportTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="github-action-maven-tutorial" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.tests" />
+      <option name="MAIN_CLASS_NAME" value="app.tests.ProfileFactoryTest" />
+      <option name="METHOD_NAME" value="profileImportExportTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -199,19 +201,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Run app" />
-      <item itemvalue="JUnit.AboutControllerTest.versionTest" />
-      <item itemvalue="JUnit.ProfileControllerTest.getAllProfiles" />
-      <item itemvalue="JUnit.ProfileControllerTest.testExportProfile" />
+      <item itemvalue="JUnit.ProfileFactoryTest.DBContentTest" />
+      <item itemvalue="JUnit.ProfileFactoryTest.dBFileEmptyTest" />
+      <item itemvalue="JUnit.ProfileFactoryTest.dBFileExistenceTest" />
+      <item itemvalue="JUnit.ProfileFactoryTest.profileImportExportTest" />
       <item itemvalue="JUnit.app.tests in github-action-maven-tutorial" />
-      <item itemvalue="JUnit.ProjectControllerTest.testSetCurrentProject2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProfileFactoryTest.profileImportExportTest" />
         <item itemvalue="JUnit.app.tests in github-action-maven-tutorial" />
-        <item itemvalue="JUnit.ProfileControllerTest.testExportProfile" />
-        <item itemvalue="JUnit.ProfileControllerTest.getAllProfiles" />
-        <item itemvalue="JUnit.AboutControllerTest.versionTest" />
-        <item itemvalue="JUnit.ProjectControllerTest.testSetCurrentProject2" />
+        <item itemvalue="JUnit.ProfileFactoryTest.DBContentTest" />
+        <item itemvalue="JUnit.ProfileFactoryTest.dBFileEmptyTest" />
+        <item itemvalue="JUnit.ProfileFactoryTest.dBFileExistenceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -491,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702587063179</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="-Added version number test to AboutControllerTest.&#10;-Added additional tests to ProfileControllerTest.java to increase code coverage.&#10;-Refactored tests ProjectControllerTest.java.&#10;-Added appropriate JavaDoc.">
+      <created>1702590493222</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1702590493222</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reset java.awt import" />
     <MESSAGE value="Remove old test.java" />
     <MESSAGE value="typos" />
     <MESSAGE value="Add .idea to .gitignore" />
@@ -581,7 +589,8 @@
     <MESSAGE value="Removed print statement in test method." />
     <MESSAGE value="Added Java Doc to test classes." />
     <MESSAGE value="Refactored Test Classes with new class names." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Test Classes with new class names." />
+    <MESSAGE value="-Added version number test to AboutControllerTest.&#10;-Added additional tests to ProfileControllerTest.java to increase code coverage.&#10;-Refactored tests ProjectControllerTest.java.&#10;-Added appropriate JavaDoc." />
+    <option name="LAST_COMMIT_MESSAGE" value="-Added version number test to AboutControllerTest.&#10;-Added additional tests to ProfileControllerTest.java to increase code coverage.&#10;-Refactored tests ProjectControllerTest.java.&#10;-Added appropriate JavaDoc." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -598,7 +607,7 @@
     <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_Creative_Tech_Brains.ic" NAME="app.tests in Creative-Tech-Brains Coverage Results" MODIFIED="1701154437918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.tests.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_github_action_maven_tutorial.ic" NAME="app.tests in github-action-maven-tutorial Coverage Results" MODIFIED="1702589833660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Creative_Tech_Brains$app_tests_in_github_action_maven_tutorial.ic" NAME="app.tests in github-action-maven-tutorial Coverage Results" MODIFIED="1702603310385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.controllers.*</FILTER>
       <FILTER>app.models.*</FILTER>
     </SUITE>
