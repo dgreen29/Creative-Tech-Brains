@@ -296,7 +296,7 @@ public final class ProfileFactory {
      * @throws IOException Writing file error
      */
     public static void exportProfile(ProfileModel profileModel) throws IOException {
-        try (FileOutputStream fOut = new FileOutputStream(profileModel.getName() + FILE_EXTENSION, true)) {
+        try (FileOutputStream fOut = new FileOutputStream(profileModel.getName() + FILE_EXTENSION)) {
             String singleLineProfile = profileModel.getName() + "," + profileModel.getEmail() + "," + profileModel.getPrivilege();
             fOut.write(singleLineProfile.getBytes());
         }
